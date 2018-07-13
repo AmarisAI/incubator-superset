@@ -34,7 +34,7 @@ python set.py install
 
 cd incubator-superset/dist
 
-easy_install package-xx..egg
+easy_install amaris-0.999.0.dev0-py2.7.egg
 
 **step three**
 
