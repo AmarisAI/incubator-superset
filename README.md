@@ -22,7 +22,7 @@ How to build & install in Amaris.ai
 
 you can do it in docker
 
-git clone -b 0.26 git@github.com:AmarisAI/incubator-superset.git
+git clone -b  0.26.1amaris git@github.com:AmarisAI/incubator-superset.git
 
 sudo apt-get install build-essential libssl-dev libffi-dev python3.5-dev python-pip libsasl2-dev libldap2-dev libmysqlclient-dev python-dev
 
