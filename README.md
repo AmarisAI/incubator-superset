@@ -36,7 +36,7 @@ sudo apt-get install build-essential libssl-dev libffi-dev python3.5-dev python-
 
 pip install -r requirements.txt
 
-python set.py install
+python setup.py install
 
 cd incubator-superset/dist
 
