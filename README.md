@@ -23,7 +23,35 @@ business intelligence web application
 
 How to build & install in Amaris.ai
 -----------------------------------
+
 **step one **
+
+you can do it in docker
+
+git clone -b 0.26 git@github.com:AmarisAI/incubator-superset.git
+
+sudo apt-get install build-essential libssl-dev libffi-dev python3.5-dev python-pip libsasl2-dev libldap2-dev libmysqlclient-dev python-dev
+
+**step two **
+
+pip install -r requirements.txt
+
+python set.py install
+
+cd incubator-superset/dist
+
+easy_install package-xx..egg
+
+**step three **
+
+fabmanager create-admin --app superset
+
+superset db upgrade
+
+superset init
+
+superset runserver -p 1234 
+
 
 
 Screenshots & Gifs
