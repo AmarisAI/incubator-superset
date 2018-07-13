@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
-from superset.config import *
+from amaris.config import *
 
 AUTH_USER_REGISTRATION_ROLE = 'alpha'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(DATA_DIR, 'unittests.db')
@@ -27,7 +27,7 @@ CACHE_CONFIG = {'CACHE_TYPE': 'simple'}
 
 class CeleryConfig(object):
     BROKER_URL = 'redis://localhost'
-    CELERY_IMPORTS = ('superset.sql_lab', )
+    CELERY_IMPORTS = ('amaris.sql_lab', )
     CELERY_RESULT_BACKEND = 'db+sqlite:///' + SQL_CELERY_RESULTS_DB_FILE_PATH
     CELERY_ANNOTATIONS = {'sql_lab.add': {'rate_limit': '10/s'}}
     CONCURRENCY = 1

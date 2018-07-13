@@ -14,10 +14,10 @@ import unittest
 import pandas as pd
 from past.builtins import basestring
 
-from superset import app, cli, db, security_manager
-from superset.models.helpers import QueryStatus
-from superset.models.sql_lab import Query
-from superset.sql_parse import SupersetQuery
+from amaris import app, cli, db, security_manager
+from amaris.models.helpers import QueryStatus
+from amaris.models.sql_lab import Query
+from amaris.sql_parse import SupersetQuery
 from .base_tests import SupersetTestCase
 
 
@@ -26,7 +26,7 @@ BASE_DIR = app.config.get('BASE_DIR')
 
 class CeleryConfig(object):
     BROKER_URL = 'sqla+sqlite:///' + app.config.get('SQL_CELERY_DB_FILE_PATH')
-    CELERY_IMPORTS = ('superset.sql_lab', )
+    CELERY_IMPORTS = ('amaris.sql_lab', )
     CELERY_RESULT_BACKEND = (
         'db+sqlite:///' + app.config.get('SQL_CELERY_RESULTS_DB_FILE_PATH'))
     CELERY_ANNOTATIONS = {'sql_lab.add': {'rate_limit': '10/s'}}
@@ -99,7 +99,7 @@ class CeleryTestCase(SupersetTestCase):
 
         security_manager.sync_role_definitions()
 
-        worker_command = BASE_DIR + '/bin/superset worker'
+        worker_command = BASE_DIR + '/bin/amaris worker'
         subprocess.Popen(
             worker_command, shell=True, stdout=subprocess.PIPE)
 
@@ -118,7 +118,7 @@ class CeleryTestCase(SupersetTestCase):
             shell=True,
         )
         subprocess.call(
-            "ps auxww | grep 'superset worker' | awk '{print $2}' | xargs kill -9",
+            "ps auxww | grep 'amaris worker' | awk '{print $2}' | xargs kill -9",
             shell=True,
         )
 
@@ -126,7 +126,7 @@ class CeleryTestCase(SupersetTestCase):
                 async='false'):
         self.login()
         resp = self.client.post(
-            '/superset/sql_json/',
+            '/amaris/sql_json/',
             data=dict(
                 database_id=db_id,
                 sql=sql,

@@ -10,9 +10,9 @@ import unittest
 
 from flask import escape
 
-from superset import db, security_manager
-from superset.connectors.sqla.models import SqlaTable
-from superset.models import core as models
+from amaris import db, security_manager
+from amaris.connectors.sqla.models import SqlaTable
+from amaris.models import core as models
 from .base_tests import SupersetTestCase
 
 
@@ -67,7 +67,7 @@ class DashboardTests(SupersetTestCase):
             'positions': dash.position_array,
             'dashboard_title': dash.dashboard_title,
         }
-        url = '/superset/save_dash/{}/'.format(dash.id)
+        url = '/amaris/save_dash/{}/'.format(dash.id)
         resp = self.get_resp(url, data=dict(data=json.dumps(data)))
         self.assertIn('SUCCESS', resp)
 
@@ -86,7 +86,7 @@ class DashboardTests(SupersetTestCase):
             'default_filters': default_filters,
         }
 
-        url = '/superset/save_dash/{}/'.format(dash.id)
+        url = '/amaris/save_dash/{}/'.format(dash.id)
         resp = self.get_resp(url, data=dict(data=json.dumps(data)))
         self.assertIn('SUCCESS', resp)
 
@@ -114,7 +114,7 @@ class DashboardTests(SupersetTestCase):
             'default_filters': default_filters,
         }
 
-        url = '/superset/save_dash/{}/'.format(dash.id)
+        url = '/amaris/save_dash/{}/'.format(dash.id)
         resp = self.get_resp(url, data=dict(data=json.dumps(data)))
         self.assertIn('SUCCESS', resp)
 
@@ -137,7 +137,7 @@ class DashboardTests(SupersetTestCase):
             'positions': dash.position_array,
             'dashboard_title': 'new title',
         }
-        url = '/superset/save_dash/{}/'.format(dash.id)
+        url = '/amaris/save_dash/{}/'.format(dash.id)
         self.get_resp(url, data=dict(data=json.dumps(data)))
         updatedDash = (
             db.session.query(models.Dashboard)
@@ -163,14 +163,14 @@ class DashboardTests(SupersetTestCase):
 
         # Save changes to Births dashboard and retrieve updated dash
         dash_id = dash.id
-        url = '/superset/save_dash/{}/'.format(dash_id)
+        url = '/amaris/save_dash/{}/'.format(dash_id)
         self.client.post(url, data=dict(data=json.dumps(data)))
         dash = db.session.query(models.Dashboard).filter_by(
             id=dash_id).first()
         orig_json_data = dash.data
 
         # Verify that copy matches original
-        url = '/superset/copy_dash/{}/'.format(dash_id)
+        url = '/amaris/copy_dash/{}/'.format(dash_id)
         resp = self.get_json_resp(url, data=dict(data=json.dumps(data)))
         self.assertEqual(resp['dashboard_title'], 'Copy Of Births')
         self.assertEqual(resp['position_json'], orig_json_data['position_json'])
@@ -194,7 +194,7 @@ class DashboardTests(SupersetTestCase):
             'slice_ids': [new_slice.data['slice_id'],
                           existing_slice.data['slice_id']],
         }
-        url = '/superset/add_slices/{}/'.format(dash.id)
+        url = '/amaris/add_slices/{}/'.format(dash.id)
         resp = self.client.post(url, data=dict(data=json.dumps(data)))
         assert 'SLICES ADDED' in resp.data.decode('utf-8')
 
@@ -228,7 +228,7 @@ class DashboardTests(SupersetTestCase):
 
         # save dash
         dash_id = dash.id
-        url = '/superset/save_dash/{}/'.format(dash_id)
+        url = '/amaris/save_dash/{}/'.format(dash_id)
         self.client.post(url, data=dict(data=json.dumps(data)))
         dash = db.session.query(models.Dashboard).filter_by(
             id=dash_id).first()
@@ -252,7 +252,7 @@ class DashboardTests(SupersetTestCase):
         self.assertNotIn('birth_names</a>', resp)
 
         resp = self.get_resp('/dashboardmodelview/list/')
-        self.assertNotIn('/superset/dashboard/births/', resp)
+        self.assertNotIn('/amaris/dashboard/births/', resp)
 
         self.grant_public_access_to_table(table)
 
@@ -260,16 +260,16 @@ class DashboardTests(SupersetTestCase):
         self.assertIn('birth_names', self.get_resp('/slicemodelview/list/'))
 
         resp = self.get_resp('/dashboardmodelview/list/')
-        self.assertIn('/superset/dashboard/births/', resp)
+        self.assertIn('/amaris/dashboard/births/', resp)
 
-        self.assertIn('Births', self.get_resp('/superset/dashboard/births/'))
+        self.assertIn('Births', self.get_resp('/amaris/dashboard/births/'))
 
         # Confirm that public doesn't have access to other datasets.
         resp = self.get_resp('/slicemodelview/list/')
         self.assertNotIn('wb_health_population</a>', resp)
 
         resp = self.get_resp('/dashboardmodelview/list/')
-        self.assertNotIn('/superset/dashboard/world_health/', resp)
+        self.assertNotIn('/amaris/dashboard/world_health/', resp)
 
     def test_dashboard_with_created_by_can_be_accessed_by_public_users(self):
         self.logout()
@@ -288,7 +288,7 @@ class DashboardTests(SupersetTestCase):
         db.session.merge(dash)
         db.session.commit()
 
-        assert 'Births' in self.get_resp('/superset/dashboard/births/')
+        assert 'Births' in self.get_resp('/amaris/dashboard/births/')
 
     def test_only_owners_can_save(self):
         dash = (
@@ -340,7 +340,7 @@ class DashboardTests(SupersetTestCase):
         self.login(gamma_user.username)
 
         resp = self.get_resp('/dashboardmodelview/list/')
-        self.assertNotIn('/superset/dashboard/empty_dashboard/', resp)
+        self.assertNotIn('/amaris/dashboard/empty_dashboard/', resp)
 
         dash = (
             db.session
@@ -353,7 +353,7 @@ class DashboardTests(SupersetTestCase):
         db.session.commit()
 
         resp = self.get_resp('/dashboardmodelview/list/')
-        self.assertIn('/superset/dashboard/empty_dashboard/', resp)
+        self.assertIn('/amaris/dashboard/empty_dashboard/', resp)
 
 
 if __name__ == '__main__':

@@ -1,22 +1,22 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ template "superset.fullname" . }}
+  name: {{ template "amaris.fullname" . }}
   labels:
-    app: {{ template "superset.name" . }}
-    chart: {{ template "superset.chart" . }}
+    app: {{ template "amaris.name" . }}
+    chart: {{ template "amaris.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "superset.name" . }}
+      app: {{ template "amaris.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "superset.name" . }}
+        app: {{ template "amaris.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
@@ -24,8 +24,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
-            - name: superset-config
-              mountPath: /etc/superset/
+            - name: amaris-config
+              mountPath: /etc/amaris/
           ports:
             - name: http
               containerPort: 8088
@@ -45,6 +45,6 @@ spec:
 {{ toYaml . | indent 8 }}
     {{- end }}
       volumes:
-        - name: "superset-config"
+        - name: "amaris-config"
           configMap:
-            name: superset-configmap
+            name: amaris-configmap

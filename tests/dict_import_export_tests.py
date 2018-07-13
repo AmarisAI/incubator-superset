@@ -10,11 +10,11 @@ import unittest
 
 import yaml
 
-from superset import db
-from superset.connectors.druid.models import (
+from amaris import db
+from amaris.connectors.druid.models import (
     DruidColumn, DruidDatasource, DruidMetric,
 )
-from superset.connectors.sqla.models import SqlaTable, SqlMetric, TableColumn
+from amaris.connectors.sqla.models import SqlaTable, SqlMetric, TableColumn
 from .base_tests import SupersetTestCase
 
 DBREF = 'dict_import__export_test'

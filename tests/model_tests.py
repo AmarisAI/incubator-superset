@@ -8,8 +8,8 @@ import textwrap
 
 from sqlalchemy.engine.url import make_url
 
-from superset import db
-from superset.models.core import Database
+from amaris import db
+from amaris.models.core import Database
 from .base_tests import SupersetTestCase
 
 
@@ -54,11 +54,11 @@ class DatabaseModelTestCase(SupersetTestCase):
         self.assertEquals('core_db', db)
 
     def test_database_schema_mysql(self):
-        sqlalchemy_uri = 'mysql://root@localhost/superset'
+        sqlalchemy_uri = 'mysql://root@localhost/amaris'
         model = Database(sqlalchemy_uri=sqlalchemy_uri)
 
         db = make_url(model.get_sqla_engine().url).database
-        self.assertEquals('superset', db)
+        self.assertEquals('amaris', db)
 
         db = make_url(model.get_sqla_engine(schema='staging').url).database
         self.assertEquals('staging', db)
@@ -120,10 +120,10 @@ class DatabaseModelTestCase(SupersetTestCase):
         main_db = self.get_main_database(db.session)
 
         if main_db.backend == 'mysql':
-            df = main_db.get_df('USE superset; SELECT 1', None)
+            df = main_db.get_df('USE amaris; SELECT 1', None)
             self.assertEquals(df.iat[0, 0], 1)
 
-            df = main_db.get_df("USE superset; SELECT ';';", None)
+            df = main_db.get_df("USE amaris; SELECT ';';", None)
             self.assertEquals(df.iat[0, 0], ';')
 
 

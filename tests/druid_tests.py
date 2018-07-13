@@ -11,8 +11,8 @@ import unittest
 
 from mock import Mock, patch
 
-from superset import db, security_manager
-from superset.connectors.druid.models import (
+from amaris import db, security_manager
+from amaris.connectors.druid.models import (
     DruidCluster, DruidColumn, DruidDatasource, DruidMetric,
 )
 from .base_tests import SupersetTestCase
@@ -120,7 +120,7 @@ class DruidTests(SupersetTestCase):
 
         return cluster
 
-    @patch('superset.connectors.druid.models.PyDruid')
+    @patch('amaris.connectors.druid.models.PyDruid')
     def test_client(self, PyDruid):
         self.login(username='admin')
         cluster = self.get_cluster(PyDruid)
@@ -141,7 +141,7 @@ class DruidTests(SupersetTestCase):
         instance.query_builder.last_query.query_dict = {}
 
         resp = self.get_resp(
-            '/superset/explore/druid/{}/'.format(datasource_id))
+            '/amaris/explore/druid/{}/'.format(datasource_id))
         self.assertIn('test_datasource', resp)
         form_data = {
             'viz_type': 'table',
@@ -156,7 +156,7 @@ class DruidTests(SupersetTestCase):
             'force': 'true',
         }
         # One groupby
-        url = ('/superset/explore_json/druid/{}/'.format(datasource_id))
+        url = ('/amaris/explore_json/druid/{}/'.format(datasource_id))
         resp = self.get_json_resp(url, {'form_data': json.dumps(form_data)})
         self.assertEqual('Canada', resp['data']['records'][0]['dim1'])
 
@@ -173,7 +173,7 @@ class DruidTests(SupersetTestCase):
             'force': 'true',
         }
         # two groupby
-        url = ('/superset/explore_json/druid/{}/'.format(datasource_id))
+        url = ('/amaris/explore_json/druid/{}/'.format(datasource_id))
         resp = self.get_json_resp(url, {'form_data': json.dumps(form_data)})
         self.assertEqual('Canada', resp['data']['records'][0]['dim1'])
 
@@ -217,7 +217,7 @@ class DruidTests(SupersetTestCase):
         }
 
         def check():
-            resp = self.client.post('/superset/sync_druid/', data=json.dumps(cfg))
+            resp = self.client.post('/amaris/sync_druid/', data=json.dumps(cfg))
             druid_ds = (
                 db.session
                 .query(DruidDatasource)
@@ -247,7 +247,7 @@ class DruidTests(SupersetTestCase):
                 ],
             },
         }
-        resp = self.client.post('/superset/sync_druid/', data=json.dumps(cfg))
+        resp = self.client.post('/amaris/sync_druid/', data=json.dumps(cfg))
         druid_ds = db.session.query(DruidDatasource).filter_by(
             datasource_name='test_click').one()
         # columns and metrics are not deleted if config is changed as
@@ -296,7 +296,7 @@ class DruidTests(SupersetTestCase):
         self.assertIn('datasource_for_gamma', resp)
         self.assertNotIn('datasource_not_for_gamma', resp)
 
-    @patch('superset.connectors.druid.models.PyDruid')
+    @patch('amaris.connectors.druid.models.PyDruid')
     def test_sync_druid_perm(self, PyDruid):
         self.login(username='admin')
         instance = PyDruid.return_value
@@ -342,7 +342,7 @@ class DruidTests(SupersetTestCase):
             permission=permission, view_menu=view_menu).first()
         assert pv is not None
 
-    @patch('superset.connectors.druid.models.PyDruid')
+    @patch('amaris.connectors.druid.models.PyDruid')
     def test_refresh_metadata(self, PyDruid):
         self.login(username='admin')
         cluster = self.get_cluster(PyDruid)
@@ -379,7 +379,7 @@ class DruidTests(SupersetTestCase):
                 'double{}'.format(agg.capitalize()),
             )
 
-    @patch('superset.connectors.druid.models.PyDruid')
+    @patch('amaris.connectors.druid.models.PyDruid')
     def test_refresh_metadata_augment_type(self, PyDruid):
         self.login(username='admin')
         cluster = self.get_cluster(PyDruid)
@@ -414,7 +414,7 @@ class DruidTests(SupersetTestCase):
                 'long{}'.format(agg.capitalize()),
             )
 
-    @patch('superset.connectors.druid.models.PyDruid')
+    @patch('amaris.connectors.druid.models.PyDruid')
     def test_refresh_metadata_augment_verbose_name(self, PyDruid):
         self.login(username='admin')
         cluster = self.get_cluster(PyDruid)
@@ -460,7 +460,7 @@ class DruidTests(SupersetTestCase):
             cluster.get_base_broker_url(),
             'http://localhost:7980/druid/v2')
 
-    @patch('superset.connectors.druid.models.PyDruid')
+    @patch('amaris.connectors.druid.models.PyDruid')
     def test_druid_time_granularities(self, PyDruid):
         self.login(username='admin')
         cluster = self.get_cluster(PyDruid)
@@ -506,7 +506,7 @@ class DruidTests(SupersetTestCase):
             'quarter': 'P3M',
             'year': 'P1Y',
         }
-        url = ('/superset/explore_json/druid/{}/'.format(datasource_id))
+        url = ('/amaris/explore_json/druid/{}/'.format(datasource_id))
 
         for granularity_mapping in granularity_map:
             form_data['granularity'] = granularity_mapping

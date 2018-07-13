@@ -1,4 +1,4 @@
-Superset
+AmarisSet
 =========
 
 [![Build Status](https://travis-ci.org/apache/incubator-superset.svg?branch=master)](https://travis-ci.org/apache/incubator-superset)
@@ -9,17 +9,42 @@ Superset
 [![Documentation](https://img.shields.io/badge/docs-apache.org-blue.svg)](https://superset.incubator.apache.org)
 [![dependencies Status](https://david-dm.org/apache/incubator-superset/status.svg?path=superset/assets)](https://david-dm.org/apache/incubator-superset?path=superset/assets)
 
-<img
-  src="https://cloud.githubusercontent.com/assets/130878/20946612/49a8a25c-bbc0-11e6-8314-10bef902af51.png"
-  alt="Superset"
-  width="500"
-/>
 
-**Apache Superset** (incubating) is a modern, enterprise-ready
+**Amaris Set**  is a modern, enterprise-ready
 business intelligence web application
 
 [this project used to be named **Caravel**, and **Panoramix** in the past]
 
+How to build & install in Amaris.ai
+-----------------------------------
+
+**step one**
+
+you can do it in docker
+
+git clone -b 0.26 git@github.com:AmarisAI/incubator-superset.git
+
+sudo apt-get install build-essential libssl-dev libffi-dev python3.5-dev python-pip libsasl2-dev libldap2-dev libmysqlclient-dev python-dev
+
+**step two**
+
+pip install -r requirements.txt
+
+python set.py install
+
+cd incubator-superset/dist
+
+easy_install package-xx..egg
+
+**step three**
+
+fabmanager create-admin --app amaris
+
+amaris db upgrade
+
+amaris init
+
+amaris runserver -p 1234
 
 Screenshots & Gifs
 ------------------
@@ -44,9 +69,9 @@ Screenshots & Gifs
 
 <kbd><img title="Visualizations" src="https://raw.githubusercontent.com/apache/incubator-superset/master/superset/assets/images/screenshots/visualizations.png"></kbd><br/>
 
-Apache Superset
+Amaris Set
 ---------------
-Apache Superset is a data exploration and visualization web application.
+Amaris Set is a data exploration and visualization web application.
 
 Superset provides:
 * An intuitive interface to explore and visualize datasets, and
@@ -114,73 +139,3 @@ latency (real-time) data ingestion, flexible data exploration,
 and fast data aggregation. Existing Druid deployments have scaled to
 trillions of events and petabytes of data. Druid is best used to
 power analytic dashboards and applications.*
-
-
-Installation & Configuration
-----------------------------
-
-[See in the documentation](https://superset.incubator.apache.org/installation.html)
-
-
-Resources
--------------
-* [Mailing list](https://lists.apache.org/list.html?dev@superset.apache.org)
-* [Gitter (live chat) Channel](https://gitter.im/airbnb/superset)
-* [Docker image](https://hub.docker.com/r/amancevice/superset/) (community contributed)
-* [Slides from Strata (March 2016)](https://drive.google.com/open?id=0B5PVE0gzO81oOVJkdF9aNkJMSmM)
-* [Stackoverflow tag](https://stackoverflow.com/questions/tagged/apache-superset)
-* [DEPRECATED Google Group](https://groups.google.com/forum/#!forum/airbnb_superset)
-
-
-Contributing
-------------
-
-Interested in contributing? Casual hacking? Check out
-[Contributing.MD](https://github.com/airbnb/superset/blob/master/CONTRIBUTING.md)
-
-
-Who uses Apache Superset (incubating)?
---------------------------------------
-
-Here's a list of organizations who have taken the time to send a PR to let
-the world know they are using Superset. Join our growing community!
-
- - [AiHello](https://www.aihello.com)
- - [Airbnb](https://github.com/airbnb)
- - [Airboxlab](https://foobot.io)
- - [Aktia Bank plc](https://www.aktia.com)
- - [Amino](https://amino.com)
- - [Ascendica Development](http://ascendicadevelopment.com)
- - [Astronomer](https://www.astronomer.io)
- - [Brilliant.org](https://brilliant.org/)
- - [Capital Service S.A.](http://capitalservice.pl)
- - [Clark.de](http://clark.de/)
- - [CnOvit](http://www.cnovit.com/)
- - [Digit Game Studios](https://www.digitgaming.com/)
- - [Douban](https://www.douban.com/)
- - [Endress+Hauser](http://www.endress.com/)
- - [FBK - ICT center](http://ict.fbk.eu)
- - [Faasos](http://faasos.com/)
- - [GfK Data Lab](http://datalab.gfk.com)
- - [Konfío](http://konfio.mx)
- - [Lime](https://www.limebike.com/)
- - [Lyft](https://www.lyft.com/)
- - [Maieutical Labs](https://maieuticallabs.it)
- - [PeopleDoc](https://www.people-doc.com)
- - [Ona](https://ona.io)
- - [Pronto Tools](http://www.prontotools.io)
- - [Qunar](https://www.qunar.com/)
- - [ScopeAI](https://www.getscopeai.com)
- - [Shopee](https://shopee.sg)
- - [Shopkick](https://www.shopkick.com)
- - [Tails.com](https://tails.com)
- - [THEICONIC](http://theiconic.com.au/)
- - [Tobii](http://www.tobii.com/)
- - [Tooploox](https://www.tooploox.com/)
- - [Twitter](https://twitter.com/)
- - [Udemy](https://www.udemy.com/)
- - [VIPKID](https://www.vipkid.com.cn/)
- - [Windsor.ai](https://www.windsor.ai/)
- - [Yahoo!](https://yahoo.com/)
- - [Zaihang](http://www.zaih.com/)
- - [Zalando](https://www.zalando.com)

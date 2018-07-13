@@ -12,10 +12,10 @@ import unittest
 
 from flask_appbuilder.security.sqla import models as ab_models
 
-from superset import app, cli, db, security_manager, utils
-from superset.connectors.druid.models import DruidCluster, DruidDatasource
-from superset.connectors.sqla.models import SqlaTable
-from superset.models import core as models
+from amaris import app, cli, db, security_manager, utils
+from amaris.connectors.druid.models import DruidCluster, DruidDatasource
+from amaris.connectors.sqla.models import SqlaTable
+from amaris.models import core as models
 
 
 BASE_DIR = app.config.get('BASE_DIR')
@@ -207,7 +207,7 @@ class SupersetTestCase(unittest.TestCase):
             self.login(username=(user_name if user_name else 'admin'))
         dbid = self.get_main_database(db.session).id
         resp = self.get_json_resp(
-            '/superset/sql_json/',
+            '/amaris/sql_json/',
             raise_on_error=False,
             data=dict(database_id=dbid, sql=sql, select_as_create_as=False,
                       client_id=client_id),

@@ -6,11 +6,11 @@ from __future__ import unicode_literals
 
 import textwrap
 
-from superset.db_engine_specs import (
+from amaris.db_engine_specs import (
     BaseEngineSpec, HiveEngineSpec, MssqlEngineSpec,
     MySQLEngineSpec, PrestoEngineSpec,
 )
-from superset.models.core import Database
+from amaris.models.core import Database
 from .base_tests import SupersetTestCase
 
 

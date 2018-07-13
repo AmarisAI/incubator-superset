@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# superset documentation build configuration file, created by
+# amaris documentation build configuration file, created by
 # sphinx-quickstart on Thu Dec 17 15:42:06 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -228,7 +228,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'superset.tex', u'Superset Documentation',
+  (master_doc, 'amaris.tex', u'Superset Documentation',
    u'Maxime Beauchemin', 'manual'),
 ]
 
@@ -258,7 +258,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'Superset', u'superset Documentation',
+    (master_doc, 'Superset', u'amaris Documentation',
      [author], 1)
 ]
 

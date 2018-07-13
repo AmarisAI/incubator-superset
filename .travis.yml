@@ -32,10 +32,10 @@ matrix:
     - python: 2.7
     - python: 3.6
 before_script:
-  - mysql -u root -e "DROP DATABASE IF EXISTS superset; CREATE DATABASE superset DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci"
+  - mysql -u root -e "DROP DATABASE IF EXISTS amaris; CREATE DATABASE amaris DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci"
   - mysql -u root -e "CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'mysqluserpassword';"
-  - mysql -u root -e "GRANT ALL ON superset.* TO 'mysqluser'@'localhost';"
-  - psql -U postgres -c "CREATE DATABASE superset;"
+  - mysql -u root -e "GRANT ALL ON amaris.* TO 'mysqluser'@'localhost';"
+  - psql -U postgres -c "CREATE DATABASE amaris;"
   - psql -U postgres -c "CREATE USER postgresuser WITH PASSWORD 'pguserpassword';"
 install:
   - pip install --upgrade pip

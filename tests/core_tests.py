@@ -22,12 +22,12 @@ import psycopg2
 from six import text_type
 import sqlalchemy as sqla
 
-from superset import dataframe, db, jinja_context, security_manager, sql_lab, utils
-from superset.connectors.sqla.models import SqlaTable
-from superset.db_engine_specs import BaseEngineSpec
-from superset.models import core as models
-from superset.models.sql_lab import Query
-from superset.views.core import DatabaseView
+from amaris import dataframe, db, jinja_context, security_manager, sql_lab, utils
+from amaris.connectors.sqla.models import SqlaTable
+from amaris.db_engine_specs import BaseEngineSpec
+from amaris.models import core as models
+from amaris.models.sql_lab import Query
+from amaris.views.core import DatabaseView
 from .base_tests import SupersetTestCase
 
 
@@ -71,13 +71,13 @@ class CoreTests(SupersetTestCase):
     def test_slice_endpoint(self):
         self.login(username='admin')
         slc = self.get_slice('Girls', db.session)
-        resp = self.get_resp('/superset/slice/{}/'.format(slc.id))
+        resp = self.get_resp('/amaris/slice/{}/'.format(slc.id))
         assert 'Time Column' in resp
         assert 'List Roles' in resp
 
         # Testing overrides
         resp = self.get_resp(
-            '/superset/slice/{}/?standalone=true'.format(slc.id))
+            '/amaris/slice/{}/?standalone=true'.format(slc.id))
         assert 'List Roles' not in resp
 
     def test_cache_key(self):
@@ -97,7 +97,7 @@ class CoreTests(SupersetTestCase):
         slc = self.get_slice('Girls', db.session)
 
         json_endpoint = (
-            '/superset/explore_json/{}/{}/'
+            '/amaris/explore_json/{}/{}/'
             .format(slc.datasource_type, slc.datasource_id)
         )
         resp = self.get_resp(json_endpoint, {'form_data': json.dumps(slc.viz.form_data)})
@@ -114,7 +114,7 @@ class CoreTests(SupersetTestCase):
         slc = self.get_slice('Girls', db.session)
 
         csv_endpoint = (
-            '/superset/explore_json/{}/{}/?csv=true'
+            '/amaris/explore_json/{}/{}/?csv=true'
             .format(slc.datasource_type, slc.datasource_id)
         )
         resp = self.get_resp(csv_endpoint, {'form_data': json.dumps(slc.viz.form_data)})
@@ -124,7 +124,7 @@ class CoreTests(SupersetTestCase):
         self.login(username='admin')
         slc = self.get_slice('Girls', db.session)
 
-        csv_endpoint = '/superset/explore_json/?csv=true'
+        csv_endpoint = '/amaris/explore_json/?csv=true'
         resp = self.get_resp(
             csv_endpoint, {'form_data': json.dumps({'slice_id': slc.id})})
         assert 'Jennifer,' in resp
@@ -165,7 +165,7 @@ class CoreTests(SupersetTestCase):
         new_slice_name = 'Test Sankey Overwirte'
 
         url = (
-            '/superset/explore/table/{}/?slice_name={}&'
+            '/amaris/explore/table/{}/?slice_name={}&'
             'action={}&datasource_name=energy_usage')
 
         form_data = {
@@ -218,7 +218,7 @@ class CoreTests(SupersetTestCase):
         table = db.session.query(SqlaTable).filter(SqlaTable.id == tbl_id)
         table.filter_select_enabled = True
         url = (
-            '/superset/filter/table/{}/target/?viz_type=sankey&groupby=source'
+            '/amaris/filter/table/{}/target/?viz_type=sankey&groupby=source'
             '&metric=sum__value&flt_col_0=source&flt_op_0=in&flt_eq_0=&'
             'slice_id={}&datasource_name=energy_usage&'
             'datasource_id=1&datasource_type=table')
@@ -259,7 +259,7 @@ class CoreTests(SupersetTestCase):
         # assert that a table is listed
         table = db.session.query(SqlaTable).first()
         assert table.name in resp
-        assert '/superset/explore/table/{}'.format(table.id) in resp
+        assert '/amaris/explore/table/{}'.format(table.id) in resp
 
     def test_add_slice(self):
         self.login(username='admin')
@@ -319,7 +319,7 @@ class CoreTests(SupersetTestCase):
             'impersonate_user': False,
         })
         response = self.client.post(
-            '/superset/testconn',
+            '/amaris/testconn',
             data=data,
             content_type='application/json')
         assert response.status_code == 200
@@ -332,7 +332,7 @@ class CoreTests(SupersetTestCase):
             'impersonate_user': False,
         })
         response = self.client.post(
-            '/superset/testconn',
+            '/amaris/testconn',
             data=data,
             content_type='application/json')
         assert response.status_code == 200
@@ -369,17 +369,17 @@ class CoreTests(SupersetTestCase):
     def test_warm_up_cache(self):
         slc = self.get_slice('Girls', db.session)
         data = self.get_json_resp(
-            '/superset/warm_up_cache?slice_id={}'.format(slc.id))
+            '/amaris/warm_up_cache?slice_id={}'.format(slc.id))
         assert data == [{'slice_id': slc.id, 'slice_name': slc.slice_name}]
 
         data = self.get_json_resp(
-            '/superset/warm_up_cache?table_name=energy_usage&db_name=main')
+            '/amaris/warm_up_cache?table_name=energy_usage&db_name=main')
         assert len(data) == 4
 
     def test_shortner(self):
         self.login(username='admin')
         data = (
-            '//superset/explore/table/1/?viz_type=sankey&groupby=source&'
+            '//amaris/explore/table/1/?viz_type=sankey&groupby=source&'
             'groupby=target&metric=sum__value&row_limit=5000&where=&having=&'
             'flt_col_0=source&flt_op_0=in&flt_eq_0=&slice_id=78&slice_name='
             'Energy+Sankey&collapsed_fieldsets=&action=&datasource_name='
@@ -431,7 +431,7 @@ class CoreTests(SupersetTestCase):
         client_id = '{}'.format(random.getrandbits(64))[:10]
         self.run_sql(sql, client_id, raise_on_error=True)
 
-        resp = self.get_resp('/superset/csv/{}'.format(client_id))
+        resp = self.get_resp('/amaris/csv/{}'.format(client_id))
         data = csv.reader(io.StringIO(resp))
         expected_data = csv.reader(
             io.StringIO('first_name,last_name\nadmin, user\n'))
@@ -443,7 +443,7 @@ class CoreTests(SupersetTestCase):
         self.login('admin')
         dbid = self.get_main_database(db.session).id
         self.get_json_resp(
-            '/superset/extra_table_metadata/{dbid}/'
+            '/amaris/extra_table_metadata/{dbid}/'
             'ab_permission_view/panoramix/'.format(**locals()))
 
     def test_process_template(self):
@@ -477,7 +477,7 @@ class CoreTests(SupersetTestCase):
         maindb = self.get_main_database(db.session)
         backend = maindb.backend
         data = self.get_json_resp(
-            '/superset/table/{}/ab_user/null/'.format(maindb.id))
+            '/amaris/table/{}/ab_user/null/'.format(maindb.id))
         self.assertEqual(data['name'], 'ab_user')
         assert len(data['columns']) > 5
         assert data.get('selectStar').startswith('SELECT')
@@ -496,7 +496,7 @@ class CoreTests(SupersetTestCase):
     def test_fetch_datasource_metadata(self):
         self.login(username='admin')
         url = (
-            '/superset/fetch_datasource_metadata?' +
+            '/amaris/fetch_datasource_metadata?' +
             'datasourceKey=1__table'
         )
         resp = self.get_json_resp(url)
@@ -513,7 +513,7 @@ class CoreTests(SupersetTestCase):
         slc = self.get_slice('Girls', db.session)
 
         # Setting some faves
-        url = '/superset/favstar/Slice/{}/select/'.format(slc.id)
+        url = '/amaris/favstar/Slice/{}/select/'.format(slc.id)
         resp = self.get_json_resp(url)
         self.assertEqual(resp['count'], 1)
 
@@ -523,36 +523,36 @@ class CoreTests(SupersetTestCase):
             .filter_by(slug='births')
             .first()
         )
-        url = '/superset/favstar/Dashboard/{}/select/'.format(dash.id)
+        url = '/amaris/favstar/Dashboard/{}/select/'.format(dash.id)
         resp = self.get_json_resp(url)
         self.assertEqual(resp['count'], 1)
 
         userid = security_manager.find_user('admin').id
-        resp = self.get_resp('/superset/profile/admin/')
+        resp = self.get_resp('/amaris/profile/admin/')
         self.assertIn('"app"', resp)
-        data = self.get_json_resp('/superset/recent_activity/{}/'.format(userid))
+        data = self.get_json_resp('/amaris/recent_activity/{}/'.format(userid))
         self.assertNotIn('message', data)
-        data = self.get_json_resp('/superset/created_slices/{}/'.format(userid))
+        data = self.get_json_resp('/amaris/created_slices/{}/'.format(userid))
         self.assertNotIn('message', data)
-        data = self.get_json_resp('/superset/created_dashboards/{}/'.format(userid))
+        data = self.get_json_resp('/amaris/created_dashboards/{}/'.format(userid))
         self.assertNotIn('message', data)
-        data = self.get_json_resp('/superset/fave_slices/{}/'.format(userid))
+        data = self.get_json_resp('/amaris/fave_slices/{}/'.format(userid))
         self.assertNotIn('message', data)
-        data = self.get_json_resp('/superset/fave_dashboards/{}/'.format(userid))
+        data = self.get_json_resp('/amaris/fave_dashboards/{}/'.format(userid))
         self.assertNotIn('message', data)
         data = self.get_json_resp(
-            '/superset/fave_dashboards_by_username/{}/'.format(username))
+            '/amaris/fave_dashboards_by_username/{}/'.format(username))
         self.assertNotIn('message', data)
 
     def test_slice_id_is_always_logged_correctly_on_web_request(self):
-        # superset/explore case
+        # amaris/explore case
         slc = db.session.query(models.Slice).filter_by(slice_name='Girls').one()
         qry = db.session.query(models.Log).filter_by(slice_id=slc.id)
         self.get_resp(slc.slice_url, {'form_data': json.dumps(slc.viz.form_data)})
         self.assertEqual(1, qry.count())
 
     def test_slice_id_is_always_logged_correctly_on_ajax_request(self):
-        # superset/explore_json case
+        # amaris/explore_json case
         self.login(username='admin')
         slc = db.session.query(models.Slice).filter_by(slice_name='Girls').one()
         qry = db.session.query(models.Log).filter_by(slice_id=slc.id)
@@ -564,7 +564,7 @@ class CoreTests(SupersetTestCase):
         # API endpoint for query string
         self.login(username='admin')
         slc = self.get_slice('Girls', db.session)
-        resp = self.get_resp('/superset/slice_query/{}/'.format(slc.id))
+        resp = self.get_resp('/amaris/slice_query/{}/'.format(slc.id))
         assert 'query' in resp
         assert 'language' in resp
         self.logout()
@@ -655,7 +655,7 @@ class CoreTests(SupersetTestCase):
 
         # Overriding groupby
         url = slc.get_explore_url(
-            base_url='/superset/explore_json',
+            base_url='/amaris/explore_json',
             overrides={'groupby': ['state']})
         resp = self.get_resp(url)
         assert '"CA"' in resp
@@ -665,7 +665,7 @@ class CoreTests(SupersetTestCase):
         slc = self.get_slice('Girls', db.session)
 
         url = slc.get_explore_url(
-            base_url='/superset/explore_json',
+            base_url='/amaris/explore_json',
             overrides={
                 'filters': [{'col': 'state', 'op': 'in', 'val': ['N/A']}],
             },
@@ -680,7 +680,7 @@ class CoreTests(SupersetTestCase):
         slc = self.get_slice('Girls', db.session)
 
         url = slc.get_explore_url(
-            base_url='/superset/explore_json',
+            base_url='/amaris/explore_json',
             overrides={'groupby': ['N/A']},
         )
 
@@ -692,7 +692,7 @@ class CoreTests(SupersetTestCase):
         self.login(username='admin')
         slc = self.get_slice('Title', db.session)
 
-        url = slc.get_explore_url(base_url='/superset/explore_json')
+        url = slc.get_explore_url(base_url='/amaris/explore_json')
         data = self.get_json_resp(url)
         self.assertEqual(data['status'], None)
         self.assertEqual(data['error'], None)

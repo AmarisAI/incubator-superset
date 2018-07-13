@@ -10,9 +10,9 @@ import unittest
 from mock import Mock, patch
 import pandas as pd
 
-from superset import app
-from superset.utils import DTTM_ALIAS
-import superset.viz as viz
+from amaris import app
+from amaris.utils import DTTM_ALIAS
+import amaris.viz as viz
 from .utils import load_fixture
 
 
@@ -290,7 +290,7 @@ class TableVizTestCase(unittest.TestCase):
         self.assertEqual('value3 in (\'North America\')', query_obj['extras']['where'])
         self.assertEqual('SUM(value1) > 5', query_obj['extras']['having'])
 
-    @patch('superset.viz.BaseViz.query_obj')
+    @patch('amaris.viz.BaseViz.query_obj')
     def test_query_obj_merges_percent_metrics(self, super_query_obj):
         datasource = Mock()
         form_data = {
@@ -308,7 +308,7 @@ class TableVizTestCase(unittest.TestCase):
             'avg__B', 'max__Y',
         ], query_obj['metrics'])
 
-    @patch('superset.viz.BaseViz.query_obj')
+    @patch('amaris.viz.BaseViz.query_obj')
     def test_query_obj_throws_columns_and_metrics(self, super_query_obj):
         datasource = Mock()
         form_data = {
@@ -325,7 +325,7 @@ class TableVizTestCase(unittest.TestCase):
         with self.assertRaises(Exception):
             test_viz.query_obj()
 
-    @patch('superset.viz.BaseViz.query_obj')
+    @patch('amaris.viz.BaseViz.query_obj')
     def test_query_obj_merges_all_columns(self, super_query_obj):
         datasource = Mock()
         form_data = {
@@ -342,7 +342,7 @@ class TableVizTestCase(unittest.TestCase):
         self.assertEqual([], query_obj['groupby'])
         self.assertEqual([['colA', 'colB'], ['colC']], query_obj['orderby'])
 
-    @patch('superset.viz.BaseViz.query_obj')
+    @patch('amaris.viz.BaseViz.query_obj')
     def test_query_obj_uses_sortby(self, super_query_obj):
         datasource = Mock()
         form_data = {
@@ -503,7 +503,7 @@ class PairedTTestTestCase(unittest.TestCase):
 
 class PartitionVizTestCase(unittest.TestCase):
 
-    @patch('superset.viz.BaseViz.query_obj')
+    @patch('amaris.viz.BaseViz.query_obj')
     def test_query_obj_time_series_option(self, super_query_obj):
         datasource = Mock()
         form_data = {}
@@ -830,7 +830,7 @@ class TimeSeriesTableVizTestCase(unittest.TestCase):
         }
         self.assertEqual(expected, data['records'])
 
-    @patch('superset.viz.BaseViz.query_obj')
+    @patch('amaris.viz.BaseViz.query_obj')
     def test_query_obj_throws_metrics_and_groupby(self, super_query_obj):
         datasource = Mock()
         form_data = {

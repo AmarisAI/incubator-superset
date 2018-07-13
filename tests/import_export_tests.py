@@ -10,12 +10,12 @@ import unittest
 
 from sqlalchemy.orm.session import make_transient
 
-from superset import db, utils
-from superset.connectors.druid.models import (
+from amaris import db, utils
+from amaris.connectors.druid.models import (
     DruidColumn, DruidDatasource, DruidMetric,
 )
-from superset.connectors.sqla.models import SqlaTable, SqlMetric, TableColumn
-from superset.models import core as models
+from amaris.connectors.sqla.models import SqlaTable, SqlMetric, TableColumn
+from amaris.models import core as models
 from .base_tests import SupersetTestCase
 
 

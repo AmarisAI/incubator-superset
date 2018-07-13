@@ -7,7 +7,7 @@ from __future__ import unicode_literals
 
 import json
 
-from superset import cache, db, utils
+from amaris import cache, db, utils
 from .base_tests import SupersetTestCase
 
 
@@ -27,7 +27,7 @@ class CacheTests(SupersetTestCase):
         slc = self.get_slice('Girls', db.session)
 
         json_endpoint = (
-            '/superset/explore_json/{}/{}/'
+            '/amaris/explore_json/{}/{}/'
             .format(slc.datasource_type, slc.datasource_id)
         )
         resp = self.get_json_resp(

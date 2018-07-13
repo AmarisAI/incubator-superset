@@ -12,11 +12,11 @@ from pydruid.utils.dimensions import MapLookupExtraction, RegexExtraction
 import pydruid.utils.postaggregator as postaggs
 
 
-import superset.connectors.druid.models as models
-from superset.connectors.druid.models import (
+import amaris.connectors.druid.models as models
+from amaris.connectors.druid.models import (
     DruidColumn, DruidDatasource, DruidMetric,
 )
-from superset.exceptions import SupersetException
+from amaris.exceptions import SupersetException
 
 
 def mock_metric(metric_name, is_postagg=False):
@@ -628,7 +628,7 @@ class DruidFuncTestCase(unittest.TestCase):
     def test_metrics_and_post_aggs(self):
         """
         Test generation of metrics and post-aggregations from an initial list
-        of superset metrics (which may include the results of either). This
+        of amaris metrics (which may include the results of either). This
         primarily tests that specifying a post-aggregator metric will also
         require the raw aggregation of the associated druid metric column.
         """

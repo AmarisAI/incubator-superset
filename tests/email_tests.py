@@ -13,7 +13,7 @@ import unittest
 
 import mock
 
-from superset import app, utils
+from amaris import app, utils
 
 send_email_test = mock.Mock()
 
@@ -22,7 +22,7 @@ class EmailSmtpTest(unittest.TestCase):
     def setUp(self):
         app.config['smtp_ssl'] = False
 
-    @mock.patch('superset.utils.send_MIME_email')
+    @mock.patch('amaris.utils.send_MIME_email')
     def test_send_smtp(self, mock_send_mime):
         attachment = tempfile.NamedTemporaryFile()
         attachment.write(b'attachment')
@@ -41,7 +41,7 @@ class EmailSmtpTest(unittest.TestCase):
         mimeapp = MIMEApplication('attachment')
         assert msg.get_payload()[-1].get_payload() == mimeapp.get_payload()
 
-    @mock.patch('superset.utils.send_MIME_email')
+    @mock.patch('amaris.utils.send_MIME_email')
     def test_send_bcc_smtp(self, mock_send_mime):
         attachment = tempfile.NamedTemporaryFile()
         attachment.write(b'attachment')

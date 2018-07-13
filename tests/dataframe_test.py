@@ -4,8 +4,8 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from superset.dataframe import dedup, SupersetDataFrame
-from superset.db_engine_specs import BaseEngineSpec
+from amaris.dataframe import dedup, SupersetDataFrame
+from amaris.db_engine_specs import BaseEngineSpec
 from .base_tests import SupersetTestCase
 
 

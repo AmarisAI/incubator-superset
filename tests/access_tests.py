@@ -10,11 +10,11 @@ import unittest
 
 import mock
 
-from superset import app, db, security_manager
-from superset.connectors.connector_registry import ConnectorRegistry
-from superset.connectors.druid.models import DruidDatasource
-from superset.connectors.sqla.models import SqlaTable
-from superset.models import core as models
+from amaris import app, db, security_manager
+from amaris.connectors.connector_registry import ConnectorRegistry
+from amaris.connectors.druid.models import DruidDatasource
+from amaris.connectors.sqla.models import SqlaTable
+from amaris.models import core as models
 from .base_tests import SupersetTestCase
 
 ROLE_TABLES_PERM_DATA = {
@@ -50,10 +50,10 @@ ROLE_ALL_PERM_DATA = {
 }
 
 EXTEND_ROLE_REQUEST = (
-    '/superset/approve?datasource_type={}&datasource_id={}&'
+    '/amaris/approve?datasource_type={}&datasource_id={}&'
     'created_by={}&role_to_extend={}')
 GRANT_ROLE_REQUEST = (
-    '/superset/approve?datasource_type={}&datasource_id={}&'
+    '/amaris/approve?datasource_type={}&datasource_id={}&'
     'created_by={}&role_to_grant={}')
 TEST_ROLE_1 = 'test_role1'
 TEST_ROLE_2 = 'test_role2'
@@ -121,7 +121,7 @@ class RequestAccessTests(SupersetTestCase):
         self.logout()
         self.login('alpha')
         response = self.client.post(
-            '/superset/override_role_permissions/',
+            '/amaris/override_role_permissions/',
             data=json.dumps(ROLE_TABLES_PERM_DATA),
             content_type='application/json',
             follow_redirects=True)
@@ -129,7 +129,7 @@ class RequestAccessTests(SupersetTestCase):
 
     def test_override_role_permissions_1_table(self):
         response = self.client.post(
-            '/superset/override_role_permissions/',
+            '/amaris/override_role_permissions/',
             data=json.dumps(ROLE_TABLES_PERM_DATA),
             content_type='application/json')
         self.assertEquals(201, response.status_code)
@@ -146,7 +146,7 @@ class RequestAccessTests(SupersetTestCase):
 
     def test_override_role_permissions_druid_and_table(self):
         response = self.client.post(
-            '/superset/override_role_permissions/',
+            '/amaris/override_role_permissions/',
             data=json.dumps(ROLE_ALL_PERM_DATA),
             content_type='application/json')
         self.assertEquals(201, response.status_code)
@@ -179,7 +179,7 @@ class RequestAccessTests(SupersetTestCase):
         db.session.flush()
 
         response = self.client.post(
-            '/superset/override_role_permissions/',
+            '/amaris/override_role_permissions/',
             data=json.dumps(ROLE_TABLES_PERM_DATA),
             content_type='application/json')
         self.assertEquals(201, response.status_code)
@@ -323,7 +323,7 @@ class RequestAccessTests(SupersetTestCase):
 
         session.commit()
 
-    @mock.patch('superset.utils.send_MIME_email')
+    @mock.patch('amaris.utils.send_MIME_email')
     def test_approve(self, mock_send_mime):
         if app.config.get('ENABLE_ACCESS_REQUEST'):
             session = db.session
@@ -432,12 +432,12 @@ class RequestAccessTests(SupersetTestCase):
             session.commit()
 
             ACCESS_REQUEST = (
-                '/superset/request_access?'
+                '/amaris/request_access?'
                 'datasource_type={}&'
                 'datasource_id={}&'
                 'action={}&')
             ROLE_GRANT_LINK = (
-                '<a href="/superset/approve?datasource_type={}&datasource_id={}&'
+                '<a href="/amaris/approve?datasource_type={}&datasource_id={}&'
                 'created_by={}&role_to_grant={}">Grant {} Role</a>')
 
             # Request table access, there are no roles have this table.

@@ -4,7 +4,7 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from superset import app, security_manager
+from amaris import app, security_manager
 from .base_tests import SupersetTestCase
 
 

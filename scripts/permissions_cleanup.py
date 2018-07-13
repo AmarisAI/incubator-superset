@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 
 from collections import defaultdict
 
-from superset import sm
+from amaris import sm
 
 
 def cleanup_permissions():

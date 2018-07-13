@@ -11,10 +11,10 @@ import unittest
 
 from flask_appbuilder.security.sqla import models as ab_models
 
-from superset import db, security_manager, utils
-from superset.dataframe import SupersetDataFrame
-from superset.db_engine_specs import BaseEngineSpec
-from superset.models.sql_lab import Query
+from amaris import db, security_manager, utils
+from amaris.dataframe import SupersetDataFrame
+from amaris.db_engine_specs import BaseEngineSpec
+from amaris.models.sql_lab import Query
 from .base_tests import SupersetTestCase
 
 
@@ -90,20 +90,20 @@ class SqlLabTests(SupersetTestCase):
         self.run_some_queries()
 
         # Not logged in, should error out
-        resp = self.client.get('/superset/queries/0')
+        resp = self.client.get('/amaris/queries/0')
         # Redirects to the login page
         self.assertEquals(403, resp.status_code)
 
         # Admin sees queries
         self.login('admin')
-        data = self.get_json_resp('/superset/queries/0')
+        data = self.get_json_resp('/amaris/queries/0')
         self.assertEquals(2, len(data))
 
         # Run 2 more queries
         self.run_sql('SELECT * FROM ab_user LIMIT 1', client_id='client_id_4')
         self.run_sql('SELECT * FROM ab_user LIMIT 2', client_id='client_id_5')
         self.login('admin')
-        data = self.get_json_resp('/superset/queries/0')
+        data = self.get_json_resp('/amaris/queries/0')
         self.assertEquals(4, len(data))
 
         now = datetime.now() + timedelta(days=1)
@@ -113,12 +113,12 @@ class SqlLabTests(SupersetTestCase):
         db.session.commit()
 
         data = self.get_json_resp(
-            '/superset/queries/{}'.format(
+            '/amaris/queries/{}'.format(
                 int(utils.datetime_to_epoch(now)) - 1000))
         self.assertEquals(1, len(data))
 
         self.logout()
-        resp = self.client.get('/superset/queries/0')
+        resp = self.client.get('/amaris/queries/0')
         # Redirects to the login page
         self.assertEquals(403, resp.status_code)
 
@@ -126,12 +126,12 @@ class SqlLabTests(SupersetTestCase):
         self.run_some_queries()
         self.login('admin')
         # Test search queries on database Id
-        data = self.get_json_resp('/superset/search_queries?database_id=1')
+        data = self.get_json_resp('/amaris/search_queries?database_id=1')
         self.assertEquals(3, len(data))
         db_ids = [k['dbId'] for k in data]
         self.assertEquals([1, 1, 1], db_ids)
 
-        resp = self.get_resp('/superset/search_queries?database_id=-1')
+        resp = self.get_resp('/amaris/search_queries?database_id=-1')
         data = json.loads(resp)
         self.assertEquals(0, len(data))
 
@@ -142,14 +142,14 @@ class SqlLabTests(SupersetTestCase):
         # Test search queries on user Id
         user_id = security_manager.find_user('admin').id
         data = self.get_json_resp(
-            '/superset/search_queries?user_id={}'.format(user_id))
+            '/amaris/search_queries?user_id={}'.format(user_id))
         self.assertEquals(2, len(data))
         user_ids = {k['userId'] for k in data}
         self.assertEquals(set([user_id]), user_ids)
 
         user_id = security_manager.find_user('gamma_sqllab').id
         resp = self.get_resp(
-            '/superset/search_queries?user_id={}'.format(user_id))
+            '/amaris/search_queries?user_id={}'.format(user_id))
         data = json.loads(resp)
         self.assertEquals(1, len(data))
         self.assertEquals(data[0]['userId'], user_id)
@@ -158,13 +158,13 @@ class SqlLabTests(SupersetTestCase):
         self.run_some_queries()
         self.login('admin')
         # Test search queries on status
-        resp = self.get_resp('/superset/search_queries?status=success')
+        resp = self.get_resp('/amaris/search_queries?status=success')
         data = json.loads(resp)
         self.assertEquals(2, len(data))
         states = [k['state'] for k in data]
         self.assertEquals(['success', 'success'], states)
 
-        resp = self.get_resp('/superset/search_queries?status=failed')
+        resp = self.get_resp('/amaris/search_queries?status=failed')
         data = json.loads(resp)
         self.assertEquals(1, len(data))
         self.assertEquals(data[0]['state'], 'failed')
@@ -172,7 +172,7 @@ class SqlLabTests(SupersetTestCase):
     def test_search_query_on_text(self):
         self.run_some_queries()
         self.login('admin')
-        url = '/superset/search_queries?search_text=permission'
+        url = '/amaris/search_queries?search_text=permission'
         data = self.get_json_resp(url)
         self.assertEquals(1, len(data))
         self.assertIn('permission', data[0]['sql'])
@@ -192,7 +192,7 @@ class SqlLabTests(SupersetTestCase):
         from_time = 'from={}'.format(int(first_query_time))
         to_time = 'to={}'.format(int(second_query_time))
         params = [from_time, to_time]
-        resp = self.get_resp('/superset/search_queries?' + '&'.join(params))
+        resp = self.get_resp('/amaris/search_queries?' + '&'.join(params))
         data = json.loads(resp)
         self.assertEquals(2, len(data))
 
@@ -235,7 +235,7 @@ class SqlLabTests(SupersetTestCase):
         payload = {
             'chartType': 'dist_bar',
             'datasourceName': 'test_viz_flow_table',
-            'schema': 'superset',
+            'schema': 'amaris',
             'columns': {
                 'viz_type': {
                     'is_date': False,
@@ -259,7 +259,7 @@ class SqlLabTests(SupersetTestCase):
             'dbId': 1,
         }
         data = {'data': json.dumps(payload)}
-        resp = self.get_json_resp('/superset/sqllab_viz/', data=data)
+        resp = self.get_json_resp('/amaris/sqllab_viz/', data=data)
         self.assertIn('table_id', resp)
 
 
