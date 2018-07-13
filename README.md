@@ -21,6 +21,11 @@ business intelligence web application
 [this project used to be named **Caravel**, and **Panoramix** in the past]
 
 
+How to build & install in Amaris.ai
+-----------------------------------
+**step one **
+
+
 Screenshots & Gifs
 ------------------
 
@@ -137,6 +142,11 @@ Contributing
 
 Interested in contributing? Casual hacking? Check out
 [Contributing.MD](https://github.com/airbnb/superset/blob/master/CONTRIBUTING.md)
+
+
+How to build Apache Superset (incubating)?
+--------------------------------------
+
 
 
 Who uses Apache Superset (incubating)?
