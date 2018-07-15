@@ -11,10 +11,10 @@ import unittest
 
 from flask_appbuilder.security.sqla import models as ab_models
 
-from superset import db, security_manager, utils
-from superset.dataframe import SupersetDataFrame
-from superset.db_engine_specs import BaseEngineSpec
-from superset.models.sql_lab import Query
+from amaris import db, security_manager, utils
+from amaris.dataframe import SupersetDataFrame
+from amaris.db_engine_specs import BaseEngineSpec
+from amaris.models.sql_lab import Query
 from .base_tests import SupersetTestCase
 
 

@@ -22,12 +22,12 @@ import psycopg2
 from six import text_type
 import sqlalchemy as sqla
 
-from superset import dataframe, db, jinja_context, security_manager, sql_lab, utils
-from superset.connectors.sqla.models import SqlaTable
-from superset.db_engine_specs import BaseEngineSpec
-from superset.models import core as models
-from superset.models.sql_lab import Query
-from superset.views.core import DatabaseView
+from amaris import dataframe, db, jinja_context, security_manager, sql_lab, utils
+from amaris.connectors.sqla.models import SqlaTable
+from amaris.db_engine_specs import BaseEngineSpec
+from amaris.models import core as models
+from amaris.models.sql_lab import Query
+from amaris.views.core import DatabaseView
 from .base_tests import SupersetTestCase
 
 

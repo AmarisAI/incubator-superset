@@ -10,9 +10,9 @@ import unittest
 
 from flask import escape
 
-from superset import db, security_manager
-from superset.connectors.sqla.models import SqlaTable
-from superset.models import core as models
+from amaris import db, security_manager
+from amaris.connectors.sqla.models import SqlaTable
+from amaris.models import core as models
 from .base_tests import SupersetTestCase
 
 

@@ -12,7 +12,7 @@ import subprocess
 from setuptools import find_packages, setup
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-PACKAGE_DIR = os.path.join(BASE_DIR, 'superset', 'static', 'assets')
+PACKAGE_DIR = os.path.join(BASE_DIR, 'amaris', 'static', 'assets')
 PACKAGE_FILE = os.path.join(PACKAGE_DIR, 'package.json')
 with open(PACKAGE_FILE) as package_file:
     version_string = json.load(package_file)['version']
@@ -44,7 +44,7 @@ with open(os.path.join(PACKAGE_DIR, 'version_info.json'), 'w') as version_file:
 
 
 setup(
-    name='superset',
+    name='amaris',
     description=(
         'A modern, enterprise-ready business intelligence web application'),
     long_description=long_description,
@@ -53,7 +53,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    scripts=['superset/bin/superset'],
+    scripts=['amaris/bin/amaris'],
     install_requires=[
         'bleach',
         'boto3==1.4.7',

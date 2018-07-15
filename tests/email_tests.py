@@ -13,7 +13,7 @@ import unittest
 
 import mock
 
-from superset import app, utils
+from amaris import app, utils
 
 send_email_test = mock.Mock()
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
-from superset.config import *
+from amaris.config import *
 
 AUTH_USER_REGISTRATION_ROLE = 'alpha'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(DATA_DIR, 'unittests.db')

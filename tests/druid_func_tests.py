@@ -12,11 +12,11 @@ from pydruid.utils.dimensions import MapLookupExtraction, RegexExtraction
 import pydruid.utils.postaggregator as postaggs
 
 
-import superset.connectors.druid.models as models
-from superset.connectors.druid.models import (
+import amaris.connectors.druid.models as models
+from amaris.connectors.druid.models import (
     DruidColumn, DruidDatasource, DruidMetric,
 )
-from superset.exceptions import SupersetException
+from amaris.exceptions import SupersetException
 
 
 def mock_metric(metric_name, is_postagg=False):

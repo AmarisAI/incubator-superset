@@ -7,7 +7,7 @@ from __future__ import unicode_literals
 from tests.base_tests import SupersetTestCase
 from wtforms.form import Form
 
-from superset.forms import (
+from amaris.forms import (
     CommaSeparatedListField, filter_not_empty_values)
 
 

@@ -8,8 +8,8 @@ import textwrap
 
 from sqlalchemy.engine.url import make_url
 
-from superset import db
-from superset.models.core import Database
+from amaris import db
+from amaris.models.core import Database
 from .base_tests import SupersetTestCase
 
 

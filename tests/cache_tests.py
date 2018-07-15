@@ -7,7 +7,7 @@ from __future__ import unicode_literals
 
 import json
 
-from superset import cache, db, utils
+from amaris import cache, db, utils
 from .base_tests import SupersetTestCase
 
 

@@ -10,11 +10,11 @@ import unittest
 
 import mock
 
-from superset import app, db, security_manager
-from superset.connectors.connector_registry import ConnectorRegistry
-from superset.connectors.druid.models import DruidDatasource
-from superset.connectors.sqla.models import SqlaTable
-from superset.models import core as models
+from amaris import app, db, security_manager
+from amaris.connectors.connector_registry import ConnectorRegistry
+from amaris.connectors.druid.models import DruidDatasource
+from amaris.connectors.sqla.models import SqlaTable
+from amaris.models import core as models
 from .base_tests import SupersetTestCase
 
 ROLE_TABLES_PERM_DATA = {

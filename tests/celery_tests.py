@@ -14,10 +14,10 @@ import unittest
 import pandas as pd
 from past.builtins import basestring
 
-from superset import app, cli, db, security_manager
-from superset.models.helpers import QueryStatus
-from superset.models.sql_lab import Query
-from superset.sql_parse import SupersetQuery
+from amaris import app, cli, db, security_manager
+from amaris.models.helpers import QueryStatus
+from amaris.models.sql_lab import Query
+from amaris.sql_parse import SupersetQuery
 from .base_tests import SupersetTestCase
 
 

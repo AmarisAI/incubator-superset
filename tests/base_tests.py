@@ -12,10 +12,10 @@ import unittest
 
 from flask_appbuilder.security.sqla import models as ab_models
 
-from superset import app, cli, db, security_manager, utils
-from superset.connectors.druid.models import DruidCluster, DruidDatasource
-from superset.connectors.sqla.models import SqlaTable
-from superset.models import core as models
+from amaris import app, cli, db, security_manager, utils
+from amaris.connectors.druid.models import DruidCluster, DruidDatasource
+from amaris.connectors.sqla.models import SqlaTable
+from amaris.models import core as models
 
 
 BASE_DIR = app.config.get('BASE_DIR')

@@ -11,8 +11,8 @@ import unittest
 
 from mock import Mock, patch
 
-from superset import db, security_manager
-from superset.connectors.druid.models import (
+from amaris import db, security_manager
+from amaris.connectors.druid.models import (
     DruidCluster, DruidColumn, DruidDatasource, DruidMetric,
 )
 from .base_tests import SupersetTestCase

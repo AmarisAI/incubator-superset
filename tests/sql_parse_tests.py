@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 
 import unittest
 
-from superset import sql_parse
+from amaris import sql_parse
 
 
 class SupersetTestCase(unittest.TestCase):

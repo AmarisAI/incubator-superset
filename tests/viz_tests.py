@@ -10,8 +10,8 @@ import unittest
 from mock import Mock, patch
 import pandas as pd
 
-from superset.utils import DTTM_ALIAS
-import superset.viz as viz
+from amaris.utils import DTTM_ALIAS
+import amaris.viz as viz
 from .utils import load_fixture
 
 
