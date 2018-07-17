@@ -14,7 +14,7 @@
     "dev-slow": "NODE_ENV=dev webpack --watch --colors --progress --debug --output-pathinfo --devtool inline-source-map",
     "dev-fast": "echo 'dev-fast in now replaced by dev'",
     "prod": "NODE_ENV=production node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js -p --colors --progress",
-    "build": "NODE_ENV=production webpack --colors --progress",
+    "build": "NODE_ENV=production node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js --colors --progress",
     "lint": "eslint --ignore-path=.eslintignore --ext .js,.jsx .",
     "lint-fix": "eslint --fix --ignore-path=.eslintignore --ext .js,.jsx .",
     "sync-backend": "babel-node --presets env src/syncBackend.js"
@@ -62,6 +62,7 @@
     "deep-equal": "^1.0.1",
     "distributions": "^1.0.0",
     "dompurify": "^1.0.3",
+    "echarts": "^4.1.0",
     "fastdom": "^1.0.6",
     "geojson-extent": "^0.3.2",
     "geolib": "^2.0.24",
@@ -120,6 +121,7 @@
     "webpack-cli": "^2.1.4"
   },
   "devDependencies": {
+    "//": "Known issues with >=4",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.10.4",
     "babel-istanbul": "^0.12.2",
@@ -158,7 +160,6 @@
     "transform-loader": "^0.2.3",
     "uglifyjs-webpack-plugin": "^1.1.0",
     "url-loader": "^0.6.2",
-    "//": "Known issues with >=4",
     "webpack": "^3.10.0",
     "webpack-manifest-plugin": "2.0.3",
     "webworkify-webpack": "2.1.2"
