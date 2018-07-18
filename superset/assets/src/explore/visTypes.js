@@ -1365,7 +1365,36 @@ export const visTypes = {
       },
     },
   },
-
+  sunburst2: {
+    label: t('ECharts - Sunburst'),
+    controlPanelSections: [
+      {
+        label: t('Query'),
+        expanded: true,
+        controlSetRows: [
+          ['groupby'],
+          ['metric'],
+        ],
+      },
+      {
+        label: t('Chart Options'),
+        expanded: true,
+        controlSetRows: [
+          ['color_scheme'],
+        ],
+      },
+    ],
+    controlOverrides: {
+      metric: {
+        label: t('Primary Metric'),
+        description: t('The primary metric is used to define the arc segment sizes'),
+      },
+      groupby: {
+        label: t('Hierarchy'),
+        description: t('This defines the level of the hierarchy'),
+      },
+    },
+  },
   sankey: {
     label: t('Sankey'),
     controlPanelSections: [
