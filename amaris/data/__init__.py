@@ -1,4 +1,4 @@
-"""Loads datasets, dashboards and slices in a new amaris instance"""
+"""Loads datasets, dashboards and slices in a new superset instance"""
 # pylint: disable=C,R,W
 from __future__ import absolute_import
 from __future__ import division

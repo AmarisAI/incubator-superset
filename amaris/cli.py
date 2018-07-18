@@ -29,14 +29,14 @@ manager.add_command('db', MigrateCommand)
 
 @manager.command
 def init():
-    """Inits the Superset application"""
+    """Inits the Amaris application"""
     utils.get_or_create_main_db()
     security_manager.sync_role_definitions()
 
 
 def debug_run(app, port, use_reloader):
     return app.run(
-        host='0.0.0.0',
+        host='172.17.0.2',
         port=int(port),
         threaded=True,
         debug=True,
@@ -91,15 +91,15 @@ def console_log_run(app, port, use_reloader):
 @manager.option(
     '-s', '--socket', default=config.get('SUPERSET_WEBSERVER_SOCKET'),
     help='Path to a UNIX socket as an alternative to address:port, e.g. '
-         '/var/run/superset.sock. '
+         '/var/run/amaris.sock. '
          'Will override the address and port values. [DEPRECATED]')
 def runserver(debug, console_log, use_reloader, address, port, timeout, workers, socket):
-    """Starts a Superset web server."""
+    """Starts a Amaris web server."""
     debug = debug or config.get('DEBUG') or console_log
     if debug:
         print(Fore.BLUE + '-=' * 20)
         print(
-            Fore.YELLOW + 'Starting Superset server in ' +
+            Fore.YELLOW + 'Starting Amaris server in ' +
             Fore.RED + 'DEBUG' +
             Fore.YELLOW + ' mode')
         print(Fore.BLUE + '-=' * 20)
@@ -133,7 +133,7 @@ def runserver(debug, console_log, use_reloader, address, port, timeout, workers,
 def version(verbose):
     """Prints the current version number"""
     print(Fore.BLUE + '-=' * 15)
-    print(Fore.YELLOW + 'Superset ' + Fore.CYAN + '{version}'.format(
+    print(Fore.YELLOW + 'Amaris ' + Fore.CYAN + '{version}'.format(
         version=config.get('VERSION_STRING')))
     print(Fore.BLUE + '-=' * 15)
     if verbose:
@@ -324,7 +324,7 @@ def update_datasources_cache():
     type=int,
     help='Number of celery server workers to fire up')
 def worker(workers):
-    """Starts a Superset worker for async SQL query execution."""
+    """Starts a Amaris worker for async SQL query execution."""
     logging.info(
         "The 'superset worker' command is deprecated. Please use the 'celery "
         "worker' command instead.")

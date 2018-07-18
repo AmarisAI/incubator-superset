@@ -25,6 +25,7 @@ from amaris.stats_logger import DummyStatsLogger
 # Realtime stats logger, a StatsD implementation exists
 STATS_LOGGER = DummyStatsLogger()
 
+# default superset, e.g
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 if 'SUPERSET_HOME' in os.environ:
     DATA_DIR = os.environ['SUPERSET_HOME']
@@ -218,7 +219,8 @@ DRUID_DATA_SOURCE_BLACKLIST = []
 # Modules, datasources and middleware to be registered
 # --------------------------------------------------
 #
-# fabmanager create-admin --app amaris
+# fabmanager create-admin --app superset
+#
 DEFAULT_MODULE_DS_MAP = OrderedDict([
     ('amaris.connectors.sqla.models', ['SqlaTable']),
     ('amaris.connectors.druid.models', ['DruidDatasource']),
@@ -241,7 +243,7 @@ LOG_LEVEL = 'DEBUG'
 # ---------------------------------------------------
 # LOG_LEVEL = DEBUG, INFO, WARNING, ERROR, CRITICAL
 
-ENABLE_TIME_ROTATE = False
+ENABLE_TIME_ROTATE = True
 TIME_ROTATE_LOG_LEVEL = 'DEBUG'
 FILENAME = os.path.join(DATA_DIR, 'amaris.log')
 ROLLOVER = 'midnight'
@@ -270,7 +272,7 @@ WARNING_MSG = None
 # Example:
 class CeleryConfig(object):
   BROKER_URL = 'sqla+sqlite:///celerydb.sqlite'
-  CELERY_IMPORTS = ('amaris.sql_lab', )
+  CELERY_IMPORTS = ('superset.sql_lab', )
   CELERY_RESULT_BACKEND = 'db+sqlite:///celery_results.sqlite'
   CELERY_ANNOTATIONS = {'tasks.add': {'rate_limit': '10/s'}}
   CELERYD_LOG_LEVEL = 'DEBUG'
@@ -347,10 +349,10 @@ EMAIL_NOTIFICATIONS = False  # all the emails are sent using dryrun
 SMTP_HOST = 'localhost'
 SMTP_STARTTLS = True
 SMTP_SSL = False
-SMTP_USER = 'amaris'
+SMTP_USER = 'superset'
 SMTP_PORT = 25
-SMTP_PASSWORD = 'amaris'
-SMTP_MAIL_FROM = 'all@amaris.ai'
+SMTP_PASSWORD = 'superset'
+SMTP_MAIL_FROM = 'all@superset.ai'
 
 if not CACHE_DEFAULT_TIMEOUT:
     CACHE_DEFAULT_TIMEOUT = CACHE_CONFIG.get('CACHE_DEFAULT_TIMEOUT')
@@ -419,24 +421,24 @@ SQL_QUERY_MUTATOR = None
 # using flask-compress
 ENABLE_FLASK_COMPRESS = True
 
-try:
-    if CONFIG_PATH_ENV_VAR in os.environ:
-        # Explicitly import config module that is not in pythonpath; useful
-        # for case where app is being executed via pex.
-        print('Loaded your LOCAL configuration at [{}]'.format(
-            os.environ[CONFIG_PATH_ENV_VAR]))
-        module = sys.modules[__name__]
-        override_conf = imp.load_source(
-            'amaris_config',
-            os.environ[CONFIG_PATH_ENV_VAR])
-        for key in dir(override_conf):
-            if key.isupper():
-                setattr(module, key, getattr(override_conf, key))
-
-    else:
-        from amaris_config import *  # noqa
-        import amaris_config
-        print('Loaded your LOCAL configuration at [{}]'.format(
-            amaris_config.__file__))
-except ImportError:
-    pass
+# try:
+#     if CONFIG_PATH_ENV_VAR in os.environ:
+#         # Explicitly import config module that is not in pythonpath; useful
+#         # for case where app is being executed via pex.
+#         print('Loaded your LOCAL configuration at [{}]'.format(
+#             os.environ[CONFIG_PATH_ENV_VAR]))
+#         module = sys.modules[__name__]
+#         override_conf = imp.load_source(
+#             'amaris_config',
+#             os.environ[CONFIG_PATH_ENV_VAR])
+#         for key in dir(override_conf):
+#             if key.isupper():
+#                 setattr(module, key, getattr(override_conf, key))
+#
+#     else:
+#         from amaris_config import *  # noqa
+#         import amaris_config
+#         print('Loaded your LOCAL configuration at [{}]'.format(
+#             amaris_config.__file__))
+# except ImportError:
+#     pass

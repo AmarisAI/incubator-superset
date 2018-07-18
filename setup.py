@@ -102,13 +102,13 @@ setup(
         'cors': ['flask-cors>=2.0.0'],
         'console_log': ['console_log==0.2.10'],
     },
-    author='Maxime Beauchemin',
-    author_email='maximebeauchemin@gmail.com',
-    url='https://github.com/apache/incubator-superset',
-    download_url=(
-        'https://github.com'
-        '/apache/incubator-superset/tarball/' + version_string
-    ),
+    # author='Maxime Beauchemin',
+    # author_email='maximebeauchemin@gmail.com',
+    # url='https://github.com/apache/incubator-superset',
+    # download_url=(
+    #    'https://github.com'
+    #    '/apache/incubator-superset/tarball/' + version_string
+    # ),
     classifiers=[
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.5',

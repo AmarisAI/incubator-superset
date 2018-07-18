@@ -39,7 +39,7 @@ REDIS_PORT = get_env_variable('REDIS_PORT')
 
 class CeleryConfig(object):
     BROKER_URL = 'redis://%s:%s/0' % (REDIS_HOST, REDIS_PORT)
-    CELERY_IMPORTS = ('amaris.sql_lab', )
+    CELERY_IMPORTS = ('superset.sql_lab', )
     CELERY_RESULT_BACKEND = 'redis://%s:%s/1' % (REDIS_HOST, REDIS_PORT)
     CELERY_ANNOTATIONS = {'tasks.add': {'rate_limit': '10/s'}}
     CELERY_TASK_PROTOCOL = 1

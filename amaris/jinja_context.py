@@ -16,6 +16,7 @@ import uuid
 from dateutil.relativedelta import relativedelta
 from flask import g, request
 from jinja2.sandbox import SandboxedEnvironment
+import logging
 
 from amaris import app
 
@@ -52,12 +53,14 @@ def url_param(param, default=None):
 def current_user_id():
     """The id of the user who is currently logged in"""
     if hasattr(g, 'user') and g.user:
+        logging.debug('user ' + g.user.id)
         return g.user.id
 
 
 def current_username():
     """The username of the user who is currently logged in"""
     if g.user:
+        logging.debug('user ' + g.user.username)
         return g.user.username
 
 

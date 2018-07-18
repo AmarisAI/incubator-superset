@@ -1,4 +1,4 @@
-Superset
+Amaris
 =========
 
 [![Build Status](https://travis-ci.org/apache/incubator-superset.svg?branch=master)](https://travis-ci.org/apache/incubator-superset)
@@ -28,29 +28,38 @@ How to build & install in Amaris.ai
 
 you can do it in docker
 
-git clone -b 0.26 git@github.com:AmarisAI/incubator-superset.git
+`git clone -b 0.26 git@github.com:AmarisAI/incubator-superset.git`
 
-sudo apt-get install build-essential libssl-dev libffi-dev python3.5-dev python-pip libsasl2-dev libldap2-dev libmysqlclient-dev python-dev
+`sudo apt-get install build-essential libssl-dev libffi-dev python3.5-dev python-pip libsasl2-dev libldap2-dev libmysqlclient-dev python-dev`
 
 **step two**
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-python set.py install
+if you want to clean project  `python setup.py clean`
 
-cd incubator-superset/dist
 
-easy_install package-xx..egg
+`python setup.py build`
+
+`python setup.py install`
+
+`cd incubator-superset/dist`
+
+
+`easy_install` the `package-xx..egg` 
 
 **step three**
 
-fabmanager create-admin --app superset
+`fabmanager create-admin --app amaris`
 
-superset db upgrade
+`amaris db upgrade`
 
-superset init
+`amaris init`
 
-superset runserver -p 1234 
+`amaris load_examples`
+
+
+`amaris runserver -p` number
 
 
 

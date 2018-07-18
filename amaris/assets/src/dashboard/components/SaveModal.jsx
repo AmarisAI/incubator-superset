@@ -61,7 +61,7 @@ class SaveModal extends React.PureComponent {
         saveModal.close();
         onSaveDashboard();
         if (saveType === 'newDashboard') {
-          window.location = `/superset/dashboard/${resp.id}/`;
+          window.location = `../../../..`;
         } else {
           notify.success(t('This dashboard was saved successfully.'));
         }

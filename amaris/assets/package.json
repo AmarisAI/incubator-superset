@@ -1,7 +1,7 @@
 {
-  "name": "superset",
-  "version": "0.26.3",
-  "description": "Superset is a data exploration platform designed to be visual, intuitive, and interactive.",
+  "name": "amaris",
+  "version": "0.26.4",
+  "description": "Amaris is a data exploration platform designed to be visual, intuitive, and interactive.",
   "license": "Apache-2.0",
   "directories": {
     "doc": "docs",

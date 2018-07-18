@@ -11,7 +11,7 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 import os
 
-from flask import Flask, redirect
+from flask import Flask, redirect,url_for
 from flask_appbuilder import AppBuilder, IndexView, SQLA
 from flask_appbuilder.baseviews import expose
 from flask_compress import Compress
@@ -32,6 +32,7 @@ if not os.path.exists(config.DATA_DIR):
 with open(APP_DIR + '/static/assets/backendSync.json', 'r') as f:
     frontend_config = json.load(f)
 
+# flask web app starts point
 app = Flask(__name__)
 app.config.from_object(CONFIG_MODULE)
 conf = app.config
@@ -150,7 +151,14 @@ for middleware in app.config.get('ADDITIONAL_MIDDLEWARE'):
 class MyIndexView(IndexView):
     @expose('/')
     def index(self):
-        return redirect('/src/amaris/welcome')
+        return redirect('/superset/welcome')
+
+
+class AmarisIndexView(IndexView):
+    @expose('/')
+    def index(self):
+        login_url = url_for('/amaris/welcome')
+        return redirect(login_url)
 
 
 custom_sm = app.config.get('CUSTOM_SECURITY_MANAGER') or SupersetSecurityManager
@@ -164,7 +172,7 @@ appbuilder = AppBuilder(
     app,
     db.session,
     base_template='amaris/base.html',
-    indexview=MyIndexView,
+    indexview=AmarisIndexView,
     security_manager_class=custom_sm,
     update_perms=utils.get_update_perms_flag(),
 )

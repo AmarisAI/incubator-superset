@@ -220,8 +220,8 @@ class DatabaseView(SupersetModelView, DeleteMixin, YamlExportMixin):  # noqa
         'changed_by',
         'changed_on',
     ]
-    add_template = 'superset/models/database/add.html'
-    edit_template = 'superset/models/database/edit.html'
+    add_template = 'amaris/models/database/add.html'
+    edit_template = 'amaris/models/database/edit.html'
     base_order = ('changed_on', 'desc')
     description_columns = {
         'sqlalchemy_uri': utils.markdown(
@@ -300,7 +300,7 @@ class DatabaseView(SupersetModelView, DeleteMixin, YamlExportMixin):  # noqa
 appbuilder.add_link(
     'Import Dashboards',
     label=__('Import Dashboards'),
-    href='/superset/import_dashboards',
+    href='/amris/import_dashboards',
     icon='fa-cloud-upload',
     category='Manage',
     category_label=__('Manage'),
@@ -487,7 +487,7 @@ class SliceModelView(SupersetModelView, DeleteMixin):  # noqa
             for d in datasources
         ]
         return self.render_template(
-            'superset/add_slice.html',
+            'amaris/add_slice.html',
             bootstrap_data=json.dumps({
                 'datasources': sorted(datasources, key=lambda d: d['label']),
             }),
@@ -613,7 +613,7 @@ class DashboardModelView(SupersetModelView, DeleteMixin):  # noqa
                 headers=generate_download_headers('json'),
                 mimetype='application/text')
         return self.render_template(
-            'superset/export_dashboards.html',
+            'amaris/export_dashboards.html',
             dashboards_url='/dashboardmodelview/list',
         )
 
@@ -858,7 +858,7 @@ class Superset(BaseSupersetView):
                 for datasource in datasources
             ))
         if has_access:
-            return redirect('/superset/dashboard/{}'.format(dashboard_id))
+            return redirect('/amaris/dashboard/{}'.format(dashboard_id))
 
         if request.args.get('action') == 'go':
             for datasource in datasources:
@@ -871,7 +871,7 @@ class Superset(BaseSupersetView):
             return redirect('/')
 
         return self.render_template(
-            'superset/request_access.html',
+            'amaris/request_access.html',
             datasources=datasources,
             datasource_names=', '.join([o.name for o in datasources]),
         )
@@ -1037,7 +1037,7 @@ class Superset(BaseSupersetView):
     @expose('/slice/<slice_id>/')
     def slice(self, slice_id):
         form_data, slc = self.get_form_data(slice_id)
-        endpoint = '/superset/explore/?form_data={}'.format(
+        endpoint = '/amaris/explore/?form_data={}'.format(
             parse.quote(json.dumps(form_data)),
         )
         if request.args.get('standalone') == 'true':
@@ -1203,7 +1203,7 @@ class Superset(BaseSupersetView):
                     dashboard, import_time=current_tt)
             db.session.commit()
             return redirect('/dashboardmodelview/list/')
-        return self.render_template('superset/import_dashboards.html')
+        return self.render_template('amaris/import_dashboards.html')
 
     @log_this
     @has_access
@@ -1258,7 +1258,7 @@ class Superset(BaseSupersetView):
                 __(get_datasource_access_error_msg(datasource.name)),
                 'danger')
             return redirect(
-                'superset/request_access/?'
+                'amaris/request_access/?'
                 'datasource_type={datasource_type}&'
                 'datasource_id={datasource_id}&'
                 ''.format(**locals()))
@@ -1329,7 +1329,7 @@ class Superset(BaseSupersetView):
         else:
             title = 'Explore - ' + table_name
         return self.render_template(
-            'superset/basic.html',
+            'amaris/basic.html',
             bootstrap_data=json.dumps(bootstrap_data),
             entry='explore',
             title=title,
@@ -1744,7 +1744,7 @@ class Superset(BaseSupersetView):
     @expose('/csrf_token/', methods=['GET'])
     def csrf_token(self):
         return Response(
-            self.render_template('superset/csrf_token.json'),
+            self.render_template('amaris/csrf_token.json'),
             mimetype='text/json',
         )
 
@@ -1789,7 +1789,7 @@ class Superset(BaseSupersetView):
             if o.Dashboard.created_by:
                 user = o.Dashboard.created_by
                 d['creator'] = str(user)
-                d['creator_url'] = '/superset/profile/{}/'.format(
+                d['creator_url'] = '/amaris/profile/{}/'.format(
                     user.username)
             payload.append(d)
         return json_success(
@@ -1929,7 +1929,7 @@ class Superset(BaseSupersetView):
             if o.Slice.created_by:
                 user = o.Slice.created_by
                 d['creator'] = str(user)
-                d['creator_url'] = '/superset/profile/{}/'.format(
+                d['creator_url'] = '/amaris/profile/{}/'.format(
                     user.username)
             payload.append(d)
         return json_success(
@@ -2038,7 +2038,7 @@ class Superset(BaseSupersetView):
                         __(get_datasource_access_error_msg(datasource.name)),
                         'danger')
                     return redirect(
-                        'superset/request_access/?'
+                        'amaris/request_access/?'
                         'dashboard_id={dash.id}&'.format(**locals()))
 
         # Hack to log the dashboard_id properly, even when getting a slug
@@ -2076,7 +2076,7 @@ class Superset(BaseSupersetView):
             return json_success(json.dumps(bootstrap_data))
 
         return self.render_template(
-            'superset/dashboard.html',
+            'amaris/dashboard.html',
             entry='dashboard',
             standalone_mode=standalone_mode,
             title=dash.dashboard_title,
@@ -2280,13 +2280,13 @@ class Superset(BaseSupersetView):
         mydb = db.session.query(
             models.Database).filter_by(id=database_id).first()
         return self.render_template(
-            'superset/ajah.html',
+            'amaris/ajah.html',
             content=mydb.select_star(table_name, show_cols=True),
         )
 
     @expose('/theme/')
     def theme(self):
-        return self.render_template('superset/theme.html')
+        return self.render_template('amaris/theme.html')
 
     @has_access_api
     @expose('/cached_key/<key>/')
@@ -2645,7 +2645,7 @@ class Superset(BaseSupersetView):
     @app.errorhandler(500)
     def show_traceback(self):
         return render_template(
-            'superset/traceback.html',
+            'amaris/traceback.html',
             error_msg=get_error_msg(),
         ), 500
 
@@ -2661,9 +2661,9 @@ class Superset(BaseSupersetView):
         }
 
         return self.render_template(
-            'superset/basic.html',
+            'amaris/basic.html',
             entry='welcome',
-            title='Superset',
+            title='Amaris',
             bootstrap_data=json.dumps(payload, default=utils.json_iso_dttm_ser),
         )
 
@@ -2680,7 +2680,7 @@ class Superset(BaseSupersetView):
         }
 
         return self.render_template(
-            'superset/basic.html',
+            'amaris/basic.html',
             title=username + "'s profile",
             entry='profile',
             bootstrap_data=json.dumps(payload, default=utils.json_iso_dttm_ser),
@@ -2695,7 +2695,7 @@ class Superset(BaseSupersetView):
             'common': self.common_bootsrap_payload(),
         }
         return self.render_template(
-            'superset/basic.html',
+            'amaris/basic.html',
             entry='sqllab',
             bootstrap_data=json.dumps(d, default=utils.json_iso_dttm_ser),
         )
@@ -2749,7 +2749,7 @@ appbuilder.add_view_no_menu(CssTemplateAsyncModelView)
 appbuilder.add_link(
     'SQL Editor',
     label=_('SQL Editor'),
-    href='/superset/sqllab',
+    href='/amaris/sqllab',
     category_icon='fa-flask',
     icon='fa-flask',
     category='SQL Lab',
@@ -2759,7 +2759,7 @@ appbuilder.add_link(
 appbuilder.add_link(
     'Query Search',
     label=_('Query Search'),
-    href='/superset/sqllab#search',
+    href='/amaris/sqllab#search',
     icon='fa-search',
     category_icon='fa-flask',
     category='SQL Lab',
@@ -2798,12 +2798,12 @@ app.url_map.converters['regex'] = RegexConverter
 
 @app.route('/<regex("panoramix\/.*"):url>')
 def panoramix(url):  # noqa
-    return redirect(request.full_path.replace('panoramix', 'superset'))
+    return redirect(request.full_path.replace('panoramix', ''))
 
 
 @app.route('/<regex("caravel\/.*"):url>')
 def caravel(url):  # noqa
-    return redirect(request.full_path.replace('caravel', 'superset'))
+    return redirect(request.full_path.replace('caravel', ''))
 
 
 # ---------------------------------------------------------------------
