@@ -89,7 +89,7 @@ your file. Be careful this can delete the contents of your meta database. Exampl
    superset import_datasources -p <path / filename> -s columns,metrics
 
 This will sync all ``metrics`` and ``columns`` for all datasources found in the
-``<path / filename>`` in the Superset meta database. This means columns and metrics
+``<path / filename>`` in the Amarisset meta database. This means columns and metrics
 not specified in YAML will be deleted. If you would add ``tables`` to ``columns,metrics``
 those would be synchronised as well.
 

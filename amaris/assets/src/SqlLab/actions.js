@@ -109,7 +109,7 @@ function getErrorLink(err) {
 export function fetchQueryResults(query) {
   return function (dispatch) {
     dispatch(requestQueryResults(query));
-    const sqlJsonUrl = `/superset/results/${query.resultsKey}/`;
+    const sqlJsonUrl = `/amaris/results/${query.resultsKey}/`;
     $.ajax({
       type: 'GET',
       dataType: 'json',
@@ -144,7 +144,7 @@ export function runQuery(query) {
       select_as_cta: query.ctas,
       templateParams: query.templateParams,
     };
-    const sqlJsonUrl = '/superset/sql_json/' + location.search;
+    const sqlJsonUrl = '/amaris/sql_json/' + location.search;
     $.ajax({
       type: 'POST',
       dataType: 'json',
@@ -182,7 +182,7 @@ export function runQuery(query) {
 
 export function postStopQuery(query) {
   return function (dispatch) {
-    const stopQueryUrl = '/superset/stop_query/';
+    const stopQueryUrl = '/amaris/stop_query/';
     const stopQueryRequestData = { client_id: query.id };
     dispatch(stopQuery(query));
     $.ajax({
@@ -288,7 +288,7 @@ export function addTable(query, tableName, schemaName) {
       expanded: false,
     })));
 
-    let url = `/superset/table/${query.dbId}/${tableName}/${schemaName}/`;
+    let url = `/amaris/table/${query.dbId}/${tableName}/${schemaName}/`;
     $.get(url, (data) => {
       const dataPreviewQuery = {
         id: shortid.generate(),
@@ -317,7 +317,7 @@ export function addTable(query, tableName, schemaName) {
       notify.error(t('Error occurred while fetching table metadata'));
     });
 
-    url = `/superset/extra_table_metadata/${query.dbId}/${tableName}/${schemaName}/`;
+    url = `/amaris/extra_table_metadata/${query.dbId}/${tableName}/${schemaName}/`;
     $.get(url, (data) => {
       table = Object.assign({}, table, data, { isExtraMetadataLoading: false });
       dispatch(mergeTable(table));
@@ -432,7 +432,7 @@ export function createDatasource(vizOptions, context) {
 
     return $.ajax({
       type: 'POST',
-      url: '/superset/sqllab_viz/',
+      url: '/amaris/sqllab_viz/',
       async: false,
       data: {
         data: JSON.stringify(vizOptions),

@@ -50,7 +50,7 @@ export default class DatasourceControl extends React.PureComponent {
     if (this.searchRef) {
       this.searchRef.focus();
     }
-    const url = '/superset/datasources/';
+    const url = '/amaris/datasources/';
     const that = this;
     if (!this.state.datasources) {
       $.ajax({

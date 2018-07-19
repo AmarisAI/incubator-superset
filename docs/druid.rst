@@ -1,11 +1,11 @@
 Druid
 =====
 
-Superset has a native connector to Druid, and a majority of Druid's
-features are accessible through Superset.
+Amarisset has a native connector to Druid, and a majority of Druid's
+features are accessible through Amarisset.
 
 .. note ::
-    Druid now supports SQL and can be accessed through Superset's
+    Druid now supports SQL and can be accessed through Amarisset's
     SQLAlchemy connector. The long term vision is to deprecate
     the Druid native REST connector and query Druid exclusively through
     the SQL interface.
@@ -13,7 +13,7 @@ features are accessible through Superset.
 Aggregations
 ------------
 
-Common aggregations, or Druid metrics can be defined and used in Superset.
+Common aggregations, or Druid metrics can be defined and used in Amarisset.
 The first and simpler use case is to use the checkbox matrix expose in your
 datasource's edit view (``Sources -> Druid Datasources ->
 [your datasource] -> Edit -> [tab] List Druid Column``).
@@ -32,7 +32,7 @@ documentation.
 Post-Aggregations
 -----------------
 
-Druid supports post aggregation and this works in Superset. All you have to
+Druid supports post aggregation and this works in Amarisset. All you have to
 do is creating a metric, much like you would create an aggregation manually,
 but specify ``postagg`` as a ``Metric Type``. You then have to provide a valid
 json post-aggregation definition (as specified in the Druid docs) in the

@@ -4,20 +4,20 @@ Installation & Configuration
 Getting Started
 ---------------
 
-Superset is tested against Python ``2.7`` and Python ``3.4``.
+Amarisset is tested against Python ``2.7`` and Python ``3.4``.
 Airbnb currently uses 2.7.* in production. We do not plan on supporting
 Python ``2.6``.
 
 Cloud-native!
 -------------
 
-Superset is designed to be highly available. It is
+Amarisset is designed to be highly available. It is
 "cloud-native" as it has been designed scale out in large,
 distributed environments, and works well inside containers.
 While you can easily
-test drive Superset on a modest setup or simply on your laptop,
+test drive Amarisset on a modest setup or simply on your laptop,
 there's virtually no limit around scaling out the platform.
-Superset is also cloud-native in the sense that it is
+Amarisset is also cloud-native in the sense that it is
 flexible and lets you choose your web server (Gunicorn, Nginx, Apache),
 your metadata database engine (MySQL, Postgres, MariaDB, ...),
 your message queue (Redis, RabbitMQ, SQS, ...),
@@ -26,12 +26,12 @@ your results backend (S3, Redis, Memcached, ...), your caching layer
 DataDog, and has the ability to run analytic workloads against
 most popular database technologies.
 
-Superset is battle tested in large environments with hundreds
+Amarisset is battle tested in large environments with hundreds
 of concurrent users. Airbnb's production environment runs inside
 Kubernetes and serves 600+ daily active users viewing over 100K charts a
 day.
 
-The Superset web server and the Superset Celery workers (optional)
+The Amarisset web server and the Amarisset Celery workers (optional)
 are stateless, so you can scale out by running on as many servers
 as needed.
 
@@ -59,12 +59,12 @@ ahead.
 OS dependencies
 ---------------
 
-Superset stores database connection information in its metadata database.
+Amarisset stores database connection information in its metadata database.
 For that purpose, we use the ``cryptography`` Python library to encrypt
 connection passwords. Unfortunately this library has OS level dependencies.
 
 You may want to attempt the next step
-("Superset installation and initialization") and come back to this step if
+("Amarisset installation and initialization") and come back to this step if
 you encounter an error.
 
 Here's how to install them:
@@ -101,7 +101,7 @@ attempt it, download `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`_, and r
 
 Python virtualenv
 -----------------
-It is recommended to install Superset inside a virtualenv. Python 3 already ships virtualenv, for
+It is recommended to install Amarisset inside a virtualenv. Python 3 already ships virtualenv, for
 Python 2 you need to install it. If it's packaged for your operating systems install it from there
 otherwise you can install from pip: ::
 
@@ -127,9 +127,9 @@ and ``setuptools`` libraries.::
 
     pip install --upgrade setuptools pip
 
-Superset installation and initialization
+Amarisset installation and initialization
 ----------------------------------------
-Follow these few simple steps to install Superset.::
+Follow these few simple steps to install Amarisset.::
 
     # Install superset
     pip install superset
@@ -154,13 +154,13 @@ After installation, you should be able to point your browser to the right
 hostname:port `http://localhost:8088 <http://localhost:8088>`_, login using
 the credential you entered while creating the admin account, and navigate to
 `Menu -> Admin -> Refresh Metadata`. This action should bring in all of
-your datasources for Superset to be aware of, and they should show up in
+your datasources for Amarisset to be aware of, and they should show up in
 `Menu -> Datasources`, from where you can start playing with your data!
 
 A proper WSGI HTTP Server
 -------------------------
 
-While you can setup Superset to run on Nginx or Apache, many use
+While you can setup Amarisset to run on Nginx or Apache, many use
 Gunicorn, preferably in **async mode**, which allows for impressive
 concurrency even and is fairly easy to install and configure. Please
 refer to the
@@ -239,7 +239,7 @@ To configure your application, you need to create a file (module)
 of the parameters you can copy / paste in that configuration module: ::
 
     #---------------------------------------------------------
-    # Superset specific config
+    # Amarisset specific config
     #---------------------------------------------------------
     ROW_LIMIT = 5000
 
@@ -280,7 +280,7 @@ Since ``superset_config.py`` acts as a Flask configuration module, it
 can be used to alter the settings Flask itself,
 as well as Flask extensions like ``flask-wtf``, ``flask-cache``,
 ``flask-migrate``, and ``flask-appbuilder``. Flask App Builder, the web
-framework used by Superset offers many configuration settings. Please consult
+framework used by Amarisset offers many configuration settings. Please consult
 the `Flask App Builder Documentation
 <http://flask-appbuilder.readthedocs.org/en/latest/config.html>`_
 for more information on how to configure it.
@@ -298,11 +298,11 @@ auth postback endpoint, you can add them to *WTF_CSRF_EXEMPT_LIST*
 Database dependencies
 ---------------------
 
-Superset does not ship bundled with connectivity to databases, except
+Amarisset does not ship bundled with connectivity to databases, except
 for Sqlite, which is part of the Python standard library.
 You'll need to install the required packages for the database you
 want to use as your metadata database as well as the packages needed to
-connect to the databases you want to access through Superset.
+connect to the databases you want to access through Amarisset.
 
 Here's a list of some of the recommended packages.
 
@@ -373,7 +373,7 @@ _(See more details at https://github.com/laughingman7743/PyAthena#sqlalchemy.)_
 Caching
 -------
 
-Superset uses `Flask-Cache <https://pythonhosted.org/Flask-Cache/>`_ for
+Amarisset uses `Flask-Cache <https://pythonhosted.org/Flask-Cache/>`_ for
 caching purpose. Configuring your caching backend is as easy as providing
 a ``CACHE_CONFIG``, constant in your ``superset_config.py`` that
 complies with the Flask-Cache specifications.
@@ -386,7 +386,7 @@ the `redis <https://pypi.python.org/pypi/redis>`_ Python package: ::
 
     pip install redis
 
-For setting your timeouts, this is done in the Superset metadata and goes
+For setting your timeouts, this is done in the Amarisset metadata and goes
 up the "timeout searchpath", from your slice configuration, to your
 data source's configuration, to your database's and ultimately falls back
 into your global default defined in ``CACHE_CONFIG``.
@@ -424,7 +424,7 @@ Schemas (Postgres & Redshift)
 
 Postgres and Redshift, as well as other database,
 use the concept of **schema** as a logical entity
-on top of the **database**. For Superset to connect to a specific schema,
+on top of the **database**. For Amarisset to connect to a specific schema,
 there's a **schema** parameter you can set in the table form.
 
 
@@ -432,7 +432,7 @@ External Password store for SQLAlchemy connections
 --------------------------------------------------
 It is possible to use an external store for you database passwords. This is
 useful if you a running a custom secret distribution framework and do not wish
-to store secrets in Superset's meta database.
+to store secrets in Amarisset's meta database.
 
 Example:
 Write a function that takes a single argument of type ``sqla.engine.url`` and returns
@@ -506,7 +506,7 @@ The following keys in `superset_config.py` can be specified to configure CORS:
 MIDDLEWARE
 ----------
 
-Superset allows you to add your own middleware. To add your own middleware, update the ``ADDITIONAL_MIDDLEWARE`` key in
+Amarisset allows you to add your own middleware. To add your own middleware, update the ``ADDITIONAL_MIDDLEWARE`` key in
 your `superset_config.py`. ``ADDITIONAL_MIDDLEWARE`` should be a list of your additional middleware classes.
 
 For example, to use AUTH_REMOTE_USER from behind a proxy server like nginx, you have to add a simple middleware class to
@@ -541,16 +541,16 @@ SQL Lab is a powerful SQL IDE that works with all SQLAlchemy compatible
 databases. By default, queries are executed in the scope of a web
 request so they
 may eventually timeout as queries exceed the maximum duration of a web
-request in your environment, whether it'd be a reverse proxy or the Superset
+request in your environment, whether it'd be a reverse proxy or the Amarisset
 server itself.
 
 On large analytic databases, it's common to run queries that
 execute for minutes or hours.
 To enable support for long running queries that
 execute beyond the typical web request's timeout (30-60 seconds), it is
-necessary to configure an asynchronous backend for Superset which consist of:
+necessary to configure an asynchronous backend for Amarisset which consist of:
 
-* one or many Superset worker (which is implemented as a Celery worker), and
+* one or many Amarisset worker (which is implemented as a Celery worker), and
   can be started with the ``celery worker`` command, run
   ``celery worker --help`` to view the related options.
 * a celery broker (message queue) for which we recommend using Redis
@@ -598,7 +598,7 @@ look something like:
         host='localhost', port=6379, key_prefix='superset_results')
 
 Note that it's important that all the worker nodes and web servers in
-the Superset cluster share a common metadata database.
+the Amarisset cluster share a common metadata database.
 This means that SQLite will not work in this context since it has
 limited support for concurrency and
 typically lives on the local file system.
@@ -628,7 +628,7 @@ and run via: ::
 Making your own build
 ---------------------
 
-For more advanced users, you may want to build Superset from sources. That
+For more advanced users, you may want to build Amarisset from sources. That
 would be the case if you fork the project to add features specific to
 your environment.::
 
@@ -644,12 +644,12 @@ Blueprints
 ----------
 
 `Blueprints are Flask's reusable apps <http://flask.pocoo.org/docs/0.12/blueprints/>`_.
-Superset allows you to specify an array of Blueprints
+Amarisset allows you to specify an array of Blueprints
 in your ``superset_config`` module. Here's
 an example on how this can work with a simple Blueprint. By doing
-so, you can expect Superset to serve a page that says "OK"
+so, you can expect Amarisset to serve a page that says "OK"
 at the ``/simple_page`` url. This can allow you to run other things such
-as custom data visualization applications alongside Superset, on the
+as custom data visualization applications alongside Amarisset, on the
 same server.
 
 .. code-block:: python
@@ -667,7 +667,7 @@ same server.
 StatsD logging
 --------------
 
-Superset is instrumented to log events to StatsD if desired. Most endpoints hit
+Amarisset is instrumented to log events to StatsD if desired. Most endpoints hit
 are logged as well as key events like query start and end in SQL Lab.
 
 To setup StatsD logging, it's a matter of configuring the logger in your
@@ -682,26 +682,26 @@ Note that it's also possible to implement you own logger by deriving
 ``superset.stats_logger.BaseStatsLogger``.
 
 
-Install Superset with helm in Kubernetes
+Install Amarisset with helm in Kubernetes
 --------------
 
-You can install Superset into Kubernetes with Helm <https://helm.sh/>. The chart is
+You can install Amarisset into Kubernetes with Helm <https://helm.sh/>. The chart is
 located in ``install/helm``.
 
-To install Superset into your Kubernetes:
+To install Amarisset into your Kubernetes:
 
 .. code-block:: bash
 
     helm upgrade --install superset ./install/helm/superset
 
-Note that the above command will install Superset into ``default`` namespace of your Kubernetes cluster.
+Note that the above command will install Amarisset into ``default`` namespace of your Kubernetes cluster.
 
 Custom OAuth2 configuration
 ---------------------------
 
-Beyond FAB supported providers (github, twitter, linkedin, google, azure), its easy to connect Superset with other OAuth2 Authorization Server implementations that supports "code" authorization. 
+Beyond FAB supported providers (github, twitter, linkedin, google, azure), its easy to connect Amarisset with other OAuth2 Authorization Server implementations that supports "code" authorization.
 
-The first step: Configure authorization in Superset ``superset_config.py``.
+The first step: Configure authorization in Amarisset ``superset_config.py``.
 
 .. code-block:: python
 
@@ -712,8 +712,8 @@ The first step: Configure authorization in Superset ``superset_config.py``.
             'token_key':'access_token', # Name of the token in the response of access_token_url
             'icon':'fa-address-card',   # Icon for the provider
             'remote_app': {
-                'consumer_key':'myClientId',  # Client Id (Identify Superset application)
-                'consumer_secret':'MySecret', # Secret for this Client Id (Identify Superset application)
+                'consumer_key':'myClientId',  # Client Id (Identify Amarisset application)
+                'consumer_secret':'MySecret', # Secret for this Client Id (Identify Amarisset application)
                 'request_token_params':{
                     'scope': 'read'               # Scope for the Authorization
                 },

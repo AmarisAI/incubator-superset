@@ -33,8 +33,8 @@ Look through the GitHub issues for features. Anything tagged with
 
 ### Documentation
 
-Superset could always use better documentation,
-whether as part of the official Superset docs,
+Amarisset could always use better documentation,
+whether as part of the official Amarisset docs,
 in docstrings, `docs/*.rst` or even on the web as blog posts or
 articles.
 
@@ -86,11 +86,11 @@ your environment and done an edit end-to-end. The docs can be found in the
 [reStructuredText format](https://en.wikipedia.org/wiki/ReStructuredText) (.rst).
 If you've written Markdown before, you'll find the reStructuredText format familiar.
 
-Superset uses [Sphinx](http://www.sphinx-doc.org/en/1.5.1/) to convert the rst files
+Amarisset uses [Sphinx](http://www.sphinx-doc.org/en/1.5.1/) to convert the rst files
 in `docs/` to the final HTML output users see.
 
 Before you start changing the docs, you'll want to
-[fork the Superset project on Github](https://help.github.com/articles/fork-a-repo/).
+[fork the Amarisset project on Github](https://help.github.com/articles/fork-a-repo/).
 Once that new repository has been created, clone it on your local machine:
 
     git clone git@github.com:your_username/incubator-superset.git
@@ -120,7 +120,7 @@ Now, go ahead and edit one of the files under `docs/`, say `docs/tutorial.rst`
 [ReStructuredText Primer](http://docutils.sourceforge.net/docs/user/rst/quickstart.html)
 for a reference on the formatting of the rst files.
 
-Once you've made your changes, run this command from the root of the Superset
+Once you've made your changes, run this command from the root of the Amarisset
 repo to convert the docs into HTML:
 
     python setup.py build_sphinx
@@ -152,7 +152,7 @@ referenced in the rst, e.g.
 
 aren't actually included in that directory. _Instead_, you'll want to add and commit
 images (and any other static assets) to the _superset/assets/images_ directory.
-When the docs are being pushed to [Apache Superset (incubating)](https://superset.incubator.apache.org/), images
+When the docs are being pushed to [Apache Amarisset (incubating)](https://superset.incubator.apache.org/), images
 will be moved from there to the _\_static/img_ directory, just like they're referenced
 in the docs.
 
@@ -329,18 +329,18 @@ Generate the documentation with:
     python setup.py build_sphinx
 
 ## CSS Themes
-As part of the npm build process, CSS for Superset is compiled from `Less`, a dynamic stylesheet language.
+As part of the npm build process, CSS for Amarisset is compiled from `Less`, a dynamic stylesheet language.
 
-It's possible to customize or add your own theme to Superset, either by overriding CSS rules or preferably
+It's possible to customize or add your own theme to Amarisset, either by overriding CSS rules or preferably
 by modifying the Less variables or files in `assets/stylesheets/less/`.
 
-The `variables.less` and `bootswatch.less` files that ship with Superset are derived from
+The `variables.less` and `bootswatch.less` files that ship with Amarisset are derived from
 [Bootswatch](https://bootswatch.com) and thus extend Bootstrap. Modify variables in these files directly, or
 swap them out entirely with the equivalent files from other Bootswatch (themes)[https://github.com/thomaspark/bootswatch.git]
 
 ## Translations
 
-We use [Babel](http://babel.pocoo.org/en/latest/) to translate Superset. The
+We use [Babel](http://babel.pocoo.org/en/latest/) to translate Amarisset. The
 key is to instrument the strings that need translation using
 `from flask_babel import lazy_gettext as _`. Once this is imported in
 a module, all you have to do is to `_("Wrap your strings")` using the

@@ -83,7 +83,7 @@ describe('TabbedSqlEditors', () => {
       });
       expect(TabbedSqlEditors.prototype.componentDidMount.calledOnce).to.equal(true);
       expect(window.history.replaceState.getCall(0).args[2])
-        .to.equal('/superset/sqllab');
+        .to.equal('/amaris/sqllab');
     });
     it('should handle savedQueryId', () => {
       uriStub.returns({ savedQueryId: 1 });
@@ -92,7 +92,7 @@ describe('TabbedSqlEditors', () => {
       });
       expect(TabbedSqlEditors.prototype.componentDidMount.calledOnce).to.equal(true);
       expect(window.history.replaceState.getCall(0).args[2])
-        .to.equal('/superset/sqllab');
+        .to.equal('/amaris/sqllab');
     });
     it('should handle sql', () => {
       uriStub.returns({ sql: 1, dbid: 1 });
@@ -101,7 +101,7 @@ describe('TabbedSqlEditors', () => {
       });
       expect(TabbedSqlEditors.prototype.componentDidMount.calledOnce).to.equal(true);
       expect(window.history.replaceState.getCall(0).args[2])
-        .to.equal('/superset/sqllab');
+        .to.equal('/amaris/sqllab');
     });
   });
   describe('componentWillReceiveProps', () => {

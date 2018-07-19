@@ -759,8 +759,8 @@ class R(BaseSupersetView):
 appbuilder.add_view_no_menu(R)
 
 
-class Superset(BaseSupersetView):
-    """The base views for Superset!"""
+class Amaris(BaseSupersetView):
+    """The base views for amaris!"""
     def json_response(self, obj, status=200):
         return Response(
             json.dumps(obj, default=utils.json_int_dttm_ser),
@@ -1662,7 +1662,7 @@ class Superset(BaseSupersetView):
                 db_engine.patch()
 
                 masked_url = database.get_password_masked_url_from_uri(uri)
-                logging.info('Superset.testconn(). Masked URL: {0}'.format(masked_url))
+                logging.info('amaris.testconn(). Masked URL: {0}'.format(masked_url))
 
                 configuration.update(
                     db_engine.get_configuration_for_impersonation(uri,
@@ -2716,7 +2716,7 @@ class Superset(BaseSupersetView):
         return self.get_query_string_response(viz_obj)
 
 
-appbuilder.add_view_no_menu(Superset)
+appbuilder.add_view_no_menu(Amaris)
 
 
 class CssTemplateModelView(SupersetModelView, DeleteMixin):

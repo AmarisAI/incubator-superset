@@ -54,7 +54,7 @@ class SqlEditorLeftBar extends React.PureComponent {
     if (!this.props.queryEditor.dbId || !input) {
       return Promise.resolve({ options: [] });
     }
-    const url = `/superset/tables/${this.props.queryEditor.dbId}/` +
+    const url = `/amaris/tables/${this.props.queryEditor.dbId}/` +
                 `${this.props.queryEditor.schema}/${input}`;
     return $.get(url).then(data => ({ options: data.options }));
   }
@@ -76,7 +76,7 @@ class SqlEditorLeftBar extends React.PureComponent {
     // This can be large so it shouldn't be put in the Redux store
     if (dbId && schema) {
       this.setState({ tableLoading: true, tableOptions: [] });
-      const url = `/superset/tables/${dbId}/${schema}/${substr}/`;
+      const url = `/amaris/tables/${dbId}/${schema}/${substr}/`;
       $.get(url).done((data) => {
         const filterOptions = createFilterOptions({ options: data.options });
         this.setState({
@@ -122,7 +122,7 @@ class SqlEditorLeftBar extends React.PureComponent {
     const actualDbId = dbId || this.props.queryEditor.dbId;
     if (actualDbId) {
       this.setState({ schemaLoading: true });
-      const url = `/superset/schemas/${actualDbId}/`;
+      const url = `/amaris/schemas/${actualDbId}/`;
       $.get(url).done((data) => {
         const schemaOptions = data.schemas.map(s => ({ value: s, label: s }));
         this.setState({ schemaOptions, schemaLoading: false });

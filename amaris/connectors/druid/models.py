@@ -164,7 +164,7 @@ class DruidCluster(Model, AuditMixinNullable, ImportMixin):
     def refresh(self, datasource_names, merge_flag, refreshAll):
         """
         Fetches metadata for the specified datasources and
-        merges to the Superset database
+        merges to the Amaris database
         """
         session = db.session
         ds_list = (
@@ -546,7 +546,7 @@ class DruidDatasource(Model, BaseDatasource):
 
     @renders('datasource_name')
     def datasource_link(self):
-        url = '/superset/explore/{obj.type}/{obj.id}/'.format(obj=self)
+        url = '/amaris/explore/{obj.type}/{obj.id}/'.format(obj=self)
         name = escape(self.datasource_name)
         return Markup('<a href="{url}">{name}</a>'.format(**locals()))
 
@@ -562,7 +562,7 @@ class DruidDatasource(Model, BaseDatasource):
 
          Metrics and columns and datasource will be overridden if exists.
          This function can be used to import/export dashboards between multiple
-         superset instances. Audit metadata isn't copies over.
+         amaris instances. Audit metadata isn't copies over.
         """
         def lookup_datasource(d):
             return db.session.query(DruidDatasource).filter(
@@ -1398,7 +1398,7 @@ class DruidDatasource(Model, BaseDatasource):
 
     @classmethod
     def get_filters(cls, raw_filters, num_cols, columns_dict):  # noqa
-        """Given Superset filter data structure, returns pydruid Filter(s)"""
+        """Given Aamris filter data structure, returns pydruid Filter(s)"""
         filters = None
         for flt in raw_filters:
             col = flt.get('col')

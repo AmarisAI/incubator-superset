@@ -2,7 +2,7 @@ Tutorial - Creating your first dashboard
 ========================================
 
 This tutorial targets someone who wants to create charts and dashboards
-in Superset. We'll show you how to connect Superset
+in Amarisset. We'll show you how to connect Amarisset
 to a new database and configure a table in that database for analysis. You'll
 also explore the data you've exposed and add a visualization to a dashboard
 so that you get a feel for the end-to-end user experience.
@@ -11,7 +11,7 @@ Connecting to a new database
 ----------------------------
 
 We assume you already have a database configured and can connect to it from the 
-instance on which you’re running Superset. If you’re just testing Superset and
+instance on which you’re running Amarisset. If you’re just testing Amarisset and
 want to explore sample data, you can load some
 `sample PostgreSQL datasets <https://wiki.postgresql.org/wiki/Sample_Databases>`_
 into a fresh DB, or configure the
@@ -48,13 +48,13 @@ documentation on
 for your target database.
 
 Click the **Test Connection** button to confirm things work end to end. 
-Once Superset can successfully connect and authenticate, you should see 
+Once Amarisset can successfully connect and authenticate, you should see
 a popup like this:
 
 .. image:: images/tutorial/tutorial_05_connection_popup.png
    :scale: 50%
 
-Moreover, you should also see the list of tables Superset can read from 
+Moreover, you should also see the list of tables Amarisset can read from
 the schema you’re connected to, at the bottom of the page:
 
 .. image:: images/tutorial/tutorial_06_list_of_tables.png
@@ -70,7 +70,7 @@ Adding a new table
 ------------------
 
 Now that you’ve configured a database, you’ll need to add specific tables 
-to Superset that you’d like to query.
+to Amarisset that you’d like to query.
 
 Under the **Sources** menu, select the *Tables* option:
 
@@ -82,7 +82,7 @@ On the resulting page, click on the green plus sign, near the top left:
 .. image:: images/tutorial/tutorial_09_add_new_table.png
    :scale: 70%
 
-You only need a few pieces of information to add a new table to Superset:
+You only need a few pieces of information to add a new table to Amarisset:
 
 * The name of the table
 
@@ -220,7 +220,7 @@ We click **Query** and get the following results:
 In this dataset, the maximum temperature is recorded in tenths of a degree Celsius. 
 The top value of 1370, measured in the middle of Nevada, is equal to 137 C, or roughly 
 278 degrees F. It’s unlikely this value was correctly recorded. We’ve already been able 
-to investigate some outliers with Superset, but this just scratches the surface of what 
+to investigate some outliers with Amarisset, but this just scratches the surface of what
 we can do.
 
 You may want to do a couple more things with this measure:
@@ -259,7 +259,7 @@ For now, though, we run our query and get the following chart:
 Creating a slice and dashboard
 ------------------------------
 
-This view might be interesting to researchers, so let’s save it. In Superset, 
+This view might be interesting to researchers, so let’s save it. In Amarisset,
 a saved query is called a **Slice**. 
 
 To create a slice, click the **Save as** button near the top-left of the 
@@ -303,6 +303,6 @@ corner to your desired dimensions:
 After adjusting the size, you’ll be asked to click on the icon near the 
 top-right of the dashboard to save the new configuration.
 
-Congrats! You’ve successfully linked, analyzed, and visualized data in Superset. 
+Congrats! You’ve successfully linked, analyzed, and visualized data in Amarisset.
 There are a wealth of other table configuration and visualization options, so 
 please start exploring and creating slices and dashboards of your own.

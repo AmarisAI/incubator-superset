@@ -5,7 +5,7 @@ Make sure these boxes are checked before submitting your issue - thank you!
 - [ ] I have checked the issue tracker for the same issue and I haven't found one similar
 
 
-### Superset version
+### Amarisset version
 
 
 ### Expected results

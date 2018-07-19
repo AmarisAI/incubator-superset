@@ -63,7 +63,7 @@ export default class ResultSet extends React.PureComponent {
       let csvButton;
       if (this.props.csv) {
         csvButton = (
-          <Button bsSize="small" href={'/superset/csv/' + this.props.query.id}>
+          <Button bsSize="small" href={'/amaris/csv/' + this.props.query.id}>
             <i className="fa fa-file-text-o" /> {t('.CSV')}
           </Button>
         );

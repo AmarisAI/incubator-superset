@@ -35,7 +35,7 @@ export const regionFilter = {
   },
   slice_id: 256,
   slice_name: 'Region Filters',
-  slice_url: '/superset/explore/table/2/?form_data=%7B%22slice_id%22%3A%20256%7D',
+  slice_url: '/amaris/explore/table/2/?form_data=%7B%22slice_id%22%3A%20256%7D',
 };
 export const countryFilter = {
   datasource: null,
@@ -64,7 +64,7 @@ export const countryFilter = {
   },
   slice_id: 257,
   slice_name: 'Country Filters',
-  slice_url: '/superset/explore/table/2/?form_data=%7B%22slice_id%22%3A%20257%7D',
+  slice_url: '/amaris/explore/table/2/?form_data=%7B%22slice_id%22%3A%20257%7D',
 };
 export const slice = {
   datasource: null,
@@ -115,7 +115,7 @@ export const slice = {
   },
   slice_id: 248,
   slice_name: 'Filtered Population',
-  slice_url: '/superset/explore/table/2/?form_data=%7B%22slice_id%22%3A%20248%7D',
+  slice_url: '/amaris/explore/table/2/?form_data=%7B%22slice_id%22%3A%20248%7D',
 };
 
 const datasources = {};

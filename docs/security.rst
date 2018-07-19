@@ -1,6 +1,6 @@
 Security
 ========
-Security in Superset is handled by Flask AppBuilder (FAB). FAB is a
+Security in Amarisset is handled by Flask AppBuilder (FAB). FAB is a
 "Simple and rapid application development framework, built on top of Flask.".
 FAB provides authentication, user management, permissions and roles.
 Please read its `Security documentation 
@@ -8,8 +8,8 @@ Please read its `Security documentation
 
 Provided Roles
 --------------
-Superset ships with a set of roles that are handled by Superset itself.
-You can assume that these roles will stay up-to-date as Superset evolves.
+Amarisset ships with a set of roles that are handled by Amarisset itself.
+You can assume that these roles will stay up-to-date as Amarisset evolves.
 Even though it's possible for ``Admin`` users to do so, it is not recommended
 that you alter these roles in any way by removing
 or adding permissions to them as these roles will be re-synchronized to
@@ -53,7 +53,7 @@ users need to be given access on a per database basis.
 
 Public
 """"""
-It's possible to allow logged out users to access some Superset features.
+It's possible to allow logged out users to access some Amarisset features.
 
 By setting ``PUBLIC_ROLE_LIKE_GAMMA = True`` in your ``superset_config.py``,
 you grant public role the same set of permissions as for the GAMMA role.
@@ -88,17 +88,17 @@ Customizing
 The permissions exposed by FAB are very granular and allow for a great level
 of customization. FAB creates many permissions automagically for each model
 that is create (can_add, can_delete, can_show, can_edit, ...) as well as for
-each view. On top of that, Superset can expose more granular permissions like
+each view. On top of that, Amarisset can expose more granular permissions like
 ``all_datasource_access``.
 
 We do not recommend altering the 3 base roles as there
-are a set of assumptions that Superset build upon. It is possible though for
+are a set of assumptions that Amarisset build upon. It is possible though for
 you to create your own roles, and union them to existing ones.
 
 Permissions
 """""""""""
 
-Roles are composed of a set of permissions, and Superset has many categories
+Roles are composed of a set of permissions, and Amarisset has many categories
 of permissions. Here are the different categories of permissions:
 
 - **Model & action**: models are entities like ``Dashboard``,

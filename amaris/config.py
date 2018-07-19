@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=C,R,W
-"""The main config file for Superset
+"""The main config file for amaris
 
 All configuration in this file can be overridden by providing a superset_config
 in your PYTHONPATH as there is a ``from superset_config import *``
@@ -25,7 +25,7 @@ from amaris.stats_logger import DummyStatsLogger
 # Realtime stats logger, a StatsD implementation exists
 STATS_LOGGER = DummyStatsLogger()
 
-# default superset, e.g
+# default amaris, e.g
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 if 'SUPERSET_HOME' in os.environ:
     DATA_DIR = os.environ['SUPERSET_HOME']
@@ -33,7 +33,7 @@ else:
     DATA_DIR = os.path.join(os.path.expanduser('~'), '.amaris')
 
 # ---------------------------------------------------------
-# Superset specific config
+# amaris specific config
 # ---------------------------------------------------------
 PACKAGE_DIR = os.path.join(BASE_DIR, 'static', 'assets')
 PACKAGE_FILE = os.path.join(PACKAGE_DIR, 'package.json')
@@ -219,7 +219,7 @@ DRUID_DATA_SOURCE_BLACKLIST = []
 # Modules, datasources and middleware to be registered
 # --------------------------------------------------
 #
-# fabmanager create-admin --app superset
+# fabmanager create-admin --app amaris
 #
 DEFAULT_MODULE_DS_MAP = OrderedDict([
     ('amaris.connectors.sqla.models', ['SqlaTable']),
@@ -272,7 +272,7 @@ WARNING_MSG = None
 # Example:
 class CeleryConfig(object):
   BROKER_URL = 'sqla+sqlite:///celerydb.sqlite'
-  CELERY_IMPORTS = ('superset.sql_lab', )
+  CELERY_IMPORTS = ('amaris.sql_lab', )
   CELERY_RESULT_BACKEND = 'db+sqlite:///celery_results.sqlite'
   CELERY_ANNOTATIONS = {'tasks.add': {'rate_limit': '10/s'}}
   CELERYD_LOG_LEVEL = 'DEBUG'
@@ -284,7 +284,7 @@ CELERY_CONFIG = None
 SQL_CELERY_DB_FILE_PATH = os.path.join(DATA_DIR, 'celerydb.sqlite')
 SQL_CELERY_RESULTS_DB_FILE_PATH = os.path.join(DATA_DIR, 'celery_results.sqlite')
 
-# static http headers to be served by your Superset server.
+# static http headers to be served by your amaris server.
 # This header prevents iFrames from other domains and
 # "clickjacking" as a result
 HTTP_HEADERS = {'X-Frame-Options': 'SAMEORIGIN'}
@@ -311,7 +311,7 @@ SQLLAB_ASYNC_TIME_LIMIT_SEC = 60 * 60 * 6
 RESULTS_BACKEND = None
 
 # The S3 bucket where you want to store your external hive tables created
-# from CSV files. For example, 'companyname-superset'
+# from CSV files. For example, 'companyname-amaris'
 CSV_TO_HIVE_UPLOAD_S3_BUCKET = None
 
 # The directory within the bucket specified above that will
@@ -328,7 +328,7 @@ UPLOADED_CSV_HIVE_NAMESPACE = None
 # dictionary.
 JINJA_CONTEXT_ADDONS = {}
 
-# Roles that are controlled by the API / Superset and should not be changes
+# Roles that are controlled by the API / amaris and should not be changes
 # by humans.
 ROBOT_PERMISSION_ROLES = ['Public', 'Gamma', 'Alpha', 'Admin', 'sql_lab']
 
@@ -349,10 +349,10 @@ EMAIL_NOTIFICATIONS = False  # all the emails are sent using dryrun
 SMTP_HOST = 'localhost'
 SMTP_STARTTLS = True
 SMTP_SSL = False
-SMTP_USER = 'superset'
+SMTP_USER = 'amaris'
 SMTP_PORT = 25
-SMTP_PASSWORD = 'superset'
-SMTP_MAIL_FROM = 'all@superset.ai'
+SMTP_PASSWORD = 'amaris'
+SMTP_MAIL_FROM = 'all@amaris.ai'
 
 if not CACHE_DEFAULT_TIMEOUT:
     CACHE_DEFAULT_TIMEOUT = CACHE_CONFIG.get('CACHE_DEFAULT_TIMEOUT')

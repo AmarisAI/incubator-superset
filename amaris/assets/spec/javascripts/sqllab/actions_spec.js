@@ -43,7 +43,7 @@ describe('async actions', () => {
     });
 
     it('calls correct url', () => {
-      const url = `/superset/results/${query.resultsKey}/`;
+      const url = `/amaris/results/${query.resultsKey}/`;
       makeRequest();
       expect(ajaxStub.getCall(0).args[0].url).to.equal(url);
     });
@@ -116,7 +116,7 @@ describe('async actions', () => {
     });
 
     it('calls the correct url', () => {
-      const url = '/superset/stop_query/';
+      const url = '/amaris/stop_query/';
       makeRequest();
       expect(ajaxStub.getCall(0).args[0].url).to.equal(url);
     });

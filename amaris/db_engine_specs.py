@@ -996,7 +996,7 @@ class HiveEngineSpec(PrestoEngineSpec):
 
     @staticmethod
     def create_table_from_csv(form, table):
-        """Uploads a csv file and creates a superset datasource in Hive."""
+        """Uploads a csv file and creates a amaris datasource in Hive."""
         def convert_to_hive_type(col_type):
             """maps tableschema's types to hive types"""
             tableschema_to_hive_types = {

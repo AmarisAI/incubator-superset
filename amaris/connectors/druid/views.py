@@ -300,7 +300,7 @@ appbuilder.add_view(
 
 
 class Druid(BaseSupersetView):
-    """The base views for Superset!"""
+    """The base views for amaris!"""
 
     @has_access
     @expose('/refresh_datasources/')

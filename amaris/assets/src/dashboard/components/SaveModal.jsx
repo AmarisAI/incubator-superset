@@ -86,7 +86,7 @@ class SaveModal extends React.PureComponent {
     };
     let url = null;
     if (saveType === 'overwrite') {
-      url = `/superset/save_dash/${dashboard.id}/`;
+      url = `/amaris/save_dash/${dashboard.id}/`;
       this.saveDashboardRequest(data, url, saveType);
     } else if (saveType === 'newDashboard') {
       if (!newDashboardTitle) {
@@ -97,7 +97,7 @@ class SaveModal extends React.PureComponent {
         });
       } else {
         data.dashboard_title = newDashboardTitle;
-        url = `/superset/copy_dash/${dashboard.id}/`;
+        url = `/amaris/copy_dash/${dashboard.id}/`;
         this.saveDashboardRequest(data, url, saveType);
       }
     }

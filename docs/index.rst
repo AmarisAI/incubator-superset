@@ -1,20 +1,20 @@
 .. image:: images/s.png
 
-Apache Superset (incubating)
+Apache Amarisset (incubating)
 ''''''''''''''''''''''''''''
 
-Apache Superset (incubating) is a modern, enterprise-ready business
+Apache Amarisset (incubating) is a modern, enterprise-ready business
 intelligence web application
 
 
 ----------------
 
 .. warning:: This project was originally named Panoramix, was renamed to
-    Caravel in March 2016, and is currently named Superset as of November 2016
+    Caravel in March 2016, and is currently named Amarisset as of November 2016
 
 .. important::
 
-    **Disclaimer**: Apache Superset is an effort undergoing incubation at The
+    **Disclaimer**: Apache Amarisset is an effort undergoing incubation at The
     Apache Software Foundation (ASF), sponsored by the Apache Incubator.
     Incubation is required of all newly accepted projects until a further
     review indicates that the infrastructure, communications, and

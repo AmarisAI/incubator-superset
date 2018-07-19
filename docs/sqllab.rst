@@ -14,7 +14,7 @@ Feature Overview
 ----------------
 - Connects to just about any database backend
 - A multi-tab environment to work on multiple queries at a time
-- A smooth flow to visualize your query results using Superset's rich
+- A smooth flow to visualize your query results using Amarisset's rich
   visualization capabilities
 - Browse database metadata: tables, columns, indexes, partitions
 - Support for long-running queries
@@ -52,7 +52,7 @@ Available macros
 ''''''''''''''''
 
 We expose certain modules from Python's standard library in
-Superset's Jinja context:
+Amarisset's Jinja context:
 
 - ``time``: ``time``
 - ``datetime``: ``datetime.datetime``

@@ -286,7 +286,7 @@ class TableModelView(DatasourceModelView, DeleteMixin, YamlExportMixin):  # noqa
         resp = super(TableModelView, self).edit(pk)
         if isinstance(resp, basestring):
             return resp
-        return redirect('/superset/explore/table/{}/'.format(pk))
+        return redirect('/amaris/explore/table/{}/'.format(pk))
 
     @action(
         'refresh',

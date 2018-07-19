@@ -84,7 +84,7 @@ describe('SqlEditorLeftBar', () => {
 
       return wrapper.instance().getTableNamesBySubStr('my table')
         .then((data) => {
-          expect(ajaxStub.getCall(0).args[0]).to.equal('/superset/tables/1/main/my table');
+          expect(ajaxStub.getCall(0).args[0]).to.equal('/amaris/tables/1/main/my table');
           expect(data).to.deep.equal(mockTableOptions);
         });
     });
@@ -110,7 +110,7 @@ describe('SqlEditorLeftBar', () => {
       });
       wrapper.instance().fetchTables(1, 'main', 'birth_names');
 
-      expect(ajaxStub.getCall(0).args[0]).to.equal('/superset/tables/1/main/birth_names/');
+      expect(ajaxStub.getCall(0).args[0]).to.equal('/amaris/tables/1/main/birth_names/');
       expect(wrapper.state().tableLength).to.equal(3);
     });
     it('should handle error', () => {
@@ -127,7 +127,7 @@ describe('SqlEditorLeftBar', () => {
   describe('fetchSchemas', () => {
     it('should fetch schema options', () => {
       const schemaOptions = {
-        schemas: ['main', 'erf', 'superset'],
+        schemas: ['main', 'erf', 'amaris'],
       };
       ajaxStub.callsFake(() => {
         const d = $.Deferred();
@@ -135,7 +135,7 @@ describe('SqlEditorLeftBar', () => {
         return d.promise();
       });
       wrapper.instance().fetchSchemas(1);
-      expect(ajaxStub.getCall(0).args[0]).to.equal('/superset/schemas/1/');
+      expect(ajaxStub.getCall(0).args[0]).to.equal('/amaris/schemas/1/');
       expect(wrapper.state().schemaOptions).to.have.length(3);
     });
     it('should handle error', () => {

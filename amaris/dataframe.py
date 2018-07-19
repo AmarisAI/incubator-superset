@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=C,R,W
-""" Superset wrapper around pandas.DataFrame.
+""" amaris wrapper around pandas.DataFrame.
 
 TODO(bkyryliuk): add support for the conventions like: *_dim or dim_*
                  dimensions, *_ts, ts_*, ds_*, *_ds - datetime, etc.

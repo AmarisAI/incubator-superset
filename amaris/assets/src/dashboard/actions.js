@@ -31,7 +31,7 @@ export function addSlicesToDashboard(dashboardId, sliceIds) {
   return () => (
     $.ajax({
       type: 'POST',
-      url: `/superset/add_slices/${dashboardId}/`,
+      url: `/amaris/add_slices/${dashboardId}/`,
       data: {
         data: JSON.stringify({ slice_ids: sliceIds }),
       },
@@ -87,7 +87,7 @@ export function saveSlice(slice, sliceName) {
   };
 }
 
-const FAVESTAR_BASE_URL = '/superset/favstar/Dashboard';
+const FAVESTAR_BASE_URL = '/amaris/favstar/Dashboard';
 export const TOGGLE_FAVE_STAR = 'TOGGLE_FAVE_STAR';
 export function toggleFaveStar(isStarred) {
   return { type: TOGGLE_FAVE_STAR, isStarred };

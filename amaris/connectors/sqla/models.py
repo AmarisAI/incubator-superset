@@ -824,7 +824,7 @@ class SqlaTable(Model, BaseDatasource):
 
          Metrics and columns and datasource will be overrided if exists.
          This function can be used to import/export dashboards between multiple
-         superset instances. Audit metadata isn't copies over.
+         Amaris instances. Audit metadata isn't copies over.
         """
         def lookup_sqlatable(table):
             return db.session.query(SqlaTable).join(Database).filter(

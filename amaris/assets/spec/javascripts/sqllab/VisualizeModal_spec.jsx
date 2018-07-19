@@ -330,7 +330,7 @@ describe('VisualizeModal', () => {
 
       const spyCall = ajaxSpy.getCall(0);
       expect(spyCall.args[0].type).to.equal('POST');
-      expect(spyCall.args[0].url).to.equal('/superset/sqllab_viz/');
+      expect(spyCall.args[0].url).to.equal('/amaris/sqllab_viz/');
       expect(spyCall.args[0].data.data).to.equal(JSON.stringify(mockOptions));
     });
     it('should open new window', () => {

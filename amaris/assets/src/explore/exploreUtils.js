@@ -12,7 +12,7 @@ export function getAnnotationJsonUrl(slice_id, form_data, isNative) {
   }
   const uri = URI(window.location.search);
   const endpoint = isNative ? 'annotation_json' : 'slice_json';
-  return uri.pathname(`/superset/${endpoint}/${slice_id}`)
+  return uri.pathname(`/amaris/${endpoint}/${slice_id}`)
     .search({
       form_data: JSON.stringify(form_data,
         (key, value) => value === null ? undefined : value),
@@ -21,9 +21,9 @@ export function getAnnotationJsonUrl(slice_id, form_data, isNative) {
 
 export function getURIDirectory(formData, endpointType = 'base') {
   // Building the directory part of the URI
-  let directory = '/superset/explore/';
+  let directory = '/amaris/explore/';
   if (['json', 'csv', 'query'].indexOf(endpointType) >= 0) {
-    directory = '/superset/explore_json/';
+    directory = '/amaris/explore_json/';
   }
   return directory;
 }

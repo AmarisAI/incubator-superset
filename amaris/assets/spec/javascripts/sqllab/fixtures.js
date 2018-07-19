@@ -8,7 +8,7 @@ export const table = {
   dbId: 1,
   selectStar: 'SELECT * FROM ab_user',
   queryEditorId: 'rJ-KP47a',
-  schema: 'superset',
+  schema: 'amaris',
   name: 'ab_user',
   id: 'r11Vgt60',
   dataPreviewQueryId: null,

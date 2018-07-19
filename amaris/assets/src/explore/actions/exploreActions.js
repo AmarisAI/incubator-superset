@@ -3,7 +3,7 @@ import { triggerQuery } from '../../chart/chartAction';
 
 const $ = window.$ = require('jquery');
 
-const FAVESTAR_BASE_URL = '/superset/favstar/slice';
+const FAVESTAR_BASE_URL = '/amaris/favstar/slice';
 
 export const SET_DATASOURCE_TYPE = 'SET_DATASOURCE_TYPE';
 export function setDatasourceType(datasourceType) {
@@ -58,7 +58,7 @@ export function resetControls() {
 export function fetchDatasourceMetadata(datasourceKey, alsoTriggerQuery = false) {
   return function (dispatch) {
     dispatch(fetchDatasourceStarted());
-    const url = `/superset/fetch_datasource_metadata?datasourceKey=${datasourceKey}`;
+    const url = `/amaris/fetch_datasource_metadata?datasourceKey=${datasourceKey}`;
     $.ajax({
       type: 'GET',
       url,
@@ -80,7 +80,7 @@ export function fetchDatasourceMetadata(datasourceKey, alsoTriggerQuery = false)
 export function fetchDatasources() {
   return function (dispatch) {
     dispatch(fetchDatasourcesStarted());
-    const url = '/superset/datasources/';
+    const url = '/amaris/datasources/';
     $.ajax({
       type: 'GET',
       url,

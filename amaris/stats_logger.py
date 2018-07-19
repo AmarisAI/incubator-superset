@@ -13,7 +13,7 @@ from colorama import Fore, Style
 class BaseStatsLogger(object):
     """Base class for logging realtime events"""
 
-    def __init__(self, prefix='superset'):
+    def __init__(self, prefix='amaris'):
         self.prefix = prefix
 
     def key(self, key):
@@ -54,7 +54,7 @@ try:
     from statsd import StatsClient
 
     class StatsdStatsLogger(BaseStatsLogger):
-        def __init__(self, host, port, prefix='superset'):
+        def __init__(self, host, port, prefix='amaris'):
             self.client = StatsClient(host=host, port=port, prefix=prefix)
 
         def incr(self, key):

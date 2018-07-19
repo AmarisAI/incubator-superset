@@ -110,7 +110,7 @@ def runserver(debug, console_log, use_reloader, address, port, timeout, workers,
             debug_run(app, port, use_reloader)
     else:
         logging.info(
-            "The Gunicorn 'superset runserver' command is deprecated. Please "
+            "The Gunicorn 'amaris runserver' command is deprecated. Please "
             "use the 'gunicorn' command instead.")
         addr_str = ' unix:{socket} ' if socket else' {address}:{port} '
         cmd = (
@@ -120,7 +120,7 @@ def runserver(debug, console_log, use_reloader, address, port, timeout, workers,
             '-b ' + addr_str +
             '--limit-request-line 0 '
             '--limit-request-field_size 0 '
-            'superset:app').format(**locals())
+            'amaris:app').format(**locals())
         print(Fore.GREEN + 'Starting server with command: ')
         print(Fore.YELLOW + cmd)
         print(Style.RESET_ALL)
@@ -326,7 +326,7 @@ def update_datasources_cache():
 def worker(workers):
     """Starts a Amaris worker for async SQL query execution."""
     logging.info(
-        "The 'superset worker' command is deprecated. Please use the 'celery "
+        "The 'amaris worker' command is deprecated. Please use the 'celery "
         "worker' command instead.")
     if workers:
         celery_app.conf.update(CELERYD_CONCURRENCY=workers)
@@ -359,7 +359,7 @@ def flower(port, address):
         '--address={address} '
     ).format(**locals())
     logging.info(
-        "The 'superset flower' command is deprecated. Please use the 'celery "
+        "The 'amaris flower' command is deprecated. Please use the 'celery "
         "flower' command instead.")
     print(Fore.GREEN + 'Starting a Celery Flower instance')
     print(Fore.BLUE + '-=' * 40)

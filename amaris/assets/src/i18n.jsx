@@ -1,11 +1,11 @@
 import Jed from 'jed';
 
 const DEFAULT_LANGUAGE_PACK = {
-  domain: 'superset',
+  domain: 'amaris',
   locale_data: {
-    superset: {
+    amaris: {
       '': {
-        domain: 'superset',
+        domain: 'amaris',
         lang: 'en',
         plural_forms: 'nplurals=1; plural=0',
       },

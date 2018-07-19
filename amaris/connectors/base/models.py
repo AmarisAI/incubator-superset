@@ -226,8 +226,8 @@ class BaseDatasource(AuditMixinNullable, ImportMixin):
     def query(self, query_obj):
         """Executes the query and returns a dataframe
 
-        query_obj is a dictionary representing Superset's query interface.
-        Should return a ``superset.models.helpers.QueryResult``
+        query_obj is a dictionary representing amaris's query interface.
+        Should return a ``amaris.models.helpers.QueryResult``
         """
         raise NotImplementedError()
 

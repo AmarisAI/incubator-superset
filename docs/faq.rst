@@ -4,7 +4,7 @@ FAQ
 
 Can I query/join multiple tables at one time?
 ---------------------------------------------
-Not directly no. A Superset SQLAlchemy datasource can only be a single table
+Not directly no. A Amarisset SQLAlchemy datasource can only be a single table
 or a view.
 
 When working with tables, the solution would be to materialize
@@ -14,15 +14,15 @@ through some scheduled batch process.
 A view is a simple logical layer that abstract an arbitrary SQL queries as
 a virtual table. This can allow you to join and union multiple tables, and
 to apply some transformation using arbitrary SQL expressions. The limitation
-there is your database performance as Superset effectively will run a query
+there is your database performance as Amarisset effectively will run a query
 on top of your query (view). A good practice may be to limit yourself to
 joining your main large table to one or many small tables only, and avoid
-using ``GROUP BY`` where possible as Superset will do its own ``GROUP BY`` and
+using ``GROUP BY`` where possible as Amarisset will do its own ``GROUP BY`` and
 doing the work twice might slow down performance.
 
 Whether you use a table or a view, the important factor is whether your
 database is fast enough to serve it in an interactive fashion to provide
-a good user experience in Superset.
+a good user experience in Amarisset.
 
 
 How BIG can my data source be?
@@ -60,16 +60,16 @@ Why are my queries timing out?
 There are many reasons may cause long query timing out.
 
 
-- For running long query from Sql Lab, by default Superset allows it run as long as 6 hours before it being killed by celery. If you want to increase the time for running query, you can specify the timeout in configuration. For example:
+- For running long query from Sql Lab, by default Amarisset allows it run as long as 6 hours before it being killed by celery. If you want to increase the time for running query, you can specify the timeout in configuration. For example:
 
   ``SQLLAB_ASYNC_TIME_LIMIT_SEC = 60 * 60 * 6``
 
 
-- Superset is running on gunicorn web server, which may time out web requests. If you want to increase the default (50), you can specify the timeout when starting the web server with the ``-t`` flag, which is expressed in seconds.
+- Amarisset is running on gunicorn web server, which may time out web requests. If you want to increase the default (50), you can specify the timeout when starting the web server with the ``-t`` flag, which is expressed in seconds.
 
   ``superset runserver -t 300``
 
-- If you are seeing timeouts (504 Gateway Time-out) when loading dashboard or explore slice, you are probably behind gateway or proxy server (such as Nginx). If it did not receive a timely response from Superset server (which is processing long queries), these web servers will send 504 status code to clients directly. Superset has a client-side timeout limit to address this issue. If query didn't come back within clint-side timeout (60 seconds by default), Superset will display warning message to avoid gateway timeout message. If you have a longer gateway timeout limit, you can change the timeout settings in ``superset_config.py``:
+- If you are seeing timeouts (504 Gateway Time-out) when loading dashboard or explore slice, you are probably behind gateway or proxy server (such as Nginx). If it did not receive a timely response from Amarisset server (which is processing long queries), these web servers will send 504 status code to clients directly. Amarisset has a client-side timeout limit to address this issue. If query didn't come back within clint-side timeout (60 seconds by default), Amarisset will display warning message to avoid gateway timeout message. If you have a longer gateway timeout limit, you can change the timeout settings in ``superset_config.py``:
 
   ``SUPERSET_WEBSERVER_TIMEOUT = 60``
 
@@ -182,9 +182,9 @@ Another work around is to change where superset stores the sqlite database by ad
 What if the table schema changed?
 ---------------------------------
 
-Table schemas evolve, and Superset needs to reflect that. It's pretty common
+Table schemas evolve, and Amarisset needs to reflect that. It's pretty common
 in the life cycle of a dashboard to want to add a new dimension or metric.
-To get Superset to discover your new columns, all you have to do is to
+To get Amarisset to discover your new columns, all you have to do is to
 go to ``Menu -> Sources -> Tables``, click the ``edit`` icon next to the
 table who's schema has changed, and hit ``Save`` from the ``Detail`` tab.
 Behind the scene, the new columns will get merged it. Following this,
@@ -198,18 +198,18 @@ Here's an example as a Github PR with comments that describe what the
 different sections of the code do:
 https://github.com/airbnb/superset/pull/3013
 
-What database engine can I use as a backend for Superset?
+What database engine can I use as a backend for Amarisset?
 ---------------------------------------------------------
 
-To clarify, the *database backend* is an OLTP database used by Superset to store its internal
+To clarify, the *database backend* is an OLTP database used by Amarisset to store its internal
 information like your list of users, slices and dashboard definitions.
 
-Superset is tested using Mysql, Postgresql and Sqlite for its backend. It's recommended you
-install Superset on one of these database server for production.
+Amarisset is tested using Mysql, Postgresql and Sqlite for its backend. It's recommended you
+install Amarisset on one of these database server for production.
 
 Using a column-store, non-OLTP databases like Vertica, Redshift or Presto as a database backend simply won't work as these databases are not designed for this type of workload. Installation on Oracle, Microsoft SQL Server, or other OLTP databases may work but isn't tested.
 
-Please note that pretty much any databases that have a SqlAlchemy integration should work perfectly fine as a datasource for Superset, just not as the OLTP backend.
+Please note that pretty much any databases that have a SqlAlchemy integration should work perfectly fine as a datasource for Amarisset, just not as the OLTP backend.
 
 How can i configure OAuth authentication and authorization?
 -----------------------------------------------------------
@@ -223,10 +223,10 @@ How can I set a default filter on my dashboard?
 Easy. Simply apply the filter and save the dashboard while the filter
 is active.
 
-How do I get Superset to refresh the schema of my table?
+How do I get Amarisset to refresh the schema of my table?
 --------------------------------------------------------
 
-When adding columns to a table, you can have Superset detect and merge the
+When adding columns to a table, you can have Amarisset detect and merge the
 new columns in by using the "Refresh Metadata" action in the
 ``Source -> Tables`` page. Simply check the box next to the tables
 you want the schema refreshed, and click ``Actions -> Refresh Metadata``.

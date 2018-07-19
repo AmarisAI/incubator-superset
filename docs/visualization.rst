@@ -1757,7 +1757,7 @@ To add a new country in country map tools, we need follow next steps :
         'Uk',
         'Usa',
         ].map(s => [s, s]),
-        description: 'The name of country that Superset should display',
+        description: 'The name of country that Amarisset should display',
     },
        
 

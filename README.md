@@ -11,11 +11,11 @@ Amaris
 
 <img
   src="https://cloud.githubusercontent.com/assets/130878/20946612/49a8a25c-bbc0-11e6-8314-10bef902af51.png"
-  alt="Superset"
+  alt="Amarisset"
   width="500"
 />
 
-**Apache Superset** (incubating) is a modern, enterprise-ready
+**Apache Amarisset** (incubating) is a modern, enterprise-ready
 business intelligence web application
 
 [this project used to be named **Caravel**, and **Panoramix** in the past]
@@ -45,6 +45,9 @@ if you want to clean project  `python setup.py clean`
 
 `cd incubator-superset/dist`
 
+At incubator-superset dir
+
+`pip install e . `
 
 `easy_install` the `package-xx..egg` 
 
@@ -86,11 +89,11 @@ Screenshots & Gifs
 
 <kbd><img title="Visualizations" src="https://raw.githubusercontent.com/apache/incubator-superset/master/superset/assets/images/screenshots/visualizations.png"></kbd><br/>
 
-Apache Superset
+Apache Amarisset
 ---------------
-Apache Superset is a data exploration and visualization web application.
+Apache Amarisset is a data exploration and visualization web application.
 
-Superset provides:
+Amarisset provides:
 * An intuitive interface to explore and visualize datasets, and
     create interactive dashboards.
 * A wide array of beautiful visualizations to showcase your data.
@@ -106,7 +109,7 @@ Superset provides:
 * A lightweight semantic layer, allowing to control how data sources are
     exposed to the user by defining dimensions and metrics
 * Out of the box support for most SQL-speaking databases
-* Deep integration with Druid allows for Superset to stay blazing fast while
+* Deep integration with Druid allows for Amarisset to stay blazing fast while
     slicing and dicing large, realtime datasets
 * Fast loading dashboards with configurable caching
 
@@ -114,11 +117,11 @@ Superset provides:
 Database Support
 ----------------
 
-Superset speaks many SQL dialects through SQLAlchemy, a Python
+Amarisset speaks many SQL dialects through SQLAlchemy, a Python
 ORM that is compatible with
 [most common databases](http://docs.sqlalchemy.org/en/rel_1_0/core/engines.html).
 
-Superset can be used to visualize data out of most databases:
+Amarisset can be used to visualize data out of most databases:
 * MySQL
 * Postgres
 * Vertica
@@ -135,17 +138,17 @@ Superset can be used to visualize data out of most databases:
 * Snowflake
 * Redshift
 * **more!** look for the availability of a SQLAlchemy dialect for your database
-  to find out whether it will work with Superset
+  to find out whether it will work with Amarisset
 
 
 Druid!
 ------
 
 On top of having the ability to query your relational databases,
-Superset ships with deep integration with Druid (a real time distributed
+Amarisset ships with deep integration with Druid (a real time distributed
 column-store). When querying Druid,
-Superset can query humongous amounts of data on top of real time dataset.
-Note that Superset does not require Druid in any way to function, it's simply
+Amarisset can query humongous amounts of data on top of real time dataset.
+Note that Amarisset does not require Druid in any way to function, it's simply
 another database backend that it can query.
 
 Here's a description of Druid from the http://druid.io website:
@@ -181,16 +184,16 @@ Interested in contributing? Casual hacking? Check out
 [Contributing.MD](https://github.com/airbnb/superset/blob/master/CONTRIBUTING.md)
 
 
-How to build Apache Superset (incubating)?
+How to build Apache Amarisset (incubating)?
 --------------------------------------
 
 
 
-Who uses Apache Superset (incubating)?
+Who uses Apache Amarisset (incubating)?
 --------------------------------------
 
 Here's a list of organizations who have taken the time to send a PR to let
-the world know they are using Superset. Join our growing community!
+the world know they are using Amarisset. Join our growing community!
 
  - [AiHello](https://www.aihello.com)
  - [Airbnb](https://github.com/airbnb)

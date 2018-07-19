@@ -1,16 +1,16 @@
-# Updating Superset
+# Updating Amarisset
 
-This file documents any backwards-incompatible changes in Superset and
+This file documents any backwards-incompatible changes in Amarisset and
 assists people when migrating to a new version.
 
-## Superset 0.26.0
-* Superset 0.26.0 deprecates the `superset worker` CLI, which is a simple
+## Amarisset 0.26.0
+* Amarisset 0.26.0 deprecates the `superset worker` CLI, which is a simple
 wrapper around the `celery worker` command, forcing you into crafting
 your own native `celery worker` command. Your command should look something
 like `celery worker --app=superset.sql_lab:celery_app --pool=gevent -Ofair`
 
-## Superset 0.25.0
-Superset 0.25.0 contains a backwards incompatible changes.
+## Amarisset 0.25.0
+Amarisset 0.25.0 contains a backwards incompatible changes.
 If you run a production system you should schedule downtime for this
 upgrade.
 
@@ -24,7 +24,7 @@ The PRs bellow have more information around the breaking changes:
   define your authentication scheme by inheriting from Flask
   App Builder's 
   `from flask_appbuilder.security.sqla.manager import SecurityManager`,
-  you now have to derive Superset's
+  you now have to derive Amarisset's
   own derivative `superset.security.SupersetSecurityManager`. This
   can provide you with more hooks to define your own logic and/or defer
   permissions to another system as needed. For all implementation, you
@@ -34,6 +34,6 @@ The PRs bellow have more information around the breaking changes:
   our `setup.py` now only pins versions where required, giving you
   more latitude in using versions of libraries as needed. We do now
   provide a `requirements.txt` with pinned versions if you want to run
-  the suggested versions that `Superset` builds and runs tests against.
+  the suggested versions that `Amarisset` builds and runs tests against.
   Simply `pip install -r requirements.txt` in your build pipeline, likely
   prior to `pip install superset==0.25.0`
