@@ -94,7 +94,7 @@ ENABLE_PROXY_FIX = False
 # GLOBALS FOR APP Builder
 # ------------------------------
 # Uncomment to setup Your App name
-APP_NAME = 'Superset'
+APP_NAME = 'Amaris.AI'
 
 # Uncomment to setup an App icon
 APP_ICON = '/static/assets/images/superset-logo@2x.png'
@@ -376,7 +376,10 @@ BLUEPRINTS = []
 # Provide a callable that receives a tracking_url and returns another
 # URL. This is used to translate internal Hadoop job tracker URL
 # into a proxied one
-TRACKING_URL_TRANSFORMER = lambda x: x  # noqa: E731
+
+
+def TRACKING_URL_TRANSFORMER(x): return x  # noqa: E731
+
 
 # Interval between consecutive polls when using Hive Engine
 HIVE_POLL_INTERVAL = 5
