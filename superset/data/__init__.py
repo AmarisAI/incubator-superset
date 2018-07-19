@@ -333,6 +333,18 @@ def load_world_bank_health_n_pop():
                 metrics=["sum__SP_POP_TOTL"],
                 groupby=["region", "country_code"],)),
         Slice(
+            slice_name="Sunburst2",
+            viz_type='sunburst2',
+            datasource_type='table',
+            datasource_id=tbl.id,
+            params=get_slice_json(
+                defaults,
+                since="1960-01-01",
+                until="now",
+                viz_type='sunburst2',
+                metrics=["sum__SP_POP_TOTL"],
+                groupby=["region", "country_code"],)),
+        Slice(
             slice_name="Parallel Coordinates",
             viz_type='para',
             datasource_type='table',

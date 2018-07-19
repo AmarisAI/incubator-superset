@@ -1,5 +1,23 @@
 {
   "controls": {
+    "metrics": {
+      "type": "MetricsControl",
+      "multi": true,
+      "label": "Metrics",
+      "validators": [
+        null
+      ],
+      "description": "One or many metrics to display"
+    },
+    "metric": {
+      "type": "MetricsControl",
+      "multi": false,
+      "label": "Metric",
+      "validators": [
+        null
+      ],
+      "description": "One or many metrics to display"
+    },
     "datasource": {
       "type": "DatasourceControl",
       "label": "Datasource",
@@ -12,21 +30,11 @@
       "default": "table",
       "description": "The type of visualization to display"
     },
-    "metrics": {
-      "type": "SelectControl",
-      "multi": true,
-      "label": "Metrics",
-      "validators": [
-        null
-      ],
-      "valueKey": "metric_name",
-      "description": "One or many metrics to display"
-    },
     "percent_metrics": {
-      "type": "SelectControl",
+      "type": "MetricsControl",
       "multi": true,
       "label": "Percentage Metrics",
-      "valueKey": "metric_name",
+      "validators": [],
       "description": "Metrics for which percentage of total are to be displayed"
     },
     "y_axis_bounds": {
@@ -58,30 +66,70 @@
       },
       "renderTrigger": true
     },
-    "metric": {
+    "legend_position": {
+      "label": "Legend Position",
+      "description": "Choose the position of the legend",
       "type": "SelectControl",
-      "label": "Metric",
       "clearable": false,
-      "description": "Choose the metric",
-      "validators": [
-        null
+      "default": "tr",
+      "choices": [
+        [
+          "tl",
+          "Top left"
+        ],
+        [
+          "tr",
+          "Top right"
+        ],
+        [
+          "bl",
+          "Bottom left"
+        ],
+        [
+          "br",
+          "Bottom right"
+        ]
       ],
-      "valueKey": "metric_name"
+      "renderTrigger": true
+    },
+    "fill_color_picker": {
+      "label": "Fill Color",
+      "description": " Set the opacity to 0 if you do not want to override the color specified in the GeoJSON",
+      "type": "ColorPickerControl",
+      "default": {
+        "r": 0,
+        "g": 122,
+        "b": 135,
+        "a": 1
+      },
+      "renderTrigger": true
+    },
+    "stroke_color_picker": {
+      "label": "Stroke Color",
+      "description": " Set the opacity to 0 if you do not want to override the color specified in the GeoJSON",
+      "type": "ColorPickerControl",
+      "default": {
+        "r": 0,
+        "g": 122,
+        "b": 135,
+        "a": 1
+      },
+      "renderTrigger": true
     },
     "metric_2": {
-      "type": "SelectControl",
+      "type": "MetricsControl",
+      "multi": false,
       "label": "Right Axis Metric",
-      "default": null,
       "validators": [
         null
       ],
-      "clearable": true,
       "description": "Choose a metric for right axis",
-      "valueKey": "metric_name"
+      "clearable": true
     },
     "stacked_style": {
       "type": "SelectControl",
       "label": "Stacked Style",
+      "renderTrigger": true,
       "choices": [
         [
           "stack",
@@ -156,10 +204,6 @@
           "fire"
         ],
         [
-          "blue_white_yellow",
-          "blue/white/yellow"
-        ],
-        [
           "white_black",
           "white/black"
         ],
@@ -174,6 +218,34 @@
         [
           "pink_grey",
           "pink/white/grey"
+        ],
+        [
+          "greens",
+          "greens"
+        ],
+        [
+          "purples",
+          "purples"
+        ],
+        [
+          "oranges",
+          "oranges"
+        ],
+        [
+          "blue_white_yellow",
+          "blue/white/yellow"
+        ],
+        [
+          "red_yellow_blue",
+          "red/yellowish/blue"
+        ],
+        [
+          "brown_white_green",
+          "brown/white/green"
+        ],
+        [
+          "purple_white_green",
+          "purple/white/green"
         ]
       ],
       "default": "blue_white_yellow",
@@ -211,6 +283,42 @@
           "#E70B81",
           "#FAFAFA",
           "#666666"
+        ],
+        "greens": [
+          "#ffffcc",
+          "#78c679",
+          "#006837"
+        ],
+        "purples": [
+          "#f2f0f7",
+          "#9e9ac8",
+          "#54278f"
+        ],
+        "oranges": [
+          "#fef0d9",
+          "#fc8d59",
+          "#b30000"
+        ],
+        "red_yellow_blue": [
+          "#d7191c",
+          "#fdae61",
+          "#ffffbf",
+          "#abd9e9",
+          "#2c7bb6"
+        ],
+        "brown_white_green": [
+          "#a6611a",
+          "#dfc27d",
+          "#f5f5f5",
+          "#80cdc1",
+          "#018571"
+        ],
+        "purple_white_green": [
+          "#7b3294",
+          "#c2a5cf",
+          "#f7f7f7",
+          "#a6dba0",
+          "#008837"
         ]
       },
       "isLinear": true
@@ -275,6 +383,7 @@
     "xscale_interval": {
       "type": "SelectControl",
       "label": "XScale Interval",
+      "renderTrigger": true,
       "choices": [
         [
           1,
@@ -478,6 +587,7 @@
         ]
       ],
       "default": "1",
+      "clearable": false,
       "description": "Number of steps to take between ticks when displaying the X scale"
     },
     "yscale_interval": {
@@ -685,7 +795,9 @@
           "50"
         ]
       ],
-      "default": null,
+      "default": "1",
+      "clearable": false,
+      "renderTrigger": true,
       "description": "Number of steps to take between ticks when displaying the Y scale"
     },
     "include_time": {
@@ -693,6 +805,13 @@
       "label": "Include Time",
       "description": "Whether to include the time granularity as defined in the time section",
       "default": false
+    },
+    "autozoom": {
+      "type": "CheckboxControl",
+      "label": "Auto Zoom",
+      "default": true,
+      "renderTrigger": true,
+      "description": "When checked, the map will zoom to your data after each query"
     },
     "show_perc": {
       "type": "CheckboxControl",
@@ -733,6 +852,7 @@
       "type": "CheckboxControl",
       "label": "Sort Bars",
       "default": false,
+      "renderTrigger": true,
       "description": "Sort bars by x labels."
     },
     "combine_metric": {
@@ -763,8 +883,12 @@
       "description": "Include series name as an axis"
     },
     "secondary_metric": {
-      "type": "SelectControl",
+      "type": "MetricsControl",
+      "multi": false,
       "label": "Color Metric",
+      "validators": [
+        null
+      ],
       "default": null,
       "description": "A metric to use for color"
     },
@@ -800,6 +924,10 @@
         [
           "Italy",
           "Italy"
+        ],
+        [
+          "Portugal",
+          "Portugal"
         ],
         [
           "Morocco",
@@ -926,7 +1054,32 @@
       "multi": true,
       "label": "Columns",
       "default": [],
-      "description": "Columns to display"
+      "description": "Columns to display",
+      "valueKey": "column_name"
+    },
+    "spatial": {
+      "type": "SpatialControl",
+      "label": "Longitude & Latitude",
+      "validators": [
+        null
+      ],
+      "description": "Point to your spatial columns"
+    },
+    "start_spatial": {
+      "type": "SpatialControl",
+      "label": "Start Longitude & Latitude",
+      "validators": [
+        null
+      ],
+      "description": "Point to your spatial columns"
+    },
+    "end_spatial": {
+      "type": "SpatialControl",
+      "label": "End Longitude & Latitude",
+      "validators": [
+        null
+      ],
+      "description": "Point to your spatial columns"
     },
     "longitude": {
       "type": "SelectControl",
@@ -945,6 +1098,84 @@
         null
       ],
       "description": "Select the latitude column"
+    },
+    "geojson": {
+      "type": "SelectControl",
+      "label": "GeoJson Column",
+      "validators": [
+        null
+      ],
+      "description": "Select the geojson column"
+    },
+    "polygon": {
+      "type": "SelectControl",
+      "label": "Polygon Column",
+      "validators": [
+        null
+      ],
+      "description": "Select the polygon column. Each row should contain JSON.array(N) of [longitude, latitude] points"
+    },
+    "point_radius_scale": {
+      "type": "SelectControl",
+      "freeForm": true,
+      "label": "Point Radius Scale",
+      "validators": [
+        null
+      ],
+      "default": null,
+      "choices": [
+        [
+          0,
+          "0"
+        ],
+        [
+          100,
+          "100"
+        ],
+        [
+          200,
+          "200"
+        ],
+        [
+          300,
+          "300"
+        ],
+        [
+          500,
+          "500"
+        ]
+      ]
+    },
+    "stroke_width": {
+      "type": "SelectControl",
+      "freeForm": true,
+      "label": "Stroke Width",
+      "validators": [
+        null
+      ],
+      "default": null,
+      "choices": [
+        [
+          1,
+          "1"
+        ],
+        [
+          2,
+          "2"
+        ],
+        [
+          3,
+          "3"
+        ],
+        [
+          4,
+          "4"
+        ],
+        [
+          5,
+          "5"
+        ]
+      ]
     },
     "all_columns_x": {
       "type": "SelectControl",
@@ -977,6 +1208,7 @@
     },
     "bottom_margin": {
       "type": "SelectControl",
+      "clearable": false,
       "freeForm": true,
       "label": "Bottom Margin",
       "choices": [
@@ -1013,9 +1245,36 @@
       "renderTrigger": true,
       "description": "Bottom margin, in pixels, allowing for more room for axis labels"
     },
+    "x_ticks_layout": {
+      "type": "SelectControl",
+      "label": "X Tick Layout",
+      "choices": [
+        [
+          "auto",
+          "auto"
+        ],
+        [
+          "flat",
+          "flat"
+        ],
+        [
+          "45°",
+          "45°"
+        ],
+        [
+          "staggered",
+          "staggered"
+        ]
+      ],
+      "default": "auto",
+      "clearable": false,
+      "renderTrigger": true,
+      "description": "The way the ticks are laid out on the X axis"
+    },
     "left_margin": {
       "type": "SelectControl",
       "freeForm": true,
+      "clearable": false,
       "label": "Left Margin",
       "choices": [
         [
@@ -1058,55 +1317,59 @@
       "default": "one day",
       "choices": [
         [
-          "all",
+          null,
           "all"
         ],
         [
-          "5 seconds",
+          "PT5S",
           "5 seconds"
         ],
         [
-          "30 seconds",
+          "PT30S",
           "30 seconds"
         ],
         [
-          "1 minute",
+          "PT1M",
           "1 minute"
         ],
         [
-          "5 minutes",
+          "PT5M",
           "5 minutes"
         ],
         [
-          "1 hour",
+          "PT30M",
+          "30 minutes"
+        ],
+        [
+          "PT1H",
           "1 hour"
         ],
         [
-          "6 hour",
+          "PT6H",
           "6 hour"
         ],
         [
-          "1 day",
+          "P1D",
           "1 day"
         ],
         [
-          "7 days",
+          "P7D",
           "7 days"
         ],
         [
-          "week",
+          "P1W",
           "week"
         ],
         [
           "week_starting_sunday",
-          "week_starting_sunday"
+          "week starting Sunday"
         ],
         [
           "week_ending_saturday",
-          "week_ending_saturday"
+          "week ending Saturday"
         ],
         [
-          "month",
+          "P1M",
           "month"
         ]
       ],
@@ -1429,6 +1692,7 @@
     "treemap_ratio": {
       "type": "TextControl",
       "label": "Ratio",
+      "renderTrigger": true,
       "isFloat": true,
       "default": 1.618033988749895,
       "description": "Target aspect ratio for treemap tiles."
@@ -1441,28 +1705,36 @@
       "default": ".3s",
       "choices": [
         [
+          ".1s",
+          ".1s (12345.432 => 10k)"
+        ],
+        [
           ".3s",
-          ".3s | 12.3k"
+          ".3s (12345.432 => 12.3k)"
+        ],
+        [
+          ",.1%",
+          ",.1% (12345.432 => 1,234,543.2%)"
         ],
         [
           ".3%",
-          ".3% | 1234543.210%"
+          ".3% (12345.432 => 1234543.200%)"
         ],
         [
           ".4r",
-          ".4r | 12350"
+          ".4r (12345.432 => 12350)"
         ],
         [
-          ".3f",
-          ".3f | 12345.432"
+          ",.3f",
+          ",.3f (12345.432 => 12,345.432)"
         ],
         [
           "+,",
-          "+, | +12,345.4321"
+          "+, (12345.432 => +12,345.432)"
         ],
         [
           "$,.2f",
-          "$,.2f | $12,345.43"
+          "$,.2f (12345.432 => $12,345.43)"
         ]
       ],
       "description": "D3 format syntax: https://github.com/d3/d3-format"
@@ -1474,7 +1746,7 @@
       "validators": [
         null
       ],
-      "default": null,
+      "default": 10000,
       "choices": [
         [
           10,
@@ -1551,11 +1823,10 @@
           "500"
         ]
       ],
-      "default": 50,
-      "description": "Limits the number of time series that get displayed"
+      "description": "Limits the number of time series that get displayed. A sub query (or an extra phase where sub queries are not supported) is applied to limit the number of time series that get fetched and displayed. This feature is useful when grouping by high cardinality dimension(s)."
     },
     "timeseries_limit_metric": {
-      "type": "SelectControl",
+      "type": "MetricsControl",
       "label": "Sort By",
       "default": null,
       "description": "Metric used to define the top series"
@@ -1598,6 +1869,7 @@
       "type": "TextControl",
       "label": "Multiplier",
       "isFloat": true,
+      "renderTrigger": true,
       "default": 1,
       "description": "Factor to multiply the metric by"
     },
@@ -1606,6 +1878,50 @@
       "label": "Periods",
       "isInt": true,
       "description": "Defines the size of the rolling window function, relative to the time granularity selected"
+    },
+    "cell_size": {
+      "type": "TextControl",
+      "isInt": true,
+      "default": 10,
+      "validators": [
+        null
+      ],
+      "renderTrigger": true,
+      "label": "Cell Size",
+      "description": "The size of the square cell, in pixels"
+    },
+    "cell_padding": {
+      "type": "TextControl",
+      "isInt": true,
+      "validators": [
+        null
+      ],
+      "renderTrigger": true,
+      "default": 0,
+      "label": "Cell Padding",
+      "description": "The distance between cells, in pixels"
+    },
+    "cell_radius": {
+      "type": "TextControl",
+      "isInt": true,
+      "validators": [
+        null
+      ],
+      "renderTrigger": true,
+      "default": 0,
+      "label": "Cell Radius",
+      "description": "The pixel radius"
+    },
+    "steps": {
+      "type": "TextControl",
+      "isInt": true,
+      "validators": [
+        null
+      ],
+      "renderTrigger": true,
+      "default": 10,
+      "label": "Color Steps",
+      "description": "The number color \"steps\""
     },
     "grid_size": {
       "type": "TextControl",
@@ -1637,33 +1953,34 @@
       "description": "This defines the element to be plotted on the chart"
     },
     "x": {
-      "type": "SelectControl",
+      "type": "MetricsControl",
+      "multi": false,
       "label": "X Axis",
-      "description": "Metric assigned to the [X] axis",
-      "default": null,
       "validators": [
         null
       ],
-      "valueKey": "metric_name"
+      "default": null,
+      "description": "Metric assigned to the [X] axis"
     },
     "y": {
-      "type": "SelectControl",
+      "type": "MetricsControl",
+      "multi": false,
       "label": "Y Axis",
-      "default": null,
       "validators": [
         null
       ],
-      "description": "Metric assigned to the [Y] axis",
-      "valueKey": "metric_name"
+      "default": null,
+      "description": "Metric assigned to the [Y] axis"
     },
     "size": {
-      "type": "SelectControl",
+      "type": "MetricsControl",
+      "multi": false,
       "label": "Bubble Size",
-      "default": null,
       "validators": [
         null
       ],
-      "valueKey": "metric_name"
+      "default": null,
+      "description": "One or many metrics to display"
     },
     "url": {
       "type": "TextControl",
@@ -1699,6 +2016,7 @@
       "freeForm": true,
       "label": "Table Timestamp Format",
       "default": "%Y-%m-%d %H:%M:%S",
+      "renderTrigger": true,
       "validators": [
         null
       ],
@@ -1707,6 +2025,10 @@
         [
           "smart_date",
           "Adaptative formating"
+        ],
+        [
+          "%d/%m/%Y",
+          "%d/%m/%Y | 14/01/2019"
         ],
         [
           "%m/%d/%Y",
@@ -1719,6 +2041,10 @@
         [
           "%Y-%m-%d %H:%M:%S",
           "%Y-%m-%d %H:%M:%S | 2019-01-14 01:32:10"
+        ],
+        [
+          "%d-%m-%Y %H:%M:%S",
+          "%Y-%m-%d %H:%M:%S | 14-01-2019 01:32:10"
         ],
         [
           "%H:%M:%S",
@@ -1771,6 +2097,7 @@
     "page_length": {
       "type": "SelectControl",
       "freeForm": true,
+      "renderTrigger": true,
       "label": "Page Length",
       "default": 0,
       "choices": [
@@ -1821,28 +2148,36 @@
       "default": ".3s",
       "choices": [
         [
+          ".1s",
+          ".1s (12345.432 => 10k)"
+        ],
+        [
           ".3s",
-          ".3s | 12.3k"
+          ".3s (12345.432 => 12.3k)"
+        ],
+        [
+          ",.1%",
+          ",.1% (12345.432 => 1,234,543.2%)"
         ],
         [
           ".3%",
-          ".3% | 1234543.210%"
+          ".3% (12345.432 => 1234543.200%)"
         ],
         [
           ".4r",
-          ".4r | 12350"
+          ".4r (12345.432 => 12350)"
         ],
         [
-          ".3f",
-          ".3f | 12345.432"
+          ",.3f",
+          ",.3f (12345.432 => 12,345.432)"
         ],
         [
           "+,",
-          "+, | +12,345.4321"
+          "+, (12345.432 => +12,345.432)"
         ],
         [
           "$,.2f",
-          "$,.2f | $12,345.43"
+          "$,.2f (12345.432 => $12,345.43)"
         ]
       ],
       "description": "D3 format syntax: https://github.com/d3/d3-format"
@@ -1859,6 +2194,10 @@
           "Adaptative formating"
         ],
         [
+          "%d/%m/%Y",
+          "%d/%m/%Y | 14/01/2019"
+        ],
+        [
           "%m/%d/%Y",
           "%m/%d/%Y | 01/14/2019"
         ],
@@ -1869,6 +2208,10 @@
         [
           "%Y-%m-%d %H:%M:%S",
           "%Y-%m-%d %H:%M:%S | 2019-01-14 01:32:10"
+        ],
+        [
+          "%d-%m-%Y %H:%M:%S",
+          "%Y-%m-%d %H:%M:%S | 14-01-2019 01:32:10"
         ],
         [
           "%H:%M:%S",
@@ -1885,28 +2228,36 @@
       "default": ".3s",
       "choices": [
         [
+          ".1s",
+          ".1s (12345.432 => 10k)"
+        ],
+        [
           ".3s",
-          ".3s | 12.3k"
+          ".3s (12345.432 => 12.3k)"
+        ],
+        [
+          ",.1%",
+          ",.1% (12345.432 => 1,234,543.2%)"
         ],
         [
           ".3%",
-          ".3% | 1234543.210%"
+          ".3% (12345.432 => 1234543.200%)"
         ],
         [
           ".4r",
-          ".4r | 12350"
+          ".4r (12345.432 => 12350)"
         ],
         [
-          ".3f",
-          ".3f | 12345.432"
+          ",.3f",
+          ",.3f (12345.432 => 12,345.432)"
         ],
         [
           "+,",
-          "+, | +12,345.4321"
+          "+, (12345.432 => +12,345.432)"
         ],
         [
           "$,.2f",
-          "$,.2f | $12,345.43"
+          "$,.2f (12345.432 => $12,345.43)"
         ]
       ],
       "description": "D3 format syntax: https://github.com/d3/d3-format"
@@ -1918,28 +2269,36 @@
       "default": ".3s",
       "choices": [
         [
+          ".1s",
+          ".1s (12345.432 => 10k)"
+        ],
+        [
           ".3s",
-          ".3s | 12.3k"
+          ".3s (12345.432 => 12.3k)"
+        ],
+        [
+          ",.1%",
+          ",.1% (12345.432 => 1,234,543.2%)"
         ],
         [
           ".3%",
-          ".3% | 1234543.210%"
+          ".3% (12345.432 => 1234543.200%)"
         ],
         [
           ".4r",
-          ".4r | 12350"
+          ".4r (12345.432 => 12350)"
         ],
         [
-          ".3f",
-          ".3f | 12345.432"
+          ",.3f",
+          ",.3f (12345.432 => 12,345.432)"
         ],
         [
           "+,",
-          "+, | +12,345.4321"
+          "+, (12345.432 => +12,345.432)"
         ],
         [
           "$,.2f",
-          "$,.2f | $12,345.43"
+          "$,.2f (12345.432 => $12,345.43)"
         ]
       ],
       "description": "D3 format syntax: https://github.com/d3/d3-format"
@@ -1956,6 +2315,10 @@
           "Adaptative formating"
         ],
         [
+          "%d/%m/%Y",
+          "%d/%m/%Y | 14/01/2019"
+        ],
+        [
           "%m/%d/%Y",
           "%m/%d/%Y | 01/14/2019"
         ],
@@ -1966,6 +2329,10 @@
         [
           "%Y-%m-%d %H:%M:%S",
           "%Y-%m-%d %H:%M:%S | 2019-01-14 01:32:10"
+        ],
+        [
+          "%d-%m-%Y %H:%M:%S",
+          "%Y-%m-%d %H:%M:%S | 14-01-2019 01:32:10"
         ],
         [
           "%H:%M:%S",
@@ -2051,6 +2418,7 @@
       "type": "SelectControl",
       "label": "Label Type",
       "default": "key",
+      "renderTrigger": true,
       "choices": [
         [
           "key",
@@ -2147,16 +2515,31 @@
       "description": "Whether to make the grid 3D"
     },
     "show_brush": {
-      "type": "CheckboxControl",
-      "label": "Range Filter",
+      "type": "SelectControl",
+      "label": "Show Range Filter",
       "renderTrigger": true,
-      "default": false,
+      "clearable": false,
+      "default": "auto",
+      "choices": [
+        [
+          "yes",
+          "Yes"
+        ],
+        [
+          "no",
+          "No"
+        ],
+        [
+          "auto",
+          "Auto"
+        ]
+      ],
       "description": "Whether to display the time range interactive selector"
     },
     "date_filter": {
       "type": "CheckboxControl",
       "label": "Date Filter",
-      "default": false,
+      "default": true,
       "description": "Whether to include a time filter"
     },
     "show_sqla_time_granularity": {
@@ -2199,6 +2582,7 @@
     "table_filter": {
       "type": "CheckboxControl",
       "label": "Table Filter",
+      "renderTrigger": true,
       "default": false,
       "description": "Whether to apply filter when table cell is clicked"
     },
@@ -2237,18 +2621,25 @@
       "default": false,
       "description": "Whether to display the numerical values within the cells"
     },
+    "show_metric_name": {
+      "type": "CheckboxControl",
+      "label": "Show Metric Names",
+      "renderTrigger": true,
+      "default": true,
+      "description": "Whether to display the metric name as a title"
+    },
     "x_axis_showminmax": {
       "type": "CheckboxControl",
       "label": "X bounds",
       "renderTrigger": true,
-      "default": true,
+      "default": false,
       "description": "Whether to display the min and max values of the X axis"
     },
     "y_axis_showminmax": {
       "type": "CheckboxControl",
       "label": "Y bounds",
       "renderTrigger": true,
-      "default": true,
+      "default": false,
       "description": "Whether to display the min and max values of the Y axis"
     },
     "rich_tooltip": {
@@ -2347,6 +2738,7 @@
     "mapbox_style": {
       "type": "SelectControl",
       "label": "Map Style",
+      "clearable": false,
       "renderTrigger": true,
       "choices": [
         [
@@ -2374,7 +2766,7 @@
           "Outdoors"
         ]
       ],
-      "default": "mapbox://styles/mapbox/streets-v9",
+      "default": "mapbox://styles/mapbox/light-v9",
       "description": "Base layer map style"
     },
     "clustering_radius": {
@@ -2425,6 +2817,10 @@
     "point_radius_fixed": {
       "type": "FixedOrMetricControl",
       "label": "Point Size",
+      "default": {
+        "type": "fix",
+        "value": 1000
+      },
       "description": "Fixed point radius"
     },
     "point_radius": {
@@ -2496,7 +2892,7 @@
     "viewport": {
       "type": "ViewportControl",
       "label": "Viewport",
-      "renderTrigger": true,
+      "renderTrigger": false,
       "description": "Parameters related to the view and perspective on the map",
       "default": {
         "longitude": 6.85236157047845,
@@ -2504,7 +2900,8 @@
         "zoom": 1,
         "bearing": 0,
         "pitch": 0
-      }
+      },
+      "dontRefreshOnChange": true
     },
     "viewport_zoom": {
       "type": "TextControl",
@@ -2621,7 +3018,15 @@
       "label": "",
       "default": [],
       "description": "Annotation Layers",
-      "renderTrigger": true
+      "renderTrigger": true,
+      "tabOverride": "data"
+    },
+    "adhoc_filters": {
+      "type": "AdhocFilterControl",
+      "label": "Filters",
+      "default": null,
+      "description": "",
+      "provideFormDataToProps": true
     },
     "slice_id": {
       "type": "HiddenControl",
@@ -2865,6 +3270,18 @@
           "#329262",
           "#5574a6",
           "#3b3eac"
+        ],
+        "lyftColors": [
+          "#EA0B8C",
+          "#6C838E",
+          "#29ABE2",
+          "#33D9C1",
+          "#9DACB9",
+          "#7560AA",
+          "#2D5584",
+          "#831C4A",
+          "#333D47",
+          "#AC2077"
         ]
       }
     },
@@ -2893,6 +3310,13 @@
         null
       ],
       "controlName": "TimeSeriesColumnControl"
+    },
+    "rose_area_proportion": {
+      "type": "CheckboxControl",
+      "label": "Use Area Proportions",
+      "description": "Check if the Rose Chart should use segment area instead of segment radius for proportioning",
+      "default": false,
+      "renderTrigger": true
     },
     "time_series_option": {
       "type": "SelectControl",
@@ -2960,12 +3384,410 @@
       "default": "5",
       "description": "The maximum number of subdivisions of each group; lower values are pruned first"
     },
+    "min_radius": {
+      "type": "TextControl",
+      "label": "Minimum Radius",
+      "isFloat": true,
+      "validators": [
+        null
+      ],
+      "renderTrigger": true,
+      "default": 2,
+      "description": "Minimum radius size of the circle, in pixels. As the zoom level changes, this insures that the circle respects this minimum radius."
+    },
+    "max_radius": {
+      "type": "TextControl",
+      "label": "Maximum Radius",
+      "isFloat": true,
+      "validators": [
+        null
+      ],
+      "renderTrigger": true,
+      "default": 250,
+      "description": "Maxium radius size of the circle, in pixels. As the zoom level changes, this insures that the circle respects this maximum radius."
+    },
     "partition_threshold": {
       "type": "TextControl",
       "label": "Partition Threshold",
       "isFloat": true,
       "default": "0.05",
       "description": "Partitions whose height to parent height proportions are below this value are pruned"
+    },
+    "line_column": {
+      "type": "SelectControl",
+      "label": "Lines column",
+      "default": null,
+      "description": "The database columns that contains lines information",
+      "validators": [
+        null
+      ]
+    },
+    "line_type": {
+      "type": "SelectControl",
+      "label": "Lines encoding",
+      "clearable": false,
+      "default": "json",
+      "description": "The encoding format of the lines",
+      "choices": [
+        [
+          "polyline",
+          "Polyline"
+        ],
+        [
+          "json",
+          "JSON"
+        ]
+      ]
+    },
+    "line_width": {
+      "type": "TextControl",
+      "label": "Line width",
+      "renderTrigger": true,
+      "isInt": true,
+      "default": 10,
+      "description": "The width of the lines"
+    },
+    "line_charts": {
+      "type": "SelectAsyncControl",
+      "multi": true,
+      "label": "Line charts",
+      "validators": [
+        null
+      ],
+      "default": [],
+      "description": "Pick a set of line charts to layer on top of one another",
+      "dataEndpoint": "/sliceasync/api/read?_flt_0_viz_type=line&_flt_7_viz_type=line_multi",
+      "placeholder": "Select charts",
+      "onAsyncErrorMessage": "Error while fetching charts"
+    },
+    "line_charts_2": {
+      "type": "SelectAsyncControl",
+      "multi": true,
+      "label": "Right Axis chart(s)",
+      "validators": [],
+      "default": [],
+      "description": "Choose one or more charts for right axis",
+      "dataEndpoint": "/sliceasync/api/read?_flt_0_viz_type=line&_flt_7_viz_type=line_multi",
+      "placeholder": "Select charts",
+      "onAsyncErrorMessage": "Error while fetching charts"
+    },
+    "prefix_metric_with_slice_name": {
+      "type": "CheckboxControl",
+      "label": "Prefix metric name with slice name",
+      "default": false,
+      "renderTrigger": true
+    },
+    "reverse_long_lat": {
+      "type": "CheckboxControl",
+      "label": "Reverse Lat & Long",
+      "default": false
+    },
+    "deck_slices": {
+      "type": "SelectAsyncControl",
+      "multi": true,
+      "label": "deck.gl charts",
+      "validators": [
+        null
+      ],
+      "default": [],
+      "description": "Pick a set of deck.gl charts to layer on top of one another",
+      "dataEndpoint": "/sliceasync/api/read?_flt_0_viz_type=deck_&_flt_7_viz_type=deck_multi",
+      "placeholder": "Select charts",
+      "onAsyncErrorMessage": "Error while fetching charts"
+    },
+    "js_data_mutator": {
+      "type": "TextAreaControl",
+      "language": "javascript",
+      "label": "Javascript data interceptor",
+      "description": "Define a javascript function that receives the data array used in the visualization and is expected to return a modified version of that array. This can be used to alter properties of the data, filter, or enrich the array.",
+      "height": 100,
+      "default": "",
+      "aboveEditorSection": {
+        "type": "div",
+        "key": null,
+        "ref": null,
+        "props": {
+          "children": [
+            {
+              "type": "p",
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Define a javascript function that receives the data array used in the visualization and is expected to return a modified version of that array. This can be used to alter properties of the data, filter, or enrich the array."
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "p",
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": {
+                  "type": "div",
+                  "key": null,
+                  "ref": null,
+                  "props": {
+                    "children": [
+                      "For more information about objects are in context in the scope of this function, refer to the",
+                      {
+                        "type": "a",
+                        "key": null,
+                        "ref": null,
+                        "props": {
+                          "href": "https://github.com/apache/incubator-superset/blob/master/superset/assets/src/modules/sandbox.js",
+                          "children": [
+                            " source code of Superset's sandboxed parser",
+                            "."
+                          ]
+                        },
+                        "_owner": null,
+                        "_store": {}
+                      },
+                      "."
+                    ]
+                  },
+                  "_owner": null,
+                  "_store": {}
+                }
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            null
+          ]
+        },
+        "_owner": null,
+        "_store": {}
+      }
+    },
+    "js_data": {
+      "type": "TextAreaControl",
+      "language": "javascript",
+      "label": "Javascript data mutator",
+      "description": "Define a function that receives intercepts the data objects and can mutate it",
+      "height": 100,
+      "default": "",
+      "aboveEditorSection": {
+        "type": "div",
+        "key": null,
+        "ref": null,
+        "props": {
+          "children": [
+            {
+              "type": "p",
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Define a function that receives intercepts the data objects and can mutate it"
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "p",
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": {
+                  "type": "div",
+                  "key": null,
+                  "ref": null,
+                  "props": {
+                    "children": [
+                      "For more information about objects are in context in the scope of this function, refer to the",
+                      {
+                        "type": "a",
+                        "key": null,
+                        "ref": null,
+                        "props": {
+                          "href": "https://github.com/apache/incubator-superset/blob/master/superset/assets/src/modules/sandbox.js",
+                          "children": [
+                            " source code of Superset's sandboxed parser",
+                            "."
+                          ]
+                        },
+                        "_owner": null,
+                        "_store": {}
+                      },
+                      "."
+                    ]
+                  },
+                  "_owner": null,
+                  "_store": {}
+                }
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            null
+          ]
+        },
+        "_owner": null,
+        "_store": {}
+      }
+    },
+    "js_tooltip": {
+      "type": "TextAreaControl",
+      "language": "javascript",
+      "label": "Javascript tooltip generator",
+      "description": "Define a function that receives the input and outputs the content for a tooltip",
+      "height": 100,
+      "default": "",
+      "aboveEditorSection": {
+        "type": "div",
+        "key": null,
+        "ref": null,
+        "props": {
+          "children": [
+            {
+              "type": "p",
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Define a function that receives the input and outputs the content for a tooltip"
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "p",
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": {
+                  "type": "div",
+                  "key": null,
+                  "ref": null,
+                  "props": {
+                    "children": [
+                      "For more information about objects are in context in the scope of this function, refer to the",
+                      {
+                        "type": "a",
+                        "key": null,
+                        "ref": null,
+                        "props": {
+                          "href": "https://github.com/apache/incubator-superset/blob/master/superset/assets/src/modules/sandbox.js",
+                          "children": [
+                            " source code of Superset's sandboxed parser",
+                            "."
+                          ]
+                        },
+                        "_owner": null,
+                        "_store": {}
+                      },
+                      "."
+                    ]
+                  },
+                  "_owner": null,
+                  "_store": {}
+                }
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            null
+          ]
+        },
+        "_owner": null,
+        "_store": {}
+      }
+    },
+    "js_onclick_href": {
+      "type": "TextAreaControl",
+      "language": "javascript",
+      "label": "Javascript onClick href",
+      "description": "Define a function that returns a URL to navigate to when user clicks",
+      "height": 100,
+      "default": "",
+      "aboveEditorSection": {
+        "type": "div",
+        "key": null,
+        "ref": null,
+        "props": {
+          "children": [
+            {
+              "type": "p",
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": "Define a function that returns a URL to navigate to when user clicks"
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            {
+              "type": "p",
+              "key": null,
+              "ref": null,
+              "props": {
+                "children": {
+                  "type": "div",
+                  "key": null,
+                  "ref": null,
+                  "props": {
+                    "children": [
+                      "For more information about objects are in context in the scope of this function, refer to the",
+                      {
+                        "type": "a",
+                        "key": null,
+                        "ref": null,
+                        "props": {
+                          "href": "https://github.com/apache/incubator-superset/blob/master/superset/assets/src/modules/sandbox.js",
+                          "children": [
+                            " source code of Superset's sandboxed parser",
+                            "."
+                          ]
+                        },
+                        "_owner": null,
+                        "_store": {}
+                      },
+                      "."
+                    ]
+                  },
+                  "_owner": null,
+                  "_store": {}
+                }
+              },
+              "_owner": null,
+              "_store": {}
+            },
+            null
+          ]
+        },
+        "_owner": null,
+        "_store": {}
+      }
+    },
+    "js_columns": {
+      "type": "SelectControl",
+      "multi": true,
+      "label": "Extra data for JS",
+      "default": [],
+      "includeTime": false,
+      "description": "List of extra columns made available in Javascript functions",
+      "valueKey": "column_name"
+    },
+    "stroked": {
+      "type": "CheckboxControl",
+      "label": "Stroked",
+      "renderTrigger": true,
+      "description": "Whether to display the stroke",
+      "default": false
+    },
+    "filled": {
+      "type": "CheckboxControl",
+      "label": "Filled",
+      "renderTrigger": true,
+      "description": "Whether to fill the objects",
+      "default": false
+    },
+    "normalized": {
+      "type": "CheckboxControl",
+      "label": "Normalized",
+      "renderTrigger": true,
+      "description": "Whether to normalize the histogram",
+      "default": false
     }
   }
 }

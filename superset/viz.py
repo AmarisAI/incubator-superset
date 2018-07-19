@@ -2599,6 +2599,32 @@ class PartitionViz(NVD3TimeSeriesViz):
             levels = self.levels_for('agg_sum', [DTTM_ALIAS] + groups, df)
         return self.nest_values(levels)
 
+class SunburstViz2(BaseViz):
+
+    """
+    ECharts visualisation for hierarchical data. Supports three hierarchies
+    and one metric
+
+    The default Superset Sunburst supports three hierarchies and two metrics
+    """
+
+    viz_type = 'sunburst2'
+    verbose_name = _('Sunburst2')
+    credits = '@maris'
+    is_timeseries = False
+
+    def get_data(self, df):
+        fd = self.form_data
+        cols = fd.get('groupby')
+        metric = self.get_metric_label(fd.get('metric'))
+        df.columns = cols + ['m1']
+        return json.loads(df.to_json(orient='values'))
+
+    def query_obj(self):
+        qry = super(SunburstViz2, self).query_obj()
+        fd = self.form_data
+        qry['metrics'] = [fd['metric']]
+        return qry
 
 viz_types = {
     o.viz_type: o for o in globals().values()
