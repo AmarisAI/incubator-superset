@@ -300,7 +300,7 @@ class DatabaseView(SupersetModelView, DeleteMixin, YamlExportMixin):  # noqa
 appbuilder.add_link(
     'Import Dashboards',
     label=__('Import Dashboards'),
-    href='/amris/import_dashboards',
+    href='/amaris/import_dashboards',
     icon='fa-cloud-upload',
     category='Manage',
     category_label=__('Manage'),
