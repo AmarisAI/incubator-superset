@@ -1,0 +1,2750 @@
+{
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 291,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "treemap",
+                            "params": "{\"having_filters\": [], \"schema\": \"positions\", \"database_name\": \"mysql temasek\", \"groupby\": [\"DESK_CODE\", \"SECURITY_SHORT_DESCRIPTION\"], \"viz_type\": \"treemap\", \"until\": \"now\", \"granularity_sqla\": null, \"slice_id\": 291, \"datasource_name\": \"positions\", \"since\": \"\", \"adhoc_filters\": [{\"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"fromFormData\": true, \"subject\": \"MTM_SGD\", \"operator\": \">\", \"comparator\": \"100000000\", \"filterOptionName\": \"filter_malhhf3c1k_7wcxc7r350y\", \"clause\": \"WHERE\"}], \"where\": \"\", \"filters\": [{\"op\": \">\", \"val\": \"100000000\", \"col\": \"MTM_SGD\"}], \"having\": \"\", \"time_grain_sqla\": null, \"treemap_ratio\": 1.618033988749895, \"color_scheme\": \"d3Category10\", \"remote_id\": 291, \"number_format\": \".4r\", \"metrics\": [{\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(MTM_SGD)/1000000000\", \"label\": \"MTM (S$B)\", \"optionName\": \"metric_oplc0pjxhwe_9hh7oub3705\", \"aggregate\": null, \"hasCustomLabel\": true, \"fromFormData\": true}], \"datasource\": \"27__table\", \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:45:26"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Overview of Holdings",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 301,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "dist_bar",
+                            "params": "{\"columns\": [], \"contribution\": false, \"schema\": \"positions\", \"bar_stacked\": false, \"y_axis_label\": \"Unrealized Capital (S$B)\", \"datasource\": \"27__table\", \"show_legend\": false, \"groupby\": [\"SECURITY_SHORT_DESCRIPTION\"], \"x_ticks_layout\": \"auto\", \"viz_type\": \"dist_bar\", \"show_bar_value\": false, \"reduce_x_ticks\": false, \"granularity_sqla\": null, \"bottom_margin\": \"auto\", \"datasource_name\": \"positions\", \"y_axis_format\": \".4r\", \"since\": \"\", \"adhoc_filters\": null, \"database_name\": \"mysql temasek\", \"show_controls\": false, \"filters\": [], \"row_limit\": 10, \"until\": \"now\", \"time_grain_sqla\": null, \"slice_id\": 301, \"color_scheme\": \"bnbColors\", \"remote_id\": 301, \"x_axis_label\": \"\", \"order_bars\": false, \"metrics\": [{\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(UNREALIZED_CAPITAL_SGD)/1000000000\", \"aggregate\": null, \"optionName\": \"metric_xuda10qot2_5zrvp0izung\", \"label\": \"Unrealized Capital (S$B)\", \"hasCustomLabel\": true, \"fromFormData\": true}], \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T09:01:38"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Top Capital Gains",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 305,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "dist_bar",
+                            "params": "{\"columns\": [], \"contribution\": false, \"schema\": \"positions\", \"bar_stacked\": false, \"y_axis_label\": \"Unrealized Capital (S$B)\", \"datasource\": \"27__table\", \"show_legend\": false, \"groupby\": [\"DESK_CODE\"], \"x_ticks_layout\": \"auto\", \"viz_type\": \"dist_bar\", \"show_bar_value\": false, \"reduce_x_ticks\": false, \"granularity_sqla\": null, \"bottom_margin\": \"auto\", \"datasource_name\": \"positions\", \"y_axis_format\": \".4r\", \"since\": \"\", \"adhoc_filters\": null, \"database_name\": \"mysql temasek\", \"show_controls\": false, \"filters\": [], \"row_limit\": 10, \"until\": \"now\", \"time_grain_sqla\": null, \"slice_id\": 305, \"color_scheme\": \"bnbColors\", \"remote_id\": 305, \"x_axis_label\": \"\", \"order_bars\": false, \"metrics\": [{\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(UNREALIZED_CAPITAL_SGD)/1000000000\", \"label\": \"Unrealized Capital (S$B)\", \"optionName\": \"metric_1466sxb7w3z_k1fpn6e18ke\", \"aggregate\": null, \"hasCustomLabel\": true, \"fromFormData\": true}], \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T09:16:49"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Capital Gains By Deskcode",
+                            "description": "",
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 309,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "dist_bar",
+                            "params": "{\"columns\": [], \"contribution\": false, \"schema\": \"positions\", \"bar_stacked\": false, \"y_axis_label\": \"Unrealized Capital (S$B)\", \"datasource\": \"27__table\", \"show_legend\": false, \"groupby\": [\"CURRENCY_CODE\"], \"x_ticks_layout\": \"auto\", \"viz_type\": \"dist_bar\", \"show_bar_value\": false, \"reduce_x_ticks\": false, \"granularity_sqla\": null, \"bottom_margin\": \"auto\", \"datasource_name\": \"positions\", \"y_axis_format\": \".4r\", \"since\": \"\", \"adhoc_filters\": null, \"database_name\": \"mysql temasek\", \"show_controls\": false, \"filters\": [], \"row_limit\": 10, \"until\": \"now\", \"time_grain_sqla\": null, \"slice_id\": 309, \"color_scheme\": \"d3Category20c\", \"remote_id\": 309, \"x_axis_label\": \"\", \"order_bars\": false, \"metrics\": [{\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(UNREALIZED_CAPITAL_SGD)/1000000000\", \"label\": \"Unrealized Capital (S$B)\", \"optionName\": \"metric_b9ymupw1kfb_9er5f4itetr\", \"aggregate\": null, \"hasCustomLabel\": true, \"fromFormData\": true}], \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T09:37:33"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Capital Gains By Currency",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 311,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "dist_bar",
+                            "params": "{\"columns\": [], \"contribution\": false, \"having_filters\": [], \"bar_stacked\": false, \"y_axis_label\": \"MTM (S$B)\", \"datasource\": \"27__table\", \"show_legend\": false, \"groupby\": [\"SECURITY_SHORT_DESCRIPTION\"], \"x_ticks_layout\": \"auto\", \"viz_type\": \"dist_bar\", \"until\": \"now\", \"reduce_x_ticks\": false, \"granularity_sqla\": null, \"bottom_margin\": \"auto\", \"datasource_name\": \"positions\", \"database_name\": \"mysql temasek\", \"y_axis_format\": \".4r\", \"since\": \"\", \"adhoc_filters\": [{\"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"comparator\": \"LEVEL 3 COMMUNICATIONS INC-STTELEM\", \"fromFormData\": true, \"operator\": \"!=\", \"clause\": \"WHERE\", \"filterOptionName\": \"filter_a90yg1zwuzt_z16h5nm1b6\", \"subject\": \"SECURITY_DESCRIPTION\"}, {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(UNREALIZED_CAPITAL_SGD)/SUM(BOOK_COST_SGD)*100 < 1000000000\", \"comparator\": null, \"fromFormData\": true, \"operator\": null, \"clause\": \"HAVING\", \"filterOptionName\": \"filter_zm8qlwaeu18_mkfhhc6j7b\", \"subject\": null}], \"schema\": \"positions\", \"where\": \"\", \"show_controls\": false, \"filters\": [{\"op\": \"!=\", \"val\": \"LEVEL 3 COMMUNICATIONS INC-STTELEM\", \"col\": \"SECURITY_DESCRIPTION\"}], \"having\": \"(SUM(UNREALIZED_CAPITAL_SGD)/SUM(BOOK_COST_SGD)*100 < 1000000000)\", \"row_limit\": 10, \"show_bar_value\": false, \"time_grain_sqla\": null, \"slice_id\": 311, \"color_scheme\": \"lyftColors\", \"remote_id\": 311, \"x_axis_label\": \"Security Description\", \"order_bars\": false, \"metrics\": [{\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(MTM_SGD)/1000000000\", \"aggregate\": null, \"optionName\": \"metric_iak000252ai_x9tjmpzvdco\", \"label\": \"MTM (S$B)\", \"hasCustomLabel\": true, \"fromFormData\": true}], \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T12:33:04"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Top Performers",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 321,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "filter_box",
+                            "params": "{\"schema\": \"positions\", \"datasource\": \"27__table\", \"database_name\": \"mysql temasek\", \"groupby\": [\"LIQUIDITY_CLASS_CODE\"], \"viz_type\": \"filter_box\", \"until\": \"now\", \"granularity_sqla\": null, \"show_sqla_time_granularity\": false, \"datasource_name\": \"positions\", \"since\": \"6 months ago\", \"adhoc_filters\": null, \"show_druid_time_origin\": false, \"show_sqla_time_column\": false, \"instant_filtering\": true, \"filters\": [], \"time_grain_sqla\": null, \"slice_id\": 321, \"date_filter\": false, \"show_druid_time_granularity\": false, \"remote_id\": 321, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"MTM_SGD\", \"type\": \"FLOAT\", \"description\": null, \"optionName\": \"_col_MTM_SGD\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"label\": \"SUM(MTM_SGD)\", \"optionName\": \"metric_t5xxiqpcbr8_665gvmtsp2h\", \"aggregate\": \"SUM\", \"hasCustomLabel\": false, \"fromFormData\": false}, \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-13T05:51:17"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Liquidity Class",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 317,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "filter_box",
+                            "params": "{\"show_druid_time_origin\": false, \"show_sqla_time_column\": false, \"instant_filtering\": true, \"show_druid_time_granularity\": false, \"datasource\": \"27__table\", \"database_name\": \"mysql temasek\", \"groupby\": [\"CURRENCY_CODE\"], \"time_grain_sqla\": null, \"slice_id\": 317, \"date_filter\": false, \"viz_type\": \"filter_box\", \"until\": \"now\", \"remote_id\": 317, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"MTM_SGD\", \"type\": \"FLOAT\", \"description\": null, \"optionName\": \"_col_MTM_SGD\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"aggregate\": \"SUM\", \"optionName\": \"metric_uouvyqlelaj_cnnc1t3p67\", \"label\": \"SUM(MTM_SGD)\", \"hasCustomLabel\": false, \"fromFormData\": false}, \"granularity_sqla\": null, \"url_params\": {}, \"show_sqla_time_granularity\": false, \"schema\": \"positions\", \"datasource_name\": \"positions\", \"since\": \"6 months ago\", \"adhoc_filters\": null}",
+                            "created_on": {
+                                "__datetime__": "2018-07-13T05:23:35"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Investment Currency",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 319,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "filter_box",
+                            "params": "{\"show_druid_time_origin\": false, \"show_sqla_time_column\": false, \"instant_filtering\": true, \"show_druid_time_granularity\": false, \"datasource\": \"27__table\", \"database_name\": \"mysql temasek\", \"groupby\": [\"DESK_CODE\"], \"time_grain_sqla\": \"P1M\", \"slice_id\": 319, \"date_filter\": false, \"viz_type\": \"filter_box\", \"until\": \"now\", \"remote_id\": 319, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"MTM_SGD\", \"type\": \"FLOAT\", \"description\": null, \"optionName\": \"_col_MTM_SGD\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"aggregate\": \"SUM\", \"optionName\": \"metric_a5rcclanig_9ueauwgvu7p\", \"label\": \"SUM(MTM_SGD)\", \"hasCustomLabel\": false, \"fromFormData\": false}, \"granularity_sqla\": \"DATETIME\", \"url_params\": {}, \"show_sqla_time_granularity\": false, \"schema\": \"positions\", \"datasource_name\": \"positions\", \"since\": \"6 months ago\", \"adhoc_filters\": null}",
+                            "created_on": {
+                                "__datetime__": "2018-07-13T05:29:59"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Investment Deskcode",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    }
+                ],
+                "created_by_fk": 1,
+                "css": "#slice-container-321 .m-b-5{\n    color:#fff;\n}\n#slice-container-321 .SELECT{\n    color:#000;\n    margin-top: -15px;\n}\n#slice-container-317 .m-b-5{\n    color:#fff;\n}\n#slice-container-317 .SELECT{\n    color:#000;\n    margin-top: -15px;\n}\n#slice-container-319 .m-b-5{\n    color:#fff;\n}\n#slice-container-319 .SELECT{\n    color:#000;\n    margin-top: -15px;\n}\n\n.dataTables_scrollHead, .dataTables_scrollBody {\n    display: flex;\n    justify-content: center;\n}\n\n.Select-placeholder, .Select--single > .Select-control .Select-value {\n    max-width: 75px;\n}",
+                "dashboard_title": "Temasek Positions (30 March 2018)",
+                "id": 13,
+                "slug": null,
+                "changed_by_fk": 1,
+                "position_json": "[\n    {\n        \"col\": 1,\n        \"row\": 107,\n        \"size_x\": 48,\n        \"size_y\": 21,\n        \"slice_id\": \"291\"\n    },\n    {\n        \"col\": 24,\n        \"row\": 66,\n        \"size_x\": 25,\n        \"size_y\": 14,\n        \"slice_id\": \"301\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 93,\n        \"size_x\": 48,\n        \"size_y\": 14,\n        \"slice_id\": \"305\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 80,\n        \"size_x\": 48,\n        \"size_y\": 13,\n        \"slice_id\": \"309\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 66,\n        \"size_x\": 23,\n        \"size_y\": 14,\n        \"slice_id\": \"311\"\n    },\n    {\n        \"col\": 17,\n        \"row\": 0,\n        \"size_x\": 17,\n        \"size_y\": 4,\n        \"slice_id\": \"317\"\n    },\n    {\n        \"col\": 34,\n        \"row\": 0,\n        \"size_x\": 15,\n        \"size_y\": 4,\n        \"slice_id\": \"319\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 0,\n        \"size_x\": 16,\n        \"size_y\": 4,\n        \"slice_id\": \"321\"\n    }\n]",
+                "created_on": {
+                    "__datetime__": "2018-07-12T08:31:09"
+                },
+                "description": null,
+                "json_metadata": "{\"expanded_slices\": {}, \"filter_immune_slices\": [313, 315, 293, 297], \"timed_refresh_immune_slices\": [], \"remote_id\": 13, \"default_filters\": \"{\\\"321\\\":{\\\"LIQUIDITY_CLASS_CODE\\\":[],\\\"DESK_CODE\\\":[]}}\", \"filter_immune_slice_fields\": {}}",
+                "changed_on": {
+                    "__datetime__": "2018-07-18T08:58:21"
+                }
+            }
+        },
+        {
+            "__Dashboard__": {
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 31,
+                            "id": 329,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "big_number_total",
+                            "params": "{\"datasource_name\": \"stats\", \"having_filters\": [], \"subheader\": \"Net Portfolio Value (S$B)\", \"filters\": [{\"op\": \"==\", \"val\": \"2018\", \"col\": \"year\"}], \"having\": \"\", \"datasource\": \"31__table\", \"database_name\": \"mysql temasek\", \"time_grain_sqla\": null, \"slice_id\": 329, \"remote_id\": 329, \"viz_type\": \"big_number_total\", \"until\": \"now\", \"where\": \"\", \"metric\": {\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(net_portfolio_value)/1000000000\", \"aggregate\": null, \"optionName\": \"metric_f1ycady0kmj_fg3migynwo\", \"label\": \"SUM(net_portfolio_value)/1000000000\", \"hasCustomLabel\": false, \"fromFormData\": true}, \"granularity_sqla\": null, \"url_params\": {}, \"schema\": \"stats\", \"y_axis_format\": \".4r\", \"since\": \"\", \"adhoc_filters\": [{\"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"clause\": \"WHERE\", \"fromFormData\": true, \"operator\": \"==\", \"comparator\": \"2018\", \"filterOptionName\": \"filter_hl93c5fkxkd_1podjncd8pg\", \"subject\": \"year\"}]}",
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:44:43"
+                            },
+                            "perm": "[mysql temasek].[stats](id:31)",
+                            "slice_name": "Net Portfolio Value",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "stats",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 31,
+                            "id": 331,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "dist_bar",
+                            "params": "{\"columns\": [], \"contribution\": false, \"schema\": \"stats\", \"bar_stacked\": true, \"y_axis_label\": \"S$B\", \"datasource\": \"31__table\", \"show_legend\": true, \"groupby\": [\"year\"], \"x_ticks_layout\": \"auto\", \"viz_type\": \"dist_bar\", \"show_bar_value\": false, \"reduce_x_ticks\": false, \"granularity_sqla\": null, \"bottom_margin\": \"auto\", \"datasource_name\": \"stats\", \"y_axis_format\": \".3s\", \"since\": \"\", \"adhoc_filters\": null, \"database_name\": \"mysql temasek\", \"show_controls\": false, \"row_limit\": 10000, \"until\": \"now\", \"time_grain_sqla\": null, \"slice_id\": 331, \"color_scheme\": \"bnbColors\", \"remote_id\": 331, \"x_axis_label\": \"\", \"order_bars\": true, \"metrics\": [{\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(investment)/1000000000\", \"aggregate\": null, \"optionName\": \"metric_gae4q9zvhwt_97oik800iqr\", \"label\": \"Investments\", \"hasCustomLabel\": true, \"fromFormData\": true}, {\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"-SUM(divestment)/1000000000\", \"aggregate\": null, \"optionName\": \"metric_r9la4qttfdn_ej6uvogxedq\", \"label\": \"Divestments\", \"hasCustomLabel\": true, \"fromFormData\": true}], \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-16T10:01:39"
+                            },
+                            "perm": "[mysql temasek].[stats](id:31)",
+                            "slice_name": "Investments & Divestments",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "stats",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 31,
+                            "id": 333,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "dist_bar",
+                            "params": "{\"columns\": [], \"contribution\": false, \"schema\": \"stats\", \"bar_stacked\": true, \"y_axis_label\": \"Net Portfolio Value (S$B)\", \"datasource\": \"31__table\", \"show_legend\": true, \"groupby\": [\"year\"], \"x_ticks_layout\": \"auto\", \"viz_type\": \"dist_bar\", \"show_bar_value\": false, \"reduce_x_ticks\": false, \"granularity_sqla\": null, \"bottom_margin\": \"auto\", \"datasource_name\": \"stats\", \"y_axis_format\": \".4r\", \"since\": \"\", \"adhoc_filters\": null, \"database_name\": \"mysql temasek\", \"show_controls\": false, \"row_limit\": 10000, \"until\": \"now\", \"time_grain_sqla\": null, \"slice_id\": 333, \"color_scheme\": \"bnbColors\", \"remote_id\": 333, \"x_axis_label\": \"\", \"order_bars\": true, \"metrics\": [{\"column\": null, \"aggregate\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(investment_sg*net_portfolio_value/100000000000)\", \"label\": \"SG\", \"optionName\": \"metric_5n4rm1glo3j_i3u1nn4amkn\", \"fromFormData\": true, \"hasCustomLabel\": true}, {\"column\": null, \"aggregate\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(investment_asia*net_portfolio_value/100000000000)\", \"label\": \"Asia\", \"optionName\": \"metric_rjpmaqtgiml_4s06ljnzj56\", \"fromFormData\": true, \"hasCustomLabel\": true}, {\"column\": null, \"aggregate\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(investment_world*net_portfolio_value/100000000000)\", \"label\": \"World\", \"optionName\": \"metric_wfc42nnukd_lh7n7h4ngl\", \"fromFormData\": true, \"hasCustomLabel\": true}], \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-16T10:11:54"
+                            },
+                            "perm": "[mysql temasek].[stats](id:31)",
+                            "slice_name": "Portfolio by Geography",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "stats",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 31,
+                            "id": 415,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "line",
+                            "params": "{\"order_desc\": false, \"schema\": \"stats\", \"show_legend\": true, \"groupby\": [], \"x_ticks_layout\": \"auto\", \"time_compare\": [], \"x_axis_format\": \"smart_date\", \"timeseries_limit_metric\": null, \"y_axis_bounds\": [null, null], \"granularity_sqla\": \"datetime\", \"datasource_name\": \"stats\", \"since\": \"\", \"adhoc_filters\": null, \"period_ratio_type\": \"growth\", \"resample_rule\": null, \"database_name\": \"mysql temasek\", \"show_brush\": \"auto\", \"filters\": [], \"rich_tooltip\": true, \"y_axis_format\": \".3s\", \"color_scheme\": \"lyftColors\", \"metrics\": [{\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"return\", \"type\": \"FLOAT\", \"description\": null, \"optionName\": \"_col_return\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"label\": \"1 yr\", \"optionName\": \"metric_0wg2zt9t39_r8cu0dqcmm\", \"aggregate\": \"SUM\", \"hasCustomLabel\": true, \"fromFormData\": true}, {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"return_10\", \"type\": \"FLOAT\", \"description\": null, \"optionName\": \"_col_return_10\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"label\": \"10 yr\", \"optionName\": \"metric_6a49jfpw7g2_c9wezi002c6\", \"aggregate\": \"SUM\", \"hasCustomLabel\": true, \"fromFormData\": true}, {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"return_20\", \"type\": \"FLOAT\", \"description\": null, \"optionName\": \"_col_return_20\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"label\": \"20 yr\", \"optionName\": \"metric_bvlpuzow0o6_ixrj4qbijeh\", \"aggregate\": \"SUM\", \"hasCustomLabel\": true, \"fromFormData\": true}], \"contribution\": false, \"rolling_type\": \"None\", \"show_markers\": true, \"y_axis_label\": \"Average Return (%)\", \"datasource\": \"31__table\", \"viz_type\": \"line\", \"until\": \"\", \"x_axis_showminmax\": false, \"bottom_margin\": \"auto\", \"resample_how\": null, \"num_period_compare\": \"\", \"left_margin\": \"auto\", \"time_grain_sqla\": null, \"slice_id\": 415, \"remote_id\": 415, \"x_axis_label\": \"\", \"y_log_scale\": false, \"line_interpolation\": \"monotone\", \"annotation_layers\": [], \"url_params\": {}, \"y_axis_showminmax\": false, \"resample_fillmethod\": null}",
+                            "created_on": {
+                                "__datetime__": "2018-07-17T22:42:38"
+                            },
+                            "perm": "[mysql temasek].[stats](id:31)",
+                            "slice_name": "Rolling S$ Total Shareholder Return",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "stats",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 31,
+                            "id": 419,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "big_number_total",
+                            "params": "{\"datasource_name\": \"stats\", \"schema\": \"stats\", \"subheader\": \"of portfolio\", \"datasource\": \"31__table\", \"database_name\": \"mysql temasek\", \"time_grain_sqla\": null, \"slice_id\": 419, \"viz_type\": \"big_number_total\", \"until\": \"now\", \"remote_id\": 419, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"percent_sg\", \"type\": \"INTEGER(11)\", \"description\": null, \"optionName\": \"_col_percent_sg\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"aggregate\": \"SUM\", \"optionName\": \"metric_srh4nfmg78a_3no1zpf2q7p\", \"label\": \"SUM(percent_sg)\", \"hasCustomLabel\": false, \"fromFormData\": false}, \"granularity_sqla\": \"datetime\", \"adhoc_filters\": null, \"y_axis_format\": \".0%\", \"since\": \"1 years ago\", \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:15:13"
+                            },
+                            "perm": "[mysql temasek].[stats](id:31)",
+                            "slice_name": "Singapore",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "stats",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 31,
+                            "id": 421,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "big_number_total",
+                            "params": "{\"datasource_name\": \"stats\", \"schema\": \"stats\", \"subheader\": \"of portfolio\", \"datasource\": \"31__table\", \"database_name\": \"mysql temasek\", \"time_grain_sqla\": null, \"slice_id\": 421, \"viz_type\": \"big_number_total\", \"until\": \"now\", \"remote_id\": 421, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"percent_china\", \"type\": \"INTEGER(11)\", \"description\": null, \"optionName\": \"_col_percent_china\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"aggregate\": \"SUM\", \"optionName\": \"metric_l3lxqx1usv_x4c1ugs4ahp\", \"label\": \"SUM(percent_china)\", \"hasCustomLabel\": false, \"fromFormData\": false}, \"granularity_sqla\": \"datetime\", \"adhoc_filters\": null, \"y_axis_format\": \".0%\", \"since\": \"1 years ago\", \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:25:12"
+                            },
+                            "perm": "[mysql temasek].[stats](id:31)",
+                            "slice_name": "China",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "stats",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 31,
+                            "id": 423,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "big_number_total",
+                            "params": "{\"datasource_name\": \"stats\", \"schema\": \"stats\", \"subheader\": \"of portfolio\", \"datasource\": \"31__table\", \"database_name\": \"mysql temasek\", \"time_grain_sqla\": null, \"slice_id\": 423, \"viz_type\": \"big_number_total\", \"until\": \"now\", \"remote_id\": 423, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"percent_northamerica\", \"type\": \"INTEGER(11)\", \"description\": null, \"optionName\": \"_col_percent_northamerica\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"aggregate\": \"SUM\", \"optionName\": \"metric_a1e0ata1oxf_7wr98obcgva\", \"label\": \"SUM(percent_northamerica)\", \"hasCustomLabel\": false, \"fromFormData\": false}, \"granularity_sqla\": \"datetime\", \"adhoc_filters\": null, \"y_axis_format\": \".0%\", \"since\": \"1 years ago\", \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:28:32"
+                            },
+                            "perm": "[mysql temasek].[stats](id:31)",
+                            "slice_name": "North America",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "stats",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 31,
+                            "id": 425,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "big_number_total",
+                            "params": "{\"datasource_name\": \"stats\", \"schema\": \"stats\", \"subheader\": \"of portfolio\", \"datasource\": \"31__table\", \"database_name\": \"mysql temasek\", \"time_grain_sqla\": null, \"slice_id\": 425, \"viz_type\": \"big_number_total\", \"until\": \"now\", \"remote_id\": 425, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"percent_europe\", \"type\": \"INTEGER(11)\", \"description\": null, \"optionName\": \"_col_percent_europe\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"aggregate\": \"SUM\", \"optionName\": \"metric_ogg7h054daq_00skvyhpmvzyk\", \"label\": \"SUM(percent_europe)\", \"hasCustomLabel\": false, \"fromFormData\": false}, \"granularity_sqla\": \"datetime\", \"adhoc_filters\": null, \"y_axis_format\": \".0%\", \"since\": \"1 years ago\", \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:33:22"
+                            },
+                            "perm": "[mysql temasek].[stats](id:31)",
+                            "slice_name": "Europe",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "stats",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 293,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "pie",
+                            "params": "{\"having_filters\": [], \"donut\": false, \"datasource\": \"27__table\", \"show_legend\": false, \"groupby\": [\"CURRENCY_CODE\"], \"having\": \"\", \"until\": \"now\", \"granularity_sqla\": null, \"database_name\": \"mysql temasek\", \"datasource_name\": \"positions\", \"since\": \"\", \"adhoc_filters\": [], \"labels_outside\": true, \"where\": \"\", \"filters\": [], \"viz_type\": \"pie\", \"limit\": 0, \"time_grain_sqla\": null, \"slice_id\": 293, \"color_scheme\": \"bnbColors\", \"remote_id\": 293, \"metric\": {\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(MTM_SGD)\", \"label\": \"MTM ($S)\", \"optionName\": \"metric_llvfg3z039_pvzlubk021f\", \"aggregate\": null, \"hasCustomLabel\": true, \"fromFormData\": true}, \"url_params\": {}, \"schema\": \"positions\", \"pie_label_type\": \"key\"}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T08:25:53"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Positions By Currency",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 297,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "pie",
+                            "params": "{\"pie_label_type\": \"key\", \"donut\": false, \"datasource\": \"27__table\", \"show_legend\": false, \"groupby\": [\"DESK_CODE\"], \"viz_type\": \"pie\", \"until\": \"now\", \"granularity_sqla\": \"DATETIME\", \"datasource_name\": \"positions\", \"since\": \"\", \"adhoc_filters\": null, \"labels_outside\": true, \"database_name\": \"mysql temasek\", \"filters\": [], \"limit\": 5, \"time_grain_sqla\": null, \"slice_id\": 297, \"color_scheme\": \"bnbColors\", \"remote_id\": 297, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"MTM_SGD\", \"type\": \"FLOAT\", \"description\": null, \"optionName\": \"_col_MTM_SGD\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"aggregate\": \"SUM\", \"optionName\": \"metric_84jh9nq26th_yc0j3ioisr\", \"fromFormData\": false, \"label\": \"SUM(MTM_SGD)\", \"hasCustomLabel\": false}, \"schema\": \"positions\", \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T08:40:25"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Postions by Deskcode",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 313,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "pie",
+                            "params": "{\"labels_outside\": true, \"database_name\": \"mysql temasek\", \"pie_label_type\": \"key\", \"donut\": false, \"filters\": [], \"datasource\": \"27__table\", \"show_legend\": false, \"groupby\": [\"LIQUIDITY_CLASS_CODE\"], \"time_grain_sqla\": null, \"slice_id\": 313, \"color_scheme\": \"lyftColors\", \"viz_type\": \"pie\", \"until\": \"now\", \"remote_id\": 313, \"metric\": {\"column\": {\"expression\": \"\", \"filterable\": false, \"column_name\": \"MTM_SGD\", \"type\": \"FLOAT\", \"description\": null, \"optionName\": \"_col_MTM_SGD\", \"is_dttm\": false, \"verbose_name\": null, \"groupby\": false}, \"aggregate\": \"SUM\", \"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"label\": \"MTM (S$)\", \"optionName\": \"metric_3rzuix0u93f_wmgjg6shjz\", \"fromFormData\": true, \"hasCustomLabel\": true}, \"granularity_sqla\": null, \"url_params\": {}, \"schema\": \"positions\", \"datasource_name\": \"positions\", \"since\": \"\", \"adhoc_filters\": null}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T12:42:51"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Market Value By Liquidity Class",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_id": 27,
+                            "id": 315,
+                            "changed_by_fk": 1,
+                            "created_by_fk": 1,
+                            "viz_type": "heatmap",
+                            "params": "{\"datasource_name\": \"positions\", \"database_name\": \"mysql temasek\", \"having_filters\": [], \"sort_x_axis\": \"alpha_asc\", \"xscale_interval\": 1, \"show_values\": false, \"datasource\": \"27__table\", \"show_legend\": false, \"viz_type\": \"heatmap\", \"canvas_image_rendering\": \"pixelated\", \"y_axis_bounds\": [0, 1], \"granularity_sqla\": null, \"bottom_margin\": \"auto\", \"yscale_interval\": 1, \"y_axis_format\": \".4r\", \"since\": \"\", \"adhoc_filters\": [{\"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"comparator\": \"UNLIST\", \"fromFormData\": true, \"operator\": \"!=\", \"clause\": \"WHERE\", \"filterOptionName\": \"filter_rl16f438ufc_71k0030scf\", \"subject\": \"LIQUIDITY_CLASS_CODE\"}, {\"expressionType\": \"SIMPLE\", \"sqlExpression\": null, \"comparator\": \"0\", \"fromFormData\": true, \"operator\": \"!=\", \"clause\": \"WHERE\", \"filterOptionName\": \"filter_bggwycqoar9_nineoislwog\", \"subject\": \"BOOK_COST_SGD\"}], \"until\": \"now\", \"normalized\": true, \"where\": \"\", \"filters\": [{\"op\": \"!=\", \"val\": \"UNLIST\", \"col\": \"LIQUIDITY_CLASS_CODE\"}, {\"op\": \"!=\", \"val\": \"0\", \"col\": \"BOOK_COST_SGD\"}], \"having\": \"\", \"all_columns_x\": \"CURRENCY_CODE\", \"sort_y_axis\": \"alpha_desc\", \"left_margin\": \"auto\", \"row_limit\": 50000, \"all_columns_y\": \"DESK_CODE\", \"time_grain_sqla\": null, \"slice_id\": 315, \"linear_color_scheme\": \"oranges\", \"remote_id\": 315, \"metric\": {\"column\": null, \"expressionType\": \"SQL\", \"sqlExpression\": \"AVG(TOTAL_RETURN)/1000000000\", \"label\": \"Average Return (S$B)\", \"optionName\": \"metric_m41ebjxd40l_wp3eul9y8p\", \"aggregate\": null, \"hasCustomLabel\": true, \"fromFormData\": true}, \"show_perc\": false, \"normalize_across\": \"heatmap\", \"schema\": \"positions\", \"url_params\": {}}",
+                            "created_on": {
+                                "__datetime__": "2018-07-12T20:50:50"
+                            },
+                            "perm": "[mysql temasek].[positions](id:27)",
+                            "slice_name": "Returns by Deskcode / Currency",
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-19T01:54:19"
+                            },
+                            "datasource_name": "positions",
+                            "datasource_type": "table"
+                        }
+                    }
+                ],
+                "created_by_fk": 1,
+                "css": "",
+                "dashboard_title": "Temasek Annual Report (2018)",
+                "id": 15,
+                "slug": null,
+                "changed_by_fk": 1,
+                "position_json": "[\n    {\n        \"col\": 1,\n        \"row\": 99,\n        \"size_x\": 16,\n        \"size_y\": 16,\n        \"slice_id\": \"293\"\n    },\n    {\n        \"col\": 17,\n        \"row\": 99,\n        \"size_x\": 16,\n        \"size_y\": 16,\n        \"slice_id\": \"297\"\n    },\n    {\n        \"col\": 33,\n        \"row\": 99,\n        \"size_x\": 16,\n        \"size_y\": 16,\n        \"slice_id\": \"313\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 115,\n        \"size_x\": 48,\n        \"size_y\": 21,\n        \"slice_id\": \"315\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 0,\n        \"size_x\": 12,\n        \"size_y\": 6,\n        \"slice_id\": \"329\"\n    },\n    {\n        \"col\": 25,\n        \"row\": 71,\n        \"size_x\": 24,\n        \"size_y\": 13,\n        \"slice_id\": \"331\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 71,\n        \"size_x\": 24,\n        \"size_y\": 13,\n        \"slice_id\": \"333\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 84,\n        \"size_x\": 48,\n        \"size_y\": 15,\n        \"slice_id\": \"415\"\n    },\n    {\n        \"col\": 13,\n        \"row\": 0,\n        \"size_x\": 9,\n        \"size_y\": 6,\n        \"slice_id\": \"419\"\n    },\n    {\n        \"col\": 22,\n        \"row\": 0,\n        \"size_x\": 9,\n        \"size_y\": 6,\n        \"slice_id\": \"421\"\n    },\n    {\n        \"col\": 31,\n        \"row\": 0,\n        \"size_x\": 9,\n        \"size_y\": 6,\n        \"slice_id\": \"423\"\n    },\n    {\n        \"col\": 40,\n        \"row\": 0,\n        \"size_x\": 9,\n        \"size_y\": 6,\n        \"slice_id\": \"425\"\n    }\n]",
+                "created_on": {
+                    "__datetime__": "2018-07-16T07:07:19"
+                },
+                "description": null,
+                "json_metadata": "{\"expanded_slices\": {}, \"filter_immune_slices\": [], \"timed_refresh_immune_slices\": [], \"remote_id\": 15, \"default_filters\": \"{}\", \"filter_immune_slice_fields\": {}}",
+                "changed_on": {
+                    "__datetime__": "2018-07-18T07:11:53"
+                }
+            }
+        }
+    ],
+    "datasources": [
+        {
+            "__SqlaTable__": {
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "id",
+                            "database_expression": null,
+                            "id": 947,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "INTEGER(11) UNSIGNED",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "PERIOD_KEY",
+                            "database_expression": null,
+                            "id": 949,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "INTEGER(11)",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "UNREALIZED_CAPITAL_SGD",
+                            "database_expression": null,
+                            "id": 951,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "COMPANY_CODE",
+                            "database_expression": null,
+                            "id": 953,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(100)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "INVESTMENT_AGE",
+                            "database_expression": null,
+                            "id": 955,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(100)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "DESK_CODE",
+                            "database_expression": null,
+                            "id": 957,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(20)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "COUNTERPARTY_CODE",
+                            "database_expression": null,
+                            "id": 959,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(50)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "CURRENCY_CODE",
+                            "database_expression": null,
+                            "id": 961,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(50)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "CATEGORY_CODE",
+                            "database_expression": null,
+                            "id": 963,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(50)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "LIQUIDITY_CLASS_CODE",
+                            "database_expression": null,
+                            "id": 965,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(50)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "SECURITY_DESCRIPTION",
+                            "database_expression": null,
+                            "id": 967,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(250)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "BOOK_COST_SGD",
+                            "database_expression": null,
+                            "id": 969,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "PRICE_SGD",
+                            "database_expression": null,
+                            "id": 971,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "MTM_SGD",
+                            "database_expression": null,
+                            "id": 973,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "TOTAL_RETURN",
+                            "database_expression": null,
+                            "id": 975,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T20:23:07"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T20:23:07"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "DATETIME",
+                            "database_expression": null,
+                            "id": 977,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "DATETIME",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": true,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T02:41:10"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T02:41:10"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "CLUSTER",
+                            "database_expression": null,
+                            "id": 1041,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(100)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T08:10:20"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T08:10:20"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 27,
+                            "column_name": "SECURITY_SHORT_DESCRIPTION",
+                            "database_expression": null,
+                            "id": 1043,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(20)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T08:10:20"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T08:10:20"
+                            },
+                            "filterable": true
+                        }
+                    }
+                ],
+                "database_id": 5,
+                "table_name": "positions",
+                "is_featured": false,
+                "id": 27,
+                "schema": "",
+                "default_endpoint": "",
+                "offset": 0,
+                "created_on": {
+                    "__datetime__": "2018-07-12T07:38:51"
+                },
+                "sql": "",
+                "fetch_values_predicate": "",
+                "changed_on": {
+                    "__datetime__": "2018-07-16T02:41:10"
+                },
+                "main_dttm_col": "DATETIME",
+                "database": {
+                    "__Database__": {
+                        "allow_run_async": true,
+                        "expose_in_sqllab": false,
+                        "changed_on": {
+                            "__datetime__": "2018-07-12T20:19:25"
+                        },
+                        "allow_ctas": false,
+                        "sqlalchemy_uri": "mysql://root:XXXXXXXXXX@localhost:3306/temasek",
+                        "allow_run_sync": true,
+                        "password": "Password",
+                        "id": 5,
+                        "allow_dml": false,
+                        "cache_timeout": null,
+                        "allow_multi_schema_metadata_fetch": true,
+                        "created_by_fk": 1,
+                        "select_as_create_table_as": false,
+                        "created_on": {
+                            "__datetime__": "2018-07-12T07:36:52"
+                        },
+                        "changed_by_fk": 1,
+                        "database_name": "mysql temasek",
+                        "impersonate_user": false,
+                        "extra": "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {}\r\n}\r\n",
+                        "verbose_name": null,
+                        "force_ctas_schema": "",
+                        "perm": "[mysql temasek].(id:5)"
+                    }
+                },
+                "is_sqllab_view": false,
+                "template_params": "",
+                "changed_by_fk": 1,
+                "created_by_fk": 1,
+                "user_id": null,
+                "params": "{\"remote_id\": 27, \"database_name\": \"mysql temasek\"}",
+                "description": "",
+                "perm": "[mysql temasek].[positions](id:27)",
+                "filter_select_enabled": false,
+                "cache_timeout": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__id",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "AVG(id)",
+                            "id": 1553,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__id",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "SUM(id)",
+                            "id": 1555,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__PERIOD_KEY",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "SUM(PERIOD_KEY)",
+                            "id": 1557,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__PERIOD_KEY",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "AVG(PERIOD_KEY)",
+                            "id": 1559,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__UNREALIZED_CAPITAL_SGD",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "AVG(UNREALIZED_CAPITAL_SGD)",
+                            "id": 1561,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__UNREALIZED_CAPITAL_SGD",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "SUM(UNREALIZED_CAPITAL_SGD)",
+                            "id": 1563,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__BOOK_COST_SGD",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "AVG(BOOK_COST_SGD)",
+                            "id": 1565,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__BOOK_COST_SGD",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "SUM(BOOK_COST_SGD)",
+                            "id": 1567,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__PRICE_SGD",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "SUM(PRICE_SGD)",
+                            "id": 1569,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__PRICE_SGD",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "AVG(PRICE_SGD)",
+                            "id": 1571,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__MTM_SGD",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "AVG(MTM_SGD)",
+                            "id": 1573,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__MTM_SGD",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "SUM(MTM_SGD)",
+                            "id": 1575,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "count",
+                            "verbose_name": "COUNT(*)",
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "COUNT(*)",
+                            "id": 1577,
+                            "metric_type": "count",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T07:38:51"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__TOTAL_RETURN",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "AVG(TOTAL_RETURN)",
+                            "id": 1579,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T20:23:07"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T20:23:07"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__TOTAL_RETURN",
+                            "verbose_name": null,
+                            "table_id": 27,
+                            "is_restricted": false,
+                            "expression": "SUM(TOTAL_RETURN)",
+                            "id": 1581,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-12T20:23:07"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-12T20:23:07"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "id",
+                            "database_expression": null,
+                            "id": 1005,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "INTEGER(11) UNSIGNED",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "net_portfolio_value",
+                            "database_expression": null,
+                            "id": 1007,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "year",
+                            "database_expression": null,
+                            "id": 1009,
+                            "min": false,
+                            "groupby": true,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "VARCHAR(11)",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": true
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "investment",
+                            "database_expression": null,
+                            "id": 1011,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "divestment",
+                            "database_expression": null,
+                            "id": 1013,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "investment_sg",
+                            "database_expression": null,
+                            "id": 1015,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "investment_asia",
+                            "database_expression": null,
+                            "id": 1017,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "investment_world",
+                            "database_expression": null,
+                            "id": 1019,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "dividend",
+                            "database_expression": null,
+                            "id": 1021,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "return",
+                            "database_expression": null,
+                            "id": 1023,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "return_10",
+                            "database_expression": null,
+                            "id": 1025,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "return_20",
+                            "database_expression": null,
+                            "id": 1027,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "FLOAT",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "remark",
+                            "database_expression": null,
+                            "id": 1029,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "INTEGER(11)",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "datetime",
+                            "database_expression": null,
+                            "id": 1031,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "DATETIME",
+                            "description": null,
+                            "sum": false,
+                            "is_dttm": true,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-17T09:15:21"
+                            },
+                            "python_date_format": null,
+                            "avg": false,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-17T09:15:21"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "percent_sg",
+                            "database_expression": null,
+                            "id": 1033,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "INTEGER(11)",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "percent_china",
+                            "database_expression": null,
+                            "id": 1035,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "INTEGER(11)",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "percent_northamerica",
+                            "database_expression": null,
+                            "id": 1037,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "INTEGER(11)",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "filterable": false
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "table_id": 31,
+                            "column_name": "percent_europe",
+                            "database_expression": null,
+                            "id": 1039,
+                            "min": false,
+                            "groupby": false,
+                            "expression": "",
+                            "changed_by_fk": 1,
+                            "type": "INTEGER(11)",
+                            "description": null,
+                            "sum": true,
+                            "is_dttm": false,
+                            "verbose_name": null,
+                            "is_active": true,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "python_date_format": null,
+                            "avg": true,
+                            "count_distinct": false,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "filterable": false
+                        }
+                    }
+                ],
+                "database_id": 5,
+                "table_name": "stats",
+                "is_featured": false,
+                "id": 31,
+                "schema": "",
+                "default_endpoint": "",
+                "offset": 0,
+                "created_on": {
+                    "__datetime__": "2018-07-16T09:38:23"
+                },
+                "sql": "",
+                "fetch_values_predicate": "",
+                "changed_on": {
+                    "__datetime__": "2018-07-17T09:15:21"
+                },
+                "main_dttm_col": "datetime",
+                "database": {
+                    "__Database__": {
+                        "allow_run_async": true,
+                        "expose_in_sqllab": false,
+                        "changed_on": {
+                            "__datetime__": "2018-07-12T20:19:25"
+                        },
+                        "allow_ctas": false,
+                        "sqlalchemy_uri": "mysql://root:XXXXXXXXXX@localhost:3306/temasek",
+                        "allow_run_sync": true,
+                        "password": "Password",
+                        "id": 5,
+                        "allow_dml": false,
+                        "cache_timeout": null,
+                        "allow_multi_schema_metadata_fetch": true,
+                        "created_by_fk": 1,
+                        "select_as_create_table_as": false,
+                        "created_on": {
+                            "__datetime__": "2018-07-12T07:36:52"
+                        },
+                        "changed_by_fk": 1,
+                        "database_name": "mysql temasek",
+                        "impersonate_user": false,
+                        "extra": "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {}\r\n}\r\n",
+                        "verbose_name": null,
+                        "force_ctas_schema": "",
+                        "perm": "[mysql temasek].(id:5)"
+                    }
+                },
+                "is_sqllab_view": false,
+                "template_params": "",
+                "changed_by_fk": 1,
+                "created_by_fk": 1,
+                "user_id": null,
+                "params": "{\"remote_id\": 31, \"database_name\": \"mysql temasek\"}",
+                "description": "",
+                "perm": "[mysql temasek].[stats](id:31)",
+                "filter_select_enabled": false,
+                "cache_timeout": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__id",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(id)",
+                            "id": 1637,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__id",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(id)",
+                            "id": 1639,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__net_portfolio_value",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(net_portfolio_value)",
+                            "id": 1641,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__net_portfolio_value",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(net_portfolio_value)",
+                            "id": 1643,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__investment",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(investment)",
+                            "id": 1645,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__investment",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(investment)",
+                            "id": 1647,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__divestment",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(divestment)",
+                            "id": 1649,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__divestment",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(divestment)",
+                            "id": 1651,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__investment_sg",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(investment_sg)",
+                            "id": 1653,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__investment_sg",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(investment_sg)",
+                            "id": 1655,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__investment_asia",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(investment_asia)",
+                            "id": 1657,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__investment_asia",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(investment_asia)",
+                            "id": 1659,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__investment_world",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(investment_world)",
+                            "id": 1661,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__investment_world",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(investment_world)",
+                            "id": 1663,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__dividend",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(dividend)",
+                            "id": 1665,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__dividend",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(dividend)",
+                            "id": 1667,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__return",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(return)",
+                            "id": 1669,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__return",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(return)",
+                            "id": 1671,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__return_10",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(return_10)",
+                            "id": 1673,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__return_10",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(return_10)",
+                            "id": 1675,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__return_20",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(return_20)",
+                            "id": 1677,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__return_20",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(return_20)",
+                            "id": 1679,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__remark",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(remark)",
+                            "id": 1681,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__remark",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(remark)",
+                            "id": 1683,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "count",
+                            "verbose_name": "COUNT(*)",
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "COUNT(*)",
+                            "id": 1685,
+                            "metric_type": "count",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-16T09:38:23"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__percent_sg",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(percent_sg)",
+                            "id": 1687,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__percent_sg",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(percent_sg)",
+                            "id": 1689,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__percent_china",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(percent_china)",
+                            "id": 1691,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__percent_china",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(percent_china)",
+                            "id": 1693,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__percent_northamerica",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(percent_northamerica)",
+                            "id": 1695,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__percent_northamerica",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(percent_northamerica)",
+                            "id": 1697,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "sum__percent_europe",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "SUM(percent_europe)",
+                            "id": 1699,
+                            "metric_type": "sum",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            }
+                        }
+                    },
+                    {
+                        "__SqlMetric__": {
+                            "metric_name": "avg__percent_europe",
+                            "verbose_name": null,
+                            "table_id": 31,
+                            "is_restricted": false,
+                            "expression": "AVG(percent_europe)",
+                            "id": 1701,
+                            "metric_type": "avg",
+                            "changed_by_fk": 1,
+                            "d3format": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            },
+                            "warning_text": null,
+                            "description": null,
+                            "changed_on": {
+                                "__datetime__": "2018-07-18T01:11:37"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
