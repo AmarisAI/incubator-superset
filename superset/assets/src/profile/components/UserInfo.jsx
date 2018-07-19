@@ -10,8 +10,8 @@ const propTypes = {
 };
 const UserInfo = ({ user }) => (
   <div>
-    <a href="https://en.gravatar.com/">
-      <Gravatar
+    <a href="/">
+      {/*<Gravatar
         email={user.email}
         width="100%"
         height=""
@@ -19,7 +19,8 @@ const UserInfo = ({ user }) => (
         alt={t('Profile picture provided by Gravatar')}
         className="img-rounded"
         style={{ borderRadius: 15 }}
-      />
+      />*/}
+      <img src="/static/assets/images/avatar.png" />
     </a>
     <hr />
     <Panel>
