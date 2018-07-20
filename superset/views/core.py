@@ -2653,7 +2653,8 @@ class Superset(BaseSupersetView):
     def welcome(self):
         """Personalized welcome page"""
         if not g.user or not g.user.get_id():
-            return redirect(appbuilder.get_url_for_login)
+	    #print(appbuilder.get_url_for_login)
+            return redirect('http://10.208.40.11:5001/login')
 
         payload = {
             'user': bootstrap_user_data(),
