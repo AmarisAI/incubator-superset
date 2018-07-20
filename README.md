@@ -47,9 +47,7 @@ if you want to clean project  `python setup.py clean`
 
 At incubator-superset dir
 
-`pip install e . `
-
-`easy_install` the `package-xx..egg` 
+`pip install e . ` or  `easy_install` the `package-xx..egg` 
 
 **step three**
 
