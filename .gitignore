@@ -42,6 +42,9 @@ superset/assets/version_info.json
 venv
 @eaDir/
 
+# nvm
+.nvm/
+
 # docker
 /Dockerfile
 /docker-build.sh
