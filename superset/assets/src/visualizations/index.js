@@ -16,6 +16,7 @@ export const VIZ_TYPES = {
   directed_force: 'directed_force',
   chord: 'chord',
   dist_bar: 'dist_bar',
+  bar_chart: 'bar_chart',
   filter_box: 'filter_box',
   heatmap: 'heatmap',
   histogram: 'histogram',
@@ -58,6 +59,7 @@ export const VIZ_TYPES = {
 const vizMap = {
   [VIZ_TYPES.area]: nvd3Vis,
   [VIZ_TYPES.bar]: nvd3Vis,
+  [VIZ_TYPES.bar_chart]: require('./bar_chart.jsx'),
   [VIZ_TYPES.big_number]: require('./big_number.js'),
   [VIZ_TYPES.big_number_total]: require('./big_number.js'),
   [VIZ_TYPES.box_plot]: nvd3Vis,

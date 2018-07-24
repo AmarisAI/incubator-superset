@@ -690,6 +690,21 @@ def load_birth_names():
                 metrics=['sum__sum_girls', 'sum__sum_boys'],
                 groupby=['state'])),
         Slice(
+            slice_name="Genders by State",
+            viz_type='bar_chart',
+            datasource_type='table',
+            datasource_id=tbl.id,
+            params=get_slice_json(
+                defaults,
+                filters=[{
+                    'col': 'state',
+                    'op': 'not in',
+                    'val': ['other'],
+                }],
+                viz_type="dist_bar",
+                metrics=['sum__sum_girls', 'sum__sum_boys'],
+                groupby=['state'])),
+        Slice(
             slice_name="Trends",
             viz_type='line',
             datasource_type='table',
