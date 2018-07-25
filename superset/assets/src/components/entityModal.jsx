@@ -191,9 +191,7 @@ let getOption = function(name){
                         return [
                             'Date: ' + param.name + '<hr size=1 style="margin: 3px 0">',
                             'Open: ' + param.data[0] + '<br/>',
-                            'Close: ' + param.data[1] + '<br/>',
-                            'Lowest: ' + param.data[2] + '<br/>',
-                            'Highest: ' + param.data[3] + '<br/>'
+                            'Close: ' + param.data[1] + '<br/>'
                         ].join('');
                     }
                 }
@@ -258,7 +256,7 @@ let entityModal = function(close_modal,name){
           <Modal.Title>{name}</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{height:'400px'}}>
-          <div>* For Illustraction Only. No data in database.</div>
+          <div sytle={{fontSize:'10px',color:'#aaa'}}>* For Illustraction Only. No data in database.</div>
           <div style={style}>
             Market Value: 98,000 ($m)
           </div>
