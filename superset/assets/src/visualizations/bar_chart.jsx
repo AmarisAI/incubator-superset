@@ -101,7 +101,14 @@ function bar_chart(slice, payload) {
         axisLabel: {
           interval: 0,
           rotate: -45,
-          show:true
+          show:true,
+          formatter: function (value, index) {
+            if(value.length > 7){
+              return value.substring(0, 7) + '...';
+            }else{
+              return value;
+            }
+          }
         },
         type: 'category'
     },
