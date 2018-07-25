@@ -58,7 +58,7 @@ function bar_chart(slice, payload) {
   selector
     .append('div')
     .attr('id', 'echart')
-    .style('min-height', '600px')
+    .style('min-height', '300px')
     .style('width', '100%');
   selector
     .append('div')
