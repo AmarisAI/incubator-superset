@@ -258,6 +258,7 @@ let entityModal = function(close_modal,name){
           <Modal.Title>{name}</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{height:'400px'}}>
+          <div>* For Illustraction Only. No data in database.</div>
           <div style={style}>
             Market Value: 98,000 ($m)
           </div>
@@ -277,6 +278,7 @@ let entityModal = function(close_modal,name){
             52-wk low: 12,000
           </div>
           <ReactEcharts option={getOption(name)} />
+
         </Modal.Body>
       </Modal>)
     };

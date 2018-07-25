@@ -19,7 +19,10 @@ function close_modal(){
  * https://ecomfe.github.io/echarts-examples/public/editor.html?c=bar-brush
  */
 function bar_chart(slice, payload) {
+  console.log(payload);
+
   const raw = payload.data;
+
   var itemStyle = {
     normal: {
     },
@@ -31,22 +34,35 @@ function bar_chart(slice, payload) {
         shadowColor: 'rgba(0,0,0,0.5)'
     }
   };
-
-  const fullData = raw.map((d)=>{
+  var i=1;
+  const colors = raw.reduce((accu,d)=>{
+    accu.push(getColorFromScheme(i, slice.formData.color_scheme));
+    i++;
+    return accu;
+  },[]);
+  const seriesData = raw.reduce((accu,d)=>{
     let values = d.values;
-    let key = d.key;
-    return {
-      'seriesData':{
-          name: 'bar',
-          type: 'bar',
-          stack: 'one',
-          itemStyle: itemStyle,
-          data: values.map((v)=>(v.y))
-      },
-      'yAxisKey': key,
-      'axisData':values.map((v)=>(v.x))
-    }
-  })[0];
+    accu.push({
+      name: d.key,
+      type: 'bar',
+      barGap: 0,
+      itemStyle: itemStyle,
+      data: values.map((v)=>(v.x,v.y))
+    });
+    return accu;
+  },[]);
+  const yAxisParams = raw.reduce((accu,d)=>{
+    accu.push({
+        name: d.key,
+        splitArea: {show: false}
+    });
+    return accu;
+  },[]);
+  const xAxisData = raw.reduce((accu,d)=>{
+    let values = d.values;
+    accu.push(values.map((v)=>(v.x)));
+    return accu;
+  },[])[0];
 
   const selector = d3
     .select(slice.selector)
@@ -68,34 +84,23 @@ function bar_chart(slice, payload) {
   const chart = echarts.init(document.getElementById('echart'));
   app.title = 'Bar Chart';
 
-  var xAxisData = [];
-  var data1 = [];
-
-
-  for (var i = 0; i < 10; i++) {
-    xAxisData.push('Class' + i);
-    data1.push((Math.random() * 2).toFixed(2));
-  }
-
   const option = {
-    tooltip: {},
+    color: colors,
     xAxis: {
+        data:xAxisData,
         splitLine: {show: false},
         axisLabel: {
           interval: 0,
-          rotate: -45
+          rotate: -45,
+          show:true
         },
-        data: fullData.axisData,
         type: 'category'
     },
-    yAxis: {
-        name: fullData.yAxisKey,
-        splitArea: {show: false}
-    },
+    yAxis: yAxisParams,
     grid: {
         left: 100
     },
-    series: fullData.seriesData
+    series: seriesData
   };
   console.log(option);
   chart.setOption(option);
