@@ -86,6 +86,15 @@ function bar_chart(slice, payload) {
 
   const option = {
     color: colors,
+    tooltip : {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow',
+                label: {
+                    show: true
+                }
+            }
+    },
     xAxis: {
         data:xAxisData,
         splitLine: {show: false},
