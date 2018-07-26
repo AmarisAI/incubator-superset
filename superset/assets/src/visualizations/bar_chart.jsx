@@ -22,7 +22,7 @@ function bar_chart(slice, payload) {
   console.log(payload);
 
   const raw = payload.data;
-
+  const slice_id = payload.form_data.slice_id;
   var itemStyle = {
     normal: {
     },
@@ -73,15 +73,15 @@ function bar_chart(slice, payload) {
 
   selector
     .append('div')
-    .attr('id', 'echart')
+    .attr('id', 'echart_slice_' + slice_id)
     .style('min-height', '300px')
     .style('width', '100%');
   selector
     .append('div')
-    .attr('id', 'modal')
+    .attr('id', 'modal_' + slice_id)
 
-  modalContainer = d3.select('#modal');
-  const chart = echarts.init(document.getElementById('echart'));
+  modalContainer = d3.select('#modal_' + slice_id);
+  const chart = echarts.init(document.getElementById('echart_slice_'+ slice_id));
   app.title = 'Bar Chart';
 
   const option = {
